@@ -1,0 +1,1 @@
+- Solve the problem of custom scroll bar in the sidebar
