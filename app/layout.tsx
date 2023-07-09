@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
-import Container from "@/components/shared/container/root";
+import Container from "@/components/shared/containers/root";
 
 const inter = Poppins({
   subsets: ["latin"],
