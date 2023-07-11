@@ -40,7 +40,7 @@ const Search = () => {
       <div className="ms-3">
         <SearchNormal1
           onClick={() => setOpenSearchbar(true)}
-          className="text-zinc-500 cursor-pointer"
+          className="text-zinc-500 cursor-pointer duration-200 transition-all hover:text-primary"
           size="20 "
         />
       </div>
