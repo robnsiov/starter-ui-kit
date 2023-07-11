@@ -8,6 +8,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "2xl": { max: "1535px" },
+        xl: { max: "1279px" },
+        lg: { max: "1023px" },
+        md: { max: "767px" },
+        sm: { max: "639px" },
+        "460px": { max: "460px" },
+        "580px": { max: "580px" },
+        "1362px": { max: "1362px" },
+      },
       keyframes: {
         bell: {
           "0%": { transform: "rotate(0)" },
