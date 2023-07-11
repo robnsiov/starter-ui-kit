@@ -1,8 +1,11 @@
+"use client";
 import Header from "@/components/common/header";
 import Sidebar from "@/components/common/sidebar";
 import RootContainerImpl from "./types";
+import useRootContainer from "./use";
 
-const Container = ({ children }: RootContainerImpl) => {
+const RootContainer = ({ children }: RootContainerImpl) => {
+  const {} = useRootContainer();
   return (
     <>
       <Header />
@@ -12,4 +15,4 @@ const Container = ({ children }: RootContainerImpl) => {
   );
 };
 
-export default Container;
+export default RootContainer;
