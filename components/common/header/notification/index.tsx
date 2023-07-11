@@ -13,7 +13,7 @@ const Notification = () => {
             <>
               <NotificationBing
                 size="20"
-                className="text-zinc-500 cursor-pointer"
+                className="text-zinc-500 cursor-pointer animate-bell"
               />
               <span
                 className="absolute top-[-7px] right-[-5px] text-[10px] 
