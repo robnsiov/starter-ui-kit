@@ -21,7 +21,7 @@ const Sidebar = () => {
     <>
       <div
         className="fixed left-0 top-0 bottom-0 w-[265px] shadow-md rtl:left-auto rtl:right-0 
-      dark:bg-[#262932] overflow-hidden"
+      dark:bg-[#262932] overflow-hidden z-50"
       >
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div
