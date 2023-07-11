@@ -17,8 +17,8 @@ const Profile = () => {
           childrenTagName=".profile-link"
           header={
             <div className="flex justify-start items-center group">
-              <div className="h-[35px] aspect-square bg-red-200 rounded-full"></div>
-              <div className="ms-2 flex justify-start items-start flex-col">
+              <div className="w-[35px] md:w-[25px] aspect-square bg-red-200 rounded-full"></div>
+              <div className="ms-2 flex justify-start items-start flex-col md:hidden">
                 <h3
                   className="duration-200 transition-all group-hover:text-primary
                  text-sm font-semibold"

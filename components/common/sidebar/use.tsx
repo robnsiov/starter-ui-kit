@@ -1,8 +1,14 @@
+import sidebarState from "@/context/toggle-sidebar";
+import { useViewportSize } from "@mantine/hooks";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useRecoilValue } from "recoil";
 
 const useSidebar = () => {
   const pathname = usePathname();
+  const { width: viewportWidth } = useViewportSize();
+
+  const sidebarStatus = useRecoilValue(sidebarState);
 
   useEffect(() => {
     const color = "#d536cd";
@@ -43,6 +49,8 @@ const useSidebar = () => {
     activeLevelOne,
     activeLevelTwo,
     activeLevelThree,
+    sidebarStatus,
+    viewportWidth,
   };
 };
 export default useSidebar;

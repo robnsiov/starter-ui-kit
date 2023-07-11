@@ -16,12 +16,20 @@ const Sidebar = () => {
     activeLevelTwo,
     activeRoute,
     pathname,
+    sidebarStatus,
+    viewportWidth,
   } = useSidebar();
   return (
     <>
       <div
-        className="fixed left-0 top-0 bottom-0 w-[265px] shadow-md rtl:left-auto rtl:right-0 
-      dark:bg-[#262932] overflow-hidden z-50"
+        className={cls(
+          `fixed left-0 top-0 bottom-0 w-[265px] shadow-md rtl:left-auto rtl:right-0 
+      dark:bg-[#262932] overflow-hidden 
+      z-50 transition-all duration-300 md:left-[-265px] rtl:md:right-[-265px] bg-white`,
+          sidebarStatus.close && viewportWidth < 767
+            ? "left-[-256px] rtl:right-[-265px]"
+            : "!left-0 rtl:!right-0"
+        )}
       >
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div

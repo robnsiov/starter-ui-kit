@@ -18,11 +18,11 @@ const Countries = () => {
               <ReactLangFlag
                 countryCode={languages[selectedLang].countryCode}
                 svg
-                className="me-2"
+                className="me-2 md:me-1 md:scale-125"
               />
               <span
                 className="font-semibold text-sm 
-              group-hover:text-primary transition-all duration-200"
+              group-hover:text-primary transition-all duration-200 md:hidden"
               >
                 {languages[selectedLang].countryCode}
               </span>
