@@ -11,7 +11,7 @@ const Header = () => {
     <>
       <div
         className="fixed top-0 right-0 left-[265px] h-[74px] shadow-sm
-      flex justify-between items-center py-4 px-5"
+      flex justify-between items-center py-4 px-5 z-40"
       >
         <div></div>
         <div className="flex justify-start items-center">
