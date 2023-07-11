@@ -14,13 +14,16 @@ const Countries = () => {
                z-50  border-[1px] border-zinc-200/50 bg-white"
           childrenTagName=".country"
           header={
-            <div className="flex justify-start items-center cursor-pointer">
+            <div className="flex justify-start items-center cursor-pointer group">
               <ReactLangFlag
                 countryCode={languages[selectedLang].countryCode}
                 svg
                 className="me-2"
               />
-              <span className="font-semibold text-sm">
+              <span
+                className="font-semibold text-sm 
+              group-hover:text-primary transition-all duration-200"
+              >
                 {languages[selectedLang].countryCode}
               </span>
             </div>
