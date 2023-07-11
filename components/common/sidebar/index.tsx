@@ -24,7 +24,7 @@ const Sidebar = () => {
       <div
         className={cls(
           `fixed left-0 top-0 bottom-0 w-[265px] shadow-md rtl:left-auto rtl:right-0 
-      dark:bg-[#262932] overflow-hidden 
+      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-xl
       z-50 transition-all duration-300 md:left-[-265px] rtl:md:right-[-265px] bg-white`,
           sidebarStatus.close && viewportWidth < 767
             ? "left-[-256px] rtl:right-[-265px]"
@@ -34,7 +34,7 @@ const Sidebar = () => {
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div
             className="w-full flex justify-between items-center h-[79px] 
-          py-4 px-5 shadow-sm mb-1 dark:bg-[#262932]"
+          py-4 px-5 shadow-sm dark:shadow-zinc-600/10 dark:shadow-xl mb-1 dark:bg-dark"
           >
             <span className="font-semibold text-lg"></span>
             <div className="flex justify-center items-center group cursor-pointer">

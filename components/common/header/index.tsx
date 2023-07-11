@@ -14,7 +14,8 @@ const Header = () => {
         className="fixed top-0 right-0 rtl:left-0 rtl:right-[256px]
          left-[265px] h-[74px] shadow-sm
       flex justify-between items-center py-4 px-5 z-40 
-      md:left-0 rtl:md:right-0 transition-all duration-500 md:h-[54px]"
+      md:left-0 rtl:md:right-0 
+      transition-all duration-500 md:h-[54px] bg-white dark:bg-dark"
       >
         <MenuIcon />
         <div></div>

@@ -56,6 +56,10 @@ module.exports = {
       },
       colors: {
         primary: "var(--primary) !important",
+        dark: {
+          DEFAULT: "#262932",
+          800: "#1d1e26",
+        },
       },
     },
   },

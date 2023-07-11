@@ -13,7 +13,8 @@ const Profile = () => {
       <div className="flex justify-start items-center cursor-pointer ms-3 relative">
         <MotionDropDown
           className="absolute top-11 w-[150px] rounded-md right-0  
-               z-50 border-[1px] border-zinc-200/50 bg-white"
+               z-50 border-[1px] border-zinc-200/50 bg-white 
+               dark:bg-dark-800 dark:border-zinc-700"
           childrenTagName=".profile-link"
           header={
             <div className="flex justify-start items-center group">
@@ -21,7 +22,7 @@ const Profile = () => {
               <div className="ms-2 flex justify-start items-start flex-col md:hidden">
                 <h3
                   className="duration-200 transition-all group-hover:text-primary
-                 text-sm font-semibold"
+                 text-sm font-semibold dark:text-zinc-400"
                 >
                   Emay Walter
                 </h3>
@@ -46,14 +47,18 @@ const Profile = () => {
               <Icon
                 className={cls(
                   `me-2 duration-200 transition-all group-hover:text-primary`,
-                  pathname === href ? "text-primary" : "text-zinc-500"
+                  pathname === href
+                    ? "text-primary"
+                    : "text-zinc-500 dark:text-zinc-100"
                 )}
                 size="20"
               />
               <span
                 className={cls(
                   `text-sm duration-200 transition-all group-hover:text-primary`,
-                  pathname === href ? "text-primary" : "text-zinc-900"
+                  pathname === href
+                    ? "text-primary"
+                    : "text-zinc-900 dark:text-zinc-100"
                 )}
               >
                 {title}
@@ -65,10 +70,14 @@ const Profile = () => {
             group cursor-pointer"
           >
             <Logout
-              className="me-2 duration-200 transition-all group-hover:text-primary"
+              className="me-2 duration-200 transition-all 
+              group-hover:text-primary dark:text-zinc-100"
               size="20"
             />
-            <span className="text-sm duration-200 transition-all group-hover:text-primary">
+            <span
+              className="text-sm duration-200 transition-all 
+            group-hover:text-primary dark:text-zinc-100"
+            >
               Logout
             </span>
           </div>

@@ -7,6 +7,7 @@ const useRootContainer = () => {
   if (!("theme" in localStorage)) {
     localStorage.setItem("theme", THEME);
   }
+
   // If the lang was not selected by the user
   if (!("lang" in localStorage)) {
     localStorage.setItem("lang", LANG);
@@ -19,7 +20,11 @@ const useRootContainer = () => {
 
   // set delay for dir attr
   const promise = Promise.resolve(() => {
-    document.documentElement.dir = dir;
+    const html = document.documentElement;
+    html.dir = dir;
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") html.classList.add("dark");
+    else html.classList.remove("dark");
   });
   promise.then((resolve) => resolve());
 
