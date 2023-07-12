@@ -12,8 +12,6 @@ const RootContainer = ({ children }: RootContainerImpl) => {
   return (
     <>
       <RecoilContainer>
-        <Header />
-        <Sidebar />
         <div>
           <OverlayContainer />
           {children}
