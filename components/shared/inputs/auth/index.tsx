@@ -24,7 +24,7 @@ const AuthInput = forwardRef(function AuthInput(props: AuthInputImpl, ref) {
           <>
             <span
               className="text-[12px] text-indigo-500 absolute px-2
-            top-[20px]  right-4 cursor-pointer"
+            top-[20px]  right-2 rtl:right-auto rtl:left-2 cursor-pointer"
               onClick={() => setType(type === "password" ? "text" : "password")}
             >
               {type === "password" ? "show" : "hide"}

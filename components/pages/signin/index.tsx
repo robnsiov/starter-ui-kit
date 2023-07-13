@@ -38,7 +38,7 @@ const Signin = () => {
           />
           <AuthErrorMessage error={errors.password?.message} />
         </label>
-        <div className="mt-4 text-right">
+        <div className="mt-4 text-right rtl:text-left">
           <Link
             className="text-indigo-500 text-sm
             duration-200 transition-all hover:text-indigo-400"
