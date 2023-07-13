@@ -10,7 +10,7 @@ const OverlayContainer = () => {
         onClick={() => setSidebarStatus({ close: true })}
         className={cls(
           `transition-all duration-200
-           absolute bg-zinc-600/50 inset-0 z-[41]`,
+           fixed bg-zinc-600/50 inset-0 z-[41] dark:bg-zinc-900/95`,
           sidebarStatus.close || viewportWidth > 767
             ? "opacity-0 invisible"
             : "opacity-100 visible"

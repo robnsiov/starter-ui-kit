@@ -8,7 +8,7 @@ const DashboardContainer = ({ children }: DashboardContainerImpl) => {
     <>
       <Header />
       <Sidebar />
-      <div className="w-full min-h-screen"> {children}</div>
+      <div className="w-full min-h-screen"> 0{children}</div>
       <Footer />
     </>
   );
