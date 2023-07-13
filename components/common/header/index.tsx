@@ -15,7 +15,7 @@ const Header = () => {
          left-[265px] h-[74px] shadow-sm
       flex justify-between items-center py-4 px-5 z-40 
       md:left-0 rtl:md:right-0 
-      transition-all duration-500 md:h-[54px] bg-white dark:bg-dark"
+      transition-all duration-300 md:h-[54px] bg-white dark:bg-dark"
       >
         <MenuIcon />
         <div></div>
