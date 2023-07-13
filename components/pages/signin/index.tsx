@@ -4,11 +4,11 @@ import AuthContaienr from "@/components/shared/containers/auth";
 import AuthInput from "@/components/shared/inputs/auth";
 import Link from "next/link";
 import useSignin from "./use";
-import cls from "classnames";
 import AuthErrorMessage from "@/components/shared/error-messages/auth";
+import AuthButton from "@/components/shared/buttons/auth";
 
 const Signin = () => {
-  const { onSubmit, register, errors } = useSignin();
+  const { onSubmit, register, errors, loading } = useSignin();
   return (
     <AuthContaienr
       desc="Enter your email & password to login"
@@ -47,12 +47,7 @@ const Signin = () => {
             Forgot password?
           </Link>
         </div>
-        <button
-          className="w-full bg-indigo-500 text-white p-2 
-          rounded-md mt-6 text-sm transition-all duration-200 hover:bg-indigo-600"
-        >
-          Sign in
-        </button>
+        <AuthButton title="Sign in" loading={loading} />
       </form>
     </AuthContaienr>
   );
