@@ -6,6 +6,7 @@ import DarkModeToggle from "./dark-mode-toggle";
 import Notification from "./notification";
 import Profile from "./profile";
 import MenuIcon from "./menu-icon";
+import SettingsIocns from "./settings";
 
 const Header = () => {
   return (
@@ -20,6 +21,7 @@ const Header = () => {
         <MenuIcon />
         <div></div>
         <div className="flex justify-start items-center">
+          <SettingsIocns />
           <Countries />
           <Search />
           <DarkModeToggle />
