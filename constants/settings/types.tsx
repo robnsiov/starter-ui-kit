@@ -4,9 +4,9 @@ type Lanuages = Record<string, { countryCode: string; dir: "ltr" | "rtl" }>;
 
 export const languages: Lanuages = {
   English: { countryCode: "US", dir: "ltr" },
-  Espanish: { countryCode: "ES", dir: "ltr" },
-  Persion: { countryCode: "IR", dir: "rtl" },
-  Arabic: { countryCode: "Kw", dir: "rtl" },
+  Persian: { countryCode: "IR", dir: "rtl" },
+  // German: { countryCode: "DE", dir: "ltr" },
+  // Arabic: { countryCode: "Kw", dir: "rtl" },
 };
 
 export type LANGS = keyof typeof languages;
