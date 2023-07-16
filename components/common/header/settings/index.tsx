@@ -6,7 +6,7 @@ const Settings = () => {
   const { setSelectedTab } = useInnerSettings();
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="justify-center items-center hidden md:flex">
         <div
           className="relative ms-3"
           onClick={() => setSelectedTab?.done("options")}
