@@ -2,10 +2,17 @@ import SidebarLink from "@/components/shared/links/sidebar-link";
 import MenuItemImpl from "./types";
 import cls from "classnames";
 
-const MenuItem = ({ active, href, title, className }: MenuItemImpl) => {
+const MenuItem = ({
+  active,
+  href,
+  title,
+  className,
+  onClick = () => {},
+}: MenuItemImpl) => {
   return (
     <>
       <SidebarLink
+        onClick={onClick}
         className={cls(
           `text-zinc-400 text-sm
               duration-200 transition-all hover:text-primary hover:tracking-widest

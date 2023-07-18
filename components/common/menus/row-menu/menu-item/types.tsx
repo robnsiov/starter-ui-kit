@@ -3,4 +3,5 @@ export default interface MenuItemImpl {
   href: string;
   active: boolean;
   className?: string;
+  onClick?(): void;
 }

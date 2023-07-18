@@ -75,30 +75,32 @@ const RowMenu = () => {
                     </SidebarLink>
                     {children && children.length !== 0 && (
                       <MenuContainer className="top-8 sub-menu-item left-0">
-                        {children?.map(({ href, id, title, children }) => (
-                          <div
-                            className="relative w-full children py-1"
-                            key={id}
-                          >
-                            <MenuItem
-                              title={title}
-                              href={href}
-                              active={href === pathname}
-                            />
-                            {children && children.length !== 0 && (
-                              <MenuContainer className="top-3 left-full">
-                                {children?.map(({ href, id, title }) => (
-                                  <MenuItem
-                                    title={title}
-                                    href={href}
-                                    key={id}
-                                    active={href === pathname}
-                                  />
-                                ))}
-                              </MenuContainer>
-                            )}
-                          </div>
-                        ))}
+                        {children?.map(
+                          ({ href, id: levelTwoId, title, children }) => (
+                            <div
+                              className="relative w-full children py-1"
+                              key={levelTwoId}
+                            >
+                              <MenuItem
+                                title={title}
+                                href={href}
+                                active={href === pathname}
+                              />
+                              {children && children.length !== 0 && (
+                                <MenuContainer className="top-3 left-full">
+                                  {children?.map(({ href, id, title }) => (
+                                    <MenuItem
+                                      title={title}
+                                      href={href}
+                                      key={id}
+                                      active={href === pathname}
+                                    />
+                                  ))}
+                                </MenuContainer>
+                              )}
+                            </div>
+                          )
+                        )}
                       </MenuContainer>
                     )}
                   </div>
