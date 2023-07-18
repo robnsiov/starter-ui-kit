@@ -46,7 +46,8 @@ const RowMenu = () => {
                         size="18"
                         className={cls(
                           `duration-200 transition-all group-hover:text-primary`,
-                          pathname === href
+                          activeRoute.levelOne === levelOneId ||
+                            pathname === href
                             ? "text-primary"
                             : "dark:text-zinc-300 text-zinc-700"
                         )}
@@ -55,7 +56,8 @@ const RowMenu = () => {
                         className={cls(
                           `font-semibold ms-2.5 
                         duration-200 transition-all group-hover:text-primary`,
-                          pathname === href
+                          activeRoute.levelOne === levelOneId ||
+                            pathname === href
                             ? "text-primary"
                             : "text-sm text-zinc-800"
                         )}
@@ -82,20 +84,38 @@ const RowMenu = () => {
                               key={levelTwoId}
                             >
                               <MenuItem
+                                onClick={() =>
+                                  activeLevelTwo(levelOneId, levelTwoId)
+                                }
                                 title={title}
                                 href={href}
-                                active={href === pathname}
+                                active={
+                                  activeRoute.levelTwo === levelTwoId ||
+                                  href === pathname
+                                }
                               />
                               {children && children.length !== 0 && (
                                 <MenuContainer className="top-3 left-full">
-                                  {children?.map(({ href, id, title }) => (
-                                    <MenuItem
-                                      title={title}
-                                      href={href}
-                                      key={id}
-                                      active={href === pathname}
-                                    />
-                                  ))}
+                                  {children?.map(
+                                    ({ href, id: levelThreeId, title }) => (
+                                      <MenuItem
+                                        title={title}
+                                        href={href}
+                                        key={levelThreeId}
+                                        active={
+                                          activeRoute.levelThree ===
+                                            levelThreeId || href === pathname
+                                        }
+                                        onClick={() =>
+                                          activeLevelThree(
+                                            levelOneId,
+                                            levelTwoId,
+                                            levelThreeId
+                                          )
+                                        }
+                                      />
+                                    )
+                                  )}
                                 </MenuContainer>
                               )}
                             </div>
