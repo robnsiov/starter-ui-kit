@@ -1,5 +1,6 @@
 import settings from "@/constants/settings";
 import { LANGS, languages } from "@/constants/settings/types";
+import { useEffect } from "react";
 
 const useRootContainer = () => {
   const { LANG, THEME } = settings;
@@ -27,6 +28,11 @@ const useRootContainer = () => {
     else html.classList.remove("dark");
   });
   promise.then((resolve) => resolve());
+
+  useEffect(() => {
+    const color = "#d536cd";
+    document.documentElement.style.setProperty("--primary", color);
+  }, []);
 
   return {};
 };

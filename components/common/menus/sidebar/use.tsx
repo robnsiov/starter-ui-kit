@@ -10,11 +10,6 @@ const useSidebar = () => {
 
   const sidebarStatus = useRecoilValue(sidebarState);
 
-  useEffect(() => {
-    const color = "#d536cd";
-    document.documentElement.style.setProperty("--primary", color);
-  }, []);
-
   const [activeRoute, setActiveRoute] = useState({
     levelOne: -1,
     levelTwo: -1,
