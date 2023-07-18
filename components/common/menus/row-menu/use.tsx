@@ -38,6 +38,5 @@ const useRowMenu = () => {
     activeLevelTwo,
     activeLevelThree,
   };
-  return { pathname };
 };
 export default useRowMenu;

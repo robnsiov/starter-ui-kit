@@ -25,12 +25,20 @@ const RowMenu = () => {
           {routes.map(({ children, id }) => (
             <Fragment key={id}>
               {children.map(
-                ({ href, icon: Icon, id, title, children, label }) => (
+                ({
+                  href,
+                  icon: Icon,
+                  id: levelOneId,
+                  title,
+                  children,
+                  label,
+                }) => (
                   <div
                     className="flex justify-start items-center relative menu-item"
-                    key={id}
+                    key={levelOneId}
                   >
                     <SidebarLink
+                      onClick={() => activeLevelOne(levelOneId)}
                       href={href}
                       className="flex justify-start items-center w-full group py-4"
                     >
