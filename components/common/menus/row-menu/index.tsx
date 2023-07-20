@@ -94,6 +94,7 @@ const RowMenu = () => {
               direction: "ltr",
               pagination: false,
               arrows: false,
+              drag: false,
             }}
             className="w-full"
           >
@@ -156,7 +157,7 @@ const RowMenu = () => {
                           )}
                         </SidebarLink>
                         {children && children.length !== 0 && (
-                          <MenuContainer className="top-8 sub-menu-item left-0">
+                          <MenuContainer className="top-12 sub-menu-item left-0">
                             {children?.map(
                               ({ href, id: levelTwoId, title, children }) => (
                                 <div
