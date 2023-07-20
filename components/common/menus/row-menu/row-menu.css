@@ -6,3 +6,7 @@
   opacity: 1 !important;
   visibility: visible !important;
 }
+.row-menu .splide__track {
+  overflow: unset !important;
+  overflow-x: clip !important;
+}
