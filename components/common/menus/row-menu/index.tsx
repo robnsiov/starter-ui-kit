@@ -18,25 +18,7 @@ import useRowMenu from "./use";
 import cls from "classnames";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-
-function useOnScreen(ref: RefObject<HTMLElement>) {
-  const [isIntersecting, setIntersecting] = useState(false);
-
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(([entry]) =>
-        setIntersecting(entry.isIntersecting)
-      ),
-    [ref]
-  );
-
-  useEffect(() => {
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return isIntersecting;
-}
+import useOnScreen from "@/hooks/use-on-screen/use-one-screen";
 
 const RowMenu = () => {
   const {
