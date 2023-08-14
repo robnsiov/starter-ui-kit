@@ -1,5 +1,7 @@
+import { Options } from "@splidejs/react-splide";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { OptionsDir } from "./types";
 
 const useRowMenu = () => {
   const pathname = usePathname();
@@ -37,6 +39,7 @@ const useRowMenu = () => {
     activeLevelOne,
     activeLevelTwo,
     activeLevelThree,
+    dir: localStorage.getItem("dir") as OptionsDir,
   };
 };
 export default useRowMenu;

@@ -1,15 +1,7 @@
 "use client";
 import SidebarLink from "@/components/shared/links/sidebar-link";
-import { ArrowLeft2, ArrowLeft3, ArrowRight3, Home } from "iconsax-react";
-import Link from "next/link";
-import {
-  Fragment,
-  RefObject,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { ArrowLeft3, ArrowRight3 } from "iconsax-react";
+import { Fragment, useRef } from "react";
 import routes from "../sidebar/routes";
 import MenuContainer from "./menu-container";
 import MenuItem from "./menu-item";
@@ -27,6 +19,7 @@ const RowMenu = () => {
     activeLevelThree,
     activeLevelTwo,
     activeRoute,
+    dir,
   } = useRowMenu();
   const lastElementRef = useRef<HTMLDivElement>(null);
   const lastVisibleElement = useOnScreen(lastElementRef);
@@ -46,14 +39,18 @@ const RowMenu = () => {
 
   return (
     <>
-      <div className="w-full fixed top-[74px] right-0 left-0 px-8 mt-2">
+      <div
+        className="w-full fixed top-[74px] md:top-[54px] right-0 left-0
+         px-8 bg-white py-1
+       dark:bg-dark-800"
+      >
         <ArrowLeft3
           onClick={goPrev}
           className={cls(
-            `absolute top-[18px] left-1.5 cursor-pointer
-        text-zinc-700 hover:fill-zinc-400`,
+            `absolute top-5 left-1.5 cursor-pointer rtl:left-auto rtl:right-1.5 rtl:-scale-100
+        text-zinc-700 hover:fill-zinc-400 dark:text-zinc-300`,
             firstVisibleElement
-              ? "opacity-20 cursor-not-allowed"
+              ? "opacity-20 !cursor-not-allowed"
               : "opacity-100"
           )}
           size="18"
@@ -61,9 +58,11 @@ const RowMenu = () => {
         <ArrowRight3
           onClick={goNext}
           className={cls(
-            `absolute top-[18px] right-1.5 cursor-pointer
-        text-zinc-700 hover:fill-zinc-400`,
-            lastVisibleElement ? "opacity-20 cursor-not-allowed" : "opacity-100"
+            `absolute top-5 right-1.5 cursor-pointer rtl:right-auto rtl:left-1.5 rtl:-scale-100
+        text-zinc-700 hover:fill-zinc-400 dark:text-zinc-300`,
+            lastVisibleElement
+              ? "opacity-20 !cursor-not-allowed"
+              : "opacity-100"
           )}
           size="18"
         />
@@ -73,7 +72,7 @@ const RowMenu = () => {
             options={{
               autoWidth: true,
               height: "50px",
-              direction: "ltr",
+              direction: dir,
               pagination: false,
               arrows: false,
               drag: false,
@@ -103,7 +102,8 @@ const RowMenu = () => {
                         <SidebarLink
                           onClick={() => activeLevelOne(levelOneId)}
                           href={href}
-                          className="flex justify-start items-center w-full group py-4"
+                          className="flex justify-start items-center
+                           w-full group py-4"
                         >
                           <Icon
                             size="18"
@@ -117,12 +117,12 @@ const RowMenu = () => {
                           />
                           <span
                             className={cls(
-                              `font-semibold ms-2.5 
-                        duration-200 transition-all group-hover:text-primary`,
+                              `font-semibold ms-2.5
+                        duration-200 transition-all group-hover:text-primary dark:text-zinc-400 text-[15px]`,
                               activeRoute.levelOne === levelOneId ||
                                 pathname === href
-                                ? "text-primary"
-                                : "text-sm text-zinc-800"
+                                ? "text-primary tracking-widest"
+                                : "text-zinc-800"
                             )}
                           >
                             {" "}
@@ -130,16 +130,16 @@ const RowMenu = () => {
                           </span>
                           {label && (
                             <span
-                              className="absolute top-0 -right-4 bg-pink-50 dark:bg-pink-700/10 text-[10px] 
-                tracking-wide font-bold rounded-lg 
-              text-red-500 py-0.5 px-2"
+                              className="absolute top-0 -right-4 bg-pink-50 dark:bg-pink-700/10 text-[10px]
+                tracking-wide font-bold rounded-lg
+              text-red-500 py-0.5 px-2 rtl:right-auto rtl:-left-4"
                             >
                               {label}
                             </span>
                           )}
                         </SidebarLink>
                         {children && children.length !== 0 && (
-                          <MenuContainer className="top-12 sub-menu-item left-0">
+                          <MenuContainer className="top-12 sub-menu-item left-0 rtl:left-auto rtl:right-0">
                             {children?.map(
                               ({ href, id: levelTwoId, title, children }) => (
                                 <div
@@ -158,7 +158,7 @@ const RowMenu = () => {
                                     }
                                   />
                                   {children && children.length !== 0 && (
-                                    <MenuContainer className="top-3 left-full">
+                                    <MenuContainer className="top-3 left-full rtl:left-auto rtl:right-full">
                                       {children?.map(
                                         ({ href, id: levelThreeId, title }) => (
                                           <MenuItem

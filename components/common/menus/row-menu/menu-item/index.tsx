@@ -18,7 +18,7 @@ const MenuItem = ({
               duration-200 transition-all hover:text-primary hover:tracking-widest
               font-medium py-1 px-3 w-full`,
           className,
-          active ? "text-primary" : "text-zinc-400"
+          active ? "text-primary tracking-widest" : "text-zinc-400"
         )}
         href={href}
       >
