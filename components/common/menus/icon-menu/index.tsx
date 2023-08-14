@@ -25,8 +25,8 @@ const IconMenu = () => {
           <>
             <motion.div
               className="fixed left-[100px] top-0 bottom-0 w-[200px] shadow-md rtl:left-auto rtl:right-[100px]               
-      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-xl
-      z-50  py-5 bg-white"
+      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10
+      z-50  py-5 bg-white dark:shadow-none"
               initial={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -37,7 +37,7 @@ const IconMenu = () => {
                   {selectedChildren.map(({ href, id, title, children }) => (
                     <Fragment key={id}>
                       <div
-                        className="w-full border-b-[1px] border-zinc-100
+                        className="w-full border-b-[1px] border-zinc-100 dark:border-zinc-700
               last:border-none relative"
                       >
                         <SidebarLink
@@ -49,7 +49,7 @@ const IconMenu = () => {
                           <span
                             className={cls(
                               `text-sm text-zinc-800 tracking-wide
-          duration-200 transition-all group-hover:text-primary w-full truncate font-semibold`,
+          duration-200 transition-all group-hover:text-primary w-full truncate font-semibold dark:text-zinc-300`,
                               {
                                 "text-primary tracking-widest":
                                   pathname === href,
@@ -75,7 +75,7 @@ const IconMenu = () => {
                             <ArrowRight2
                               size="12"
                               className="
-            text-zinc-500 cursor-pointer hover:text-zinc-800"
+            text-zinc-500 cursor-pointer hover:text-zinc-800 dark:hover:text-white"
                             />
                           </div>
                         )}
@@ -99,12 +99,13 @@ const IconMenu = () => {
                                   <SidebarLink
                                     href={href}
                                     className="w-full border-b-[1px] border-zinc-100
+                                    dark:border-zinc-700
             flex justify-start items-center"
                                   >
                                     <span
                                       className={cls(
                                         `py-3 px-4 pl-10 text-sm text-zinc-800 tracking-wide
-          duration-200 transition-all hover:text-primary w-full truncate font-semibold`,
+          duration-200 transition-all hover:text-primary w-full truncate font-semibold dark:text-zinc-300`,
                                         {
                                           "text-primary tracking-widest":
                                             pathname === href,
@@ -131,7 +132,8 @@ const IconMenu = () => {
 
       <div
         className={`fixed left-0 top-0 bottom-0 w-[100px] shadow-md rtl:left-auto rtl:right-0 
-      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-xl
+      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-none
+      dark:border-r-[1px] dark:border-zinc-600/20
       z-50 transition-all duration-300 md:left-[-100px] rtl:md:right-[-100px] bg-white`}
       >
         <div className="w-full h-full flex items-start justify-start flex-col">
@@ -166,8 +168,12 @@ const IconMenu = () => {
                       className={cls(
                         `w-full flex justify-center 
               items-center flex-col px-1.5
-               py-4 border-b-[1px] border-zinc-200 last:border-none group relative`,
-                        { "bg-indigo-100/50": pathname === href }
+               py-4 border-b-[1px] border-zinc-200 
+               last:border-none group relative dark:border-zinc-700`,
+                        {
+                          "bg-indigo-100/50 dark:bg-dark-800":
+                            pathname === href,
+                        }
                       )}
                     >
                       {label && (
@@ -190,12 +196,12 @@ const IconMenu = () => {
                           size="12"
                           className={`-rotate-45 mx-1  group-hover:opacity-100
                    transition-all duration-200
-                    text-indigo-600 dark:text-indigo-500`}
+                    text-indigo-600`}
                         />
                       </div>
                       <div className="relative">
                         <Icon
-                          className={cls({
+                          className={cls(`dark:text-white`, {
                             "text-primary": pathname === href,
                           })}
                         />
@@ -205,7 +211,7 @@ const IconMenu = () => {
                           `text-sm font-semibold mt-2 text-zinc-800 
               tracking-wide duration-200 transition-all
                group-hover:text-primary w-full
-              truncate px-1 text-center`,
+              truncate px-1 text-center dark:text-zinc-300`,
                           { "text-primary": pathname === href }
                         )}
                       >

@@ -10,7 +10,7 @@ const routes: RoutesImpl = [
       { title: "Eccomerce", href: "/ecc", id: 2, icon: Home2 },
       {
         title: "Forms",
-        href: "#",
+        href: "/",
         id: 3,
         icon: Home2,
         children: [

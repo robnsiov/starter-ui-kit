@@ -13,9 +13,10 @@ const useMenuIcon = () => {
     setActiveSubChildrenId((prev) => (prev === id ? -1 : id));
   };
   const toggleChildren = (children: SelectedChildrenImpl) => {
-    if (JSON.stringify(children) === JSON.stringify(selectedChildren))
+    if (JSON.stringify(children) === JSON.stringify(selectedChildren)) {
       setSelectedChildren([]);
-    else setSelectedChildren(children);
+      setActiveSubChildrenId(-1);
+    } else setSelectedChildren(children);
   };
 
   const setCurrentDir = () => {
