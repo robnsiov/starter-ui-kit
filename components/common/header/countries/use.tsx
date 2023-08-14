@@ -13,9 +13,14 @@ const useCountries = () => {
     localStorage.setItem("lang", selectedLang);
     // set direction
     const dir = languages[selectedLang].dir;
+
+    // send custom event for handle dir on Icon-menu
+
     document.documentElement.dir = dir;
     localStorage.setItem("dir", dir);
     forceTreeUpdate.done();
+    const event = new Event("change-dir");
+    window.dispatchEvent(event);
   }, [selectedLang]);
 
   return { selectedLang, langsToArray, setSelectedLang };

@@ -16,6 +16,7 @@ const IconMenu = () => {
     toggleChildren,
     activeSubChilrenId,
     toggleActiveId,
+    dir,
   } = useMenuIcon();
   return (
     <>
@@ -23,13 +24,13 @@ const IconMenu = () => {
         {selectedChildren.length !== 0 && (
           <>
             <motion.div
-              className="fixed left-[100px] top-0 bottom-0 w-[200px] shadow-md rtl:left-auto rtl:right-0 
+              className="fixed left-[100px] top-0 bottom-0 w-[200px] shadow-md rtl:left-auto rtl:right-[100px]               
       dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-xl
       z-50  py-5 bg-white"
-              initial={{ x: -200 }}
-              animate={{ x: 0 }}
+              initial={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              exit={{ x: -200 }}
+              exit={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
             >
               <div className="w-full">
                 <div className="relative w-full flex justify-center items-center flex-col">
@@ -44,7 +45,7 @@ const IconMenu = () => {
                           className="py-3 px-4 
           w-[calc(100%-25px)] flex justify-start items-center group"
                         >
-                          <span className="w-2 border-b-2 border-zinc-300 mr-3"></span>
+                          <span className="w-2 border-b-2 border-zinc-300 me-3"></span>
                           <span
                             className={cls(
                               `text-sm text-zinc-800 tracking-wide
@@ -64,8 +65,11 @@ const IconMenu = () => {
                             className={cls(
                               `absolute right-2 top-[17px]
                       transition-all duration-300
-          cursor-pointer z-20`,
-                              { "rotate-90": activeSubChilrenId === id }
+          cursor-pointer z-20 rtl:right-auto rtl:left-2 rtl:-scale-100`,
+                              {
+                                "rotate-90 rtl:-rotate-90":
+                                  activeSubChilrenId === id,
+                              }
                             )}
                           >
                             <ArrowRight2

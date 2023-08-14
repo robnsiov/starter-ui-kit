@@ -7,6 +7,7 @@ const useMenuIcon = () => {
   const [selectedChildren, setSelectedChildren] =
     useState<SelectedChildrenImpl>([]);
   const [activeSubChilrenId, setActiveSubChildrenId] = useState(-1);
+  const [dir, setDir] = useState("ltr");
 
   const toggleActiveId = (id: number) => {
     setActiveSubChildrenId((prev) => (prev === id ? -1 : id));
@@ -17,10 +18,15 @@ const useMenuIcon = () => {
     else setSelectedChildren(children);
   };
 
+  const setCurrentDir = () => {
+    const currentDir = localStorage.getItem("dir");
+    if (currentDir) setDir(currentDir);
+  };
+
   useEffect(() => {
-    window.addEventListener("change-dir", () => {
-      console.log(1);
-    });
+    setCurrentDir();
+    window.addEventListener("change-dir", setCurrentDir);
+    return () => window.removeEventListener("change-dir", setCurrentDir);
   }, []);
 
   return {
@@ -29,6 +35,7 @@ const useMenuIcon = () => {
     activeSubChilrenId,
     toggleActiveId,
     toggleChildren,
+    dir,
   };
 };
 export default useMenuIcon;
