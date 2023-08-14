@@ -6,6 +6,7 @@ import Sidebar from "@/components/common/menus/sidebar";
 import DashboardContainerImpl from "./types";
 import useDashboardContainer from "./use";
 import RowMenu from "@/components/common/menus/row-menu";
+import IconMenu from "@/components/common/menus/icon-menu";
 
 const DashboardContainer = ({ children }: DashboardContainerImpl) => {
   useDashboardContainer();
@@ -13,7 +14,8 @@ const DashboardContainer = ({ children }: DashboardContainerImpl) => {
     <>
       <Header />
       {/* <Sidebar /> */}
-      <RowMenu />
+      {/* <RowMenu /> */}
+      <IconMenu />
       <Settings />
       <div className="w-full min-h-screen"> {children}</div>
       <Footer />
