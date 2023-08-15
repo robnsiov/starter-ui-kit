@@ -9,7 +9,7 @@ const RootContainer = ({ children }: RootContainerImpl) => {
   return (
     <>
       <RecoilContainer>
-        <div>
+        <div className="">
           <OverlayContainer />
           {children}
         </div>

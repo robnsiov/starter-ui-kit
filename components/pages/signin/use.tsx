@@ -21,7 +21,6 @@ const useSignin = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     // call api
-    // console.log(data);
     setLoading(true);
     setTimeout(() => {
       router.push("/");

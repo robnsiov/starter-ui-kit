@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import color from "color";
-import { useDidUpdate } from "@mantine/hooks";
+import { useDidUpdate, useSetState } from "@mantine/hooks";
 import { TabsImpl } from "./types";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import settingsTabsState from "@/context/toggle-settings-tabs";
+import treeForceUpdateState from "@/context/tree-force-update";
 
 const useSettings = () => {
   const [primary, setPrimary] = useState("");
   const [openMenu, setOpenMenu] = useState(false);
   const [selectedTab, setSelectedTab] = useState<TabsImpl>();
   const [_, setSettingsTabsState] = useRecoilState(settingsTabsState);
+  const treeForceUpdate = useRecoilValue(treeForceUpdateState);
+  const [activeLayout, setActiveLayout] = useState("");
   const html = document.documentElement;
 
   useEffect(() => {
@@ -29,8 +32,26 @@ const useSettings = () => {
     setPrimary(color);
   }, []);
 
-  const primaryLighten = primary ? color(primary).lighten(0.8).hex() : "";
+  useEffect(() => {
+    const layout = localStorage.getItem("layout");
+    if (layout) setActiveLayout(layout);
+  }, []);
 
-  return { primaryLighten, selectedTab, setSelectedTab, openMenu, setOpenMenu };
+  const primaryLighten = primary ? color(primary).lighten(0.8).hex() : "";
+  const setLayout = (layout: string) => {
+    localStorage.setItem("layout", layout);
+    setActiveLayout(layout);
+    treeForceUpdate.done();
+  };
+
+  return {
+    primaryLighten,
+    selectedTab,
+    setSelectedTab,
+    openMenu,
+    setOpenMenu,
+    setLayout,
+    activeLayout,
+  };
 };
 export default useSettings;

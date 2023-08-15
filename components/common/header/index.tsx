@@ -7,26 +7,41 @@ import Notification from "./notification";
 import Profile from "./profile";
 import MenuIcon from "./menu-icon";
 import SettingsIocns from "./settings";
+import useHeader from "./use";
+import cls from "classnames";
 
 const Header = () => {
+  const { layout } = useHeader();
   return (
     <>
       <div
-        className="fixed top-0 right-0 rtl:left-0 rtl:right-[256px]
-         left-[265px] h-[74px] shadow-sm
-      flex justify-between items-center py-4 px-5 z-40 
-      md:left-0 rtl:md:right-0 
-      transition-all duration-300 md:h-[54px] bg-white dark:bg-dark"
+        className="fixed top-0 right-0 left-0 h-[74px] md:h-[54px]
+      flex justify-end items-start rtl:items-end  z-40 "
       >
-        <MenuIcon />
-        <div></div>
-        <div className="flex justify-start items-center">
-          <SettingsIocns />
-          <Countries />
-          <Search />
-          <DarkModeToggle />
-          <Notification />
-          <Profile />
+        <div
+          className={cls(
+            `h-full shadow-sm relative
+      flex justify-between items-center py-4 px-5
+      transition-all duration-300 bg-white dark:bg-dark`,
+            { "w-[calc(100%-256px)] md:!w-full": layout === "cuba" },
+            {
+              "w-[calc(100%-100px)] md:!w-full":
+                layout === "tokyo" || layout === "moscow",
+            },
+            { "w-full": layout === "singapore" }
+          )}
+        >
+          {layout === "cuba" && <MenuIcon />}
+
+          <div></div>
+          <div className="flex justify-start items-center">
+            <SettingsIocns />
+            <Countries />
+            <Search />
+            <DarkModeToggle />
+            <Notification />
+            <Profile />
+          </div>
         </div>
       </div>
     </>

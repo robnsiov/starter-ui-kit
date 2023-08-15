@@ -1,5 +1,3 @@
-import { type } from "os";
-
 type Lanuages = Record<string, { countryCode: string; dir: "ltr" | "rtl" }>;
 
 export const languages: Lanuages = {

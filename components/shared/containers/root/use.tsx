@@ -4,6 +4,11 @@ import { useEffect } from "react";
 
 const useRootContainer = () => {
   const { LANG, THEME } = settings;
+
+  if (!("layout" in localStorage)) {
+    localStorage.setItem("layout", "cuba");
+  }
+
   // If the theme was not selected by the user
   if (!("theme" in localStorage)) {
     localStorage.setItem("theme", THEME);

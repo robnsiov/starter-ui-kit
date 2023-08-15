@@ -8,10 +8,18 @@ import Tab from "./tab";
 import { FiSettings } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import cls from "classnames";
+import { layoutes } from "@/constants/settings";
 
 const Settings = () => {
-  const { primaryLighten, selectedTab, setSelectedTab, openMenu, setOpenMenu } =
-    useSettings();
+  const {
+    primaryLighten,
+    selectedTab,
+    setSelectedTab,
+    openMenu,
+    setOpenMenu,
+    setLayout,
+    activeLayout,
+  } = useSettings();
 
   return (
     <>
@@ -20,16 +28,25 @@ const Settings = () => {
           className={cls(
             `fixed top-[70px] md:top-[53px]
        bottom-0 shadow-md shadow-indigo-100 duration-200 transition-all
-      bg-white dark:bg-dark w-[343px] 460px:w-full z-30`,
+      bg-white dark:bg-dark w-[343px] z-30`,
             openMenu
               ? "right-0 rtl:right-auto rtl:left-0"
-              : "right-[-343px] 460px:right-[-100%] rtl:right-auto rtl:left-[-343px] 460:rtl:left-[-100%]"
+              : "right-[-343px] 460px:right-[-100%] rtl:right-auto rtl:left-[-343px] 460px:rtl:left-[-100%]",
+            activeLayout === "tokyo" || activeLayout === "moscow"
+              ? "460px:w-[calc(100%-40px)]"
+              : "460px:w-full"
           )}
         >
           <div
-            className="w-full flex justify-start items-start flex-col py-4
-            px-6
-          border-b-[1px] border-zinc-100 dark:border-zinc-600"
+            className={cls(
+              `w-full flex justify-start items-start flex-col py-4
+            px-6 relative
+          border-b-[1px] border-zinc-100 dark:border-zinc-600`,
+              {
+                "460px:-top-[2.4px]":
+                  activeLayout === "tokyo" || activeLayout === "moscow",
+              }
+            )}
           >
             <h2 className="text-xl font-semibold relative w-full">
               <span className="dark:text-zinc-400">PREVIEW SETTINGS</span>
@@ -136,29 +153,40 @@ const Settings = () => {
                     className="w-full flex justify-start items-start flex-col
              space-y-4 px-6 py-4"
                   >
-                    <div
-                      className="w-full border-[1px] 
+                    {layoutes.map(({ label, pic }) => (
+                      <div
+                        onClick={() => setLayout(label)}
+                        key={label}
+                        className={cls(
+                          `w-full border-[1px] 
               border-zinc-100 rounded-md
                flex justify-center items-center 
                flex-col text-center p-1 
                 cursor-pointer
                duration-200 transition-all shadow-lg
-               hover:shadow-indigo-100 dark:shadow-zinc-500"
-                    >
-                      <div className="w-full bg-indigo-100 aspect-video overflow-hidden rounded-md"></div>
-                      <span className="mt-2 mb-1 font-medium dark:text-zinc-400">
-                        Barcelona
-                      </span>
-                    </div>
+               hover:shadow-indigo-100 dark:shadow-zinc-500`,
+                          {
+                            "!border-indigo-400 !border-2":
+                              activeLayout === label,
+                          }
+                        )}
+                      >
+                        <div className="w-full bg-indigo-100 aspect-video overflow-hidden rounded-md"></div>
+                        <span className="mt-2 mb-1 font-medium dark:text-zinc-400">
+                          {label}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
           <div
-            className="absolute top-1/2 -translate-y-1/2 left-[-50px]
+            className="absolute top-1/2 -translate-y-1/2 left-[-50px] rtl:left-auto rtl:right-[-50px]
       shadow-md shadow-zinc-400/30 p-2 rounded-l-md flex justify-start 
-      items-start flex-col md:hidden"
+      items-start flex-col md:hidden bg-white dark:bg-dark-800 
+      rtl:rounded-l-none rtl:rounded-r-md"
           >
             <Tab
               Icon={BiColorFill}

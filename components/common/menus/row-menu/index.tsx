@@ -28,13 +28,12 @@ const RowMenu = () => {
   const firstVisibleElement = useOnScreen(firstElementRef);
 
   const splide = useRef({ go(dir: string) {} });
-  console.log(lastVisibleElement);
 
   const goNext = () => {
     if (!lastVisibleElement) splide.current.go(">");
   };
   const goPrev = () => {
-    if (!firstVisibleElement) console.log(splide.current.go("<"));
+    if (!firstVisibleElement) splide.current.go("<");
   };
 
   return (

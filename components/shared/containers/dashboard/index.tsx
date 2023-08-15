@@ -10,12 +10,13 @@ import IconMenu from "@/components/common/menus/icon-menu";
 
 const DashboardContainer = ({ children }: DashboardContainerImpl) => {
   useDashboardContainer();
+  const layout = localStorage.getItem("layout");
   return (
     <>
       <Header />
-      {/* <Sidebar /> */}
-      {/* <RowMenu /> */}
-      <IconMenu />
+      {layout === "cuba" && <Sidebar />}
+      {layout === "singapore" && <RowMenu />}
+      {(layout === "tokyo" || layout === "moscow") && <IconMenu />}
       <Settings />
       <div className="w-full min-h-screen"> {children}</div>
       <Footer />

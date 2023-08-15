@@ -17,6 +17,7 @@ const IconMenu = () => {
     activeSubChilrenId,
     toggleActiveId,
     dir,
+    layout,
   } = useMenuIcon();
   return (
     <>
@@ -26,7 +27,7 @@ const IconMenu = () => {
             <motion.div
               className="fixed left-[100px] top-0 bottom-0 w-[200px] shadow-md rtl:left-auto rtl:right-[100px]               
       dark:bg-dark overflow-hidden dark:shadow-zinc-600/10
-      z-50  py-5 bg-white dark:shadow-none"
+      z-50  py-5 bg-white dark:shadow-none md:left-[40px] md:rtl:right-[40px]"
               initial={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -48,8 +49,8 @@ const IconMenu = () => {
                           <span className="w-2 border-b-2 border-zinc-300 me-3"></span>
                           <span
                             className={cls(
-                              `text-sm text-zinc-800 tracking-wide
-          duration-200 transition-all group-hover:text-primary w-full truncate font-semibold dark:text-zinc-300`,
+                              `text-sm text-zinc-500 tracking-wide
+          duration-200 transition-all group-hover:text-primary w-full truncate font-semibold dark:text-zinc-400`,
                               {
                                 "text-primary tracking-widest":
                                   pathname === href,
@@ -104,8 +105,8 @@ const IconMenu = () => {
                                   >
                                     <span
                                       className={cls(
-                                        `py-3 px-4 pl-10 text-sm text-zinc-800 tracking-wide
-          duration-200 transition-all hover:text-primary w-full truncate font-semibold dark:text-zinc-300`,
+                                        `py-3 px-4 pl-10 text-sm text-zinc-500 tracking-wide
+          duration-200 transition-all hover:text-primary w-full truncate font-semibold dark:text-zinc-400`,
                                         {
                                           "text-primary tracking-widest":
                                             pathname === href,
@@ -131,10 +132,10 @@ const IconMenu = () => {
       </AnimatePresence>
 
       <div
-        className={`fixed left-0 top-0 bottom-0 w-[100px] shadow-md rtl:left-auto rtl:right-0 
+        className={`fixed left-0 top-0 bottom-0 w-[100px] md:w-[40px] shadow-md rtl:left-auto rtl:right-0 
       dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-none
       dark:border-r-[1px] dark:border-zinc-600/20
-      z-50 transition-all duration-300 md:left-[-100px] rtl:md:right-[-100px] bg-white`}
+      z-50 transition-all duration-300 bg-white`}
       >
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div
@@ -180,7 +181,8 @@ const IconMenu = () => {
                         <span
                           className="bg-pink-50 dark:bg-pink-700/10
                    text-[10px] tracking-wide font-bold rounded-lg 
-              text-red-500 py-0.5 px-2 absolute top-2 right-2.5"
+              text-red-500 py-0.5 px-2 absolute top-2 right-2.5 
+              md:hidden"
                         >
                           {label}
                         </span>
@@ -190,7 +192,7 @@ const IconMenu = () => {
                         className="bg-indigo-100 w-5 h-5 flex justify-center opacity-0
                 items-center  rounded-full absolute top-2 
                 transition-all duration-200
-                right-7 group-hover:opacity-100 z-20"
+                right-7 group-hover:opacity-100 z-20 md:right-2.5 md:scale-90"
                       >
                         <ImPushpin
                           size="12"
@@ -201,22 +203,24 @@ const IconMenu = () => {
                       </div>
                       <div className="relative">
                         <Icon
-                          className={cls(`dark:text-white`, {
+                          className={cls(`dark:text-white md:scale-90`, {
                             "text-primary": pathname === href,
                           })}
                         />
                       </div>
-                      <h2
-                        className={cls(
-                          `text-sm font-semibold mt-2 text-zinc-800 
+                      {layout !== "moscow" && (
+                        <h2
+                          className={cls(
+                            `text-sm font-semibold mt-2 text-zinc-500 
               tracking-wide duration-200 transition-all
                group-hover:text-primary w-full
-              truncate px-1 text-center dark:text-zinc-300`,
-                          { "text-primary": pathname === href }
-                        )}
-                      >
-                        {title}
-                      </h2>
+              truncate px-1 text-center dark:text-zinc-400 md:hidden`,
+                            { "text-primary": pathname === href }
+                          )}
+                        >
+                          {title}
+                        </h2>
+                      )}
                     </SidebarLink>
                   )
                 )}
