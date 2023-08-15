@@ -23,9 +23,10 @@ const Sidebar = () => {
     <>
       <div
         className={cls(
-          `fixed left-0 top-0 bottom-0 w-[265px] shadow-md rtl:left-auto rtl:right-0 
-      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-xl
-      z-50 transition-all duration-300 md:left-[-265px] rtl:md:right-[-265px] bg-white`,
+          `fixed left-0 top-0 bottom-0 w-[265px] -md rtl:left-auto rtl:right-0 
+      dark:bg-dark overflow-hidden  
+      z-50 transition-all duration-300 md:left-[-265px] rtl:md:right-[-265px] bg-white
+      border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]`,
           sidebarStatus.close && viewportWidth < 767
             ? "left-[-256px] rtl:right-[-265px]"
             : "!left-0 rtl:!right-0"
@@ -34,7 +35,7 @@ const Sidebar = () => {
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div
             className="w-full flex justify-between items-center h-[79px] 
-          py-4 px-5 shadow-sm dark:shadow-zinc-600/10 dark:shadow-xl mb-1 dark:bg-dark"
+          py-4 px-5  dark:bg-dark"
           >
             <span className="font-semibold text-lg"></span>
             <div className="flex justify-center items-center group cursor-pointer">
@@ -56,8 +57,8 @@ const Sidebar = () => {
                 <div className="w-full px-4">
                   <div className="w-full">
                     <h2
-                      className="text-sm font-bold text-slate-700 pb-1 pt-5 border-t-[1px] 
-                    border-zinc-200 mt-3 dark:border-zinc-600 dark:text-zinc-400"
+                      className="text-sm font-bold text-slate-700 pb-1 mb-3
+                    mt-3 dark:border-zinc-600 dark:text-zinc-400"
                     >
                       {subject}
                     </h2>

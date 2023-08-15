@@ -41,7 +41,8 @@ const RowMenu = () => {
       <div
         className="w-full fixed top-[74px] md:top-[54px] right-0 left-0
          px-8 bg-white py-1
-       dark:bg-dark-800"
+       dark:bg-dark-800
+       border-b-[1px] border-zinc-200/60 dark:border-zinc-700"
       >
         <ArrowLeft3
           onClick={goPrev}
@@ -117,7 +118,7 @@ const RowMenu = () => {
                           <span
                             className={cls(
                               `font-semibold ms-2.5
-                        duration-200 transition-all group-hover:text-primary dark:text-zinc-400 text-[15px]`,
+                        duration-200 transition-all group-hover:text-primary dark:text-zinc-400 text-sm`,
                               activeRoute.levelOne === levelOneId ||
                                 pathname === href
                                 ? "text-primary tracking-widest"

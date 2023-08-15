@@ -132,15 +132,16 @@ const IconMenu = () => {
       </AnimatePresence>
 
       <div
-        className={`fixed left-0 top-0 bottom-0 w-[100px] md:w-[40px] shadow-md rtl:left-auto rtl:right-0 
-      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10 dark:shadow-none
+        className={`fixed left-0 top-0 bottom-0 w-[100px] md:w-[40px]  rtl:left-auto rtl:right-0 
+      dark:bg-dark overflow-hidden 
       dark:border-r-[1px] dark:border-zinc-600/20
+      border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]
       z-50 transition-all duration-300 bg-white`}
       >
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div
             className="w-full flex justify-center items-center h-[79px] 
-          py-4 px-5 shadow-sm dark:shadow-zinc-600/10 dark:shadow-xl mb-1 dark:bg-dark"
+          py-4 px-5  mb-1 dark:bg-dark"
           >
             <div className="flex justify-center items-center group cursor-pointer">
               <Box1

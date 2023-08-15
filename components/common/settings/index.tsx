@@ -26,8 +26,8 @@ const Settings = () => {
       <div>
         <div
           className={cls(
-            `fixed top-[70px] md:top-[53px]
-       bottom-0 shadow-md shadow-indigo-100 duration-200 transition-all
+            `fixed top-[70px] md:top-[53px] border-x-[1px] dark:border-zinc-700 border-zinc-200/40
+       bottom-0  duration-200 transition-all
       bg-white dark:bg-dark w-[343px] z-30`,
             openMenu
               ? "right-0 rtl:right-auto rtl:left-0"
@@ -163,8 +163,8 @@ const Settings = () => {
                flex justify-center items-center 
                flex-col text-center p-1 
                 cursor-pointer
-               duration-200 transition-all shadow-lg
-               hover:shadow-indigo-100 dark:shadow-zinc-500`,
+               duration-200 transition-all 
+                dark:shadow-zinc-500`,
                           {
                             "!border-indigo-400 !border-2":
                               activeLayout === label,
@@ -183,8 +183,8 @@ const Settings = () => {
             </AnimatePresence>
           </div>
           <div
-            className="absolute top-1/2 -translate-y-1/2 left-[-50px] rtl:left-auto rtl:right-[-50px]
-      shadow-md shadow-zinc-400/30 p-2 rounded-l-md flex justify-start 
+            className="absolute top-1/2 -translate-y-1/2 left-[-52px] rtl:left-auto rtl:right-[-52px]
+       border-zinc-200/40 border-[1px] p-2 rounded-l-md flex justify-start 
       items-start flex-col md:hidden bg-white dark:bg-dark-800 
       rtl:rounded-l-none rtl:rounded-r-md"
           >

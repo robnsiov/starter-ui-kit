@@ -20,7 +20,8 @@ const Header = () => {
       >
         <div
           className={cls(
-            `h-full shadow-sm relative
+            `h-full  relative
+              border-b-[1px] border-zinc-200/60 dark:border-zinc-700 
       flex justify-between items-center py-4 px-5
       transition-all duration-300 bg-white dark:bg-dark`,
             { "w-[calc(100%-256px)] md:!w-full": layout === "cuba" },
