@@ -8,6 +8,9 @@ const useRootContainer = () => {
   if (!("layout" in localStorage)) {
     localStorage.setItem("layout", "cuba");
   }
+  if (!("border" in localStorage)) {
+    localStorage.setItem("border", "false");
+  }
 
   // If the theme was not selected by the user
   if (!("theme" in localStorage)) {

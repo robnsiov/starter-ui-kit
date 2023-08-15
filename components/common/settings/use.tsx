@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import color from "color";
 import { useDidUpdate, useSetState } from "@mantine/hooks";
-import { TabsImpl } from "./types";
+import { SameLayoutImpl, TabsImpl } from "./types";
 import { useRecoilState, useRecoilValue } from "recoil";
 import settingsTabsState from "@/context/toggle-settings-tabs";
 import treeForceUpdateState from "@/context/tree-force-update";
@@ -38,10 +38,18 @@ const useSettings = () => {
   }, []);
 
   const primaryLighten = primary ? color(primary).lighten(0.8).hex() : "";
-  const setLayout = (layout: string) => {
-    localStorage.setItem("layout", layout);
-    setActiveLayout(layout);
+  const setLayout = ({ def, layout }: SameLayoutImpl) => {
+    localStorage.setItem("layout", (def as string) ?? layout);
+    localStorage.setItem("border", def ? "true" : "false");
+    setActiveLayout((def as string) ?? layout);
     treeForceUpdate.done();
+  };
+
+  const border = localStorage.getItem("border");
+
+  const checkActiveLayout = ({ def, layout }: SameLayoutImpl) => {
+    if (border === "true") return def === activeLayout;
+    else return layout === activeLayout;
   };
 
   return {
@@ -52,6 +60,7 @@ const useSettings = () => {
     setOpenMenu,
     setLayout,
     activeLayout,
+    checkActiveLayout,
   };
 };
 export default useSettings;

@@ -6,6 +6,12 @@ export const languages: Lanuages = {
   // German: { countryCode: "DE", dir: "ltr" },
   // Arabic: { countryCode: "Kw", dir: "rtl" },
 };
+export type LayoutesImpl = Array<{
+  label: string;
+  pic: string;
+  border: boolean;
+  default?: string;
+}>;
 
 export type LANGS = keyof typeof languages;
 export type THEMES = "Dark" | "Light";

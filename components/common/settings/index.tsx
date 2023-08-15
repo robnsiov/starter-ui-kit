@@ -9,6 +9,7 @@ import { FiSettings } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import cls from "classnames";
 import { layoutes } from "@/constants/settings";
+import Image from "next/image";
 
 const Settings = () => {
   const {
@@ -19,6 +20,7 @@ const Settings = () => {
     setOpenMenu,
     setLayout,
     activeLayout,
+    checkActiveLayout,
   } = useSettings();
 
   return (
@@ -153,25 +155,36 @@ const Settings = () => {
                     className="w-full flex justify-start items-start flex-col
              space-y-4 px-6 py-4"
                   >
-                    {layoutes.map(({ label, pic }) => (
+                    {layoutes.map(({ label, pic, default: def }) => (
                       <div
-                        onClick={() => setLayout(label)}
+                        onClick={() => setLayout({ layout: label, def })}
                         key={label}
                         className={cls(
                           `w-full border-[1px] 
-              border-zinc-100 rounded-md
+              border-zinc-100 dark:border-zinc-700 rounded-md
                flex justify-center items-center 
                flex-col text-center p-1 
                 cursor-pointer
                duration-200 transition-all 
                 dark:shadow-zinc-500`,
                           {
-                            "!border-indigo-400 !border-2":
-                              activeLayout === label,
+                            "!border-zinc-300 dark:!border-zinc-400":
+                              checkActiveLayout({
+                                def,
+                                layout: label,
+                              }),
                           }
                         )}
                       >
-                        <div className="w-full bg-indigo-100 aspect-video overflow-hidden rounded-md"></div>
+                        <div className="w-full aspect-video overflow-hidden rounded-md rounded-b-none">
+                          <Image
+                            src={pic}
+                            alt={label}
+                            className="w-full h-full object-cover object-top"
+                            width={300}
+                            height={300}
+                          />
+                        </div>
                         <span className="mt-2 mb-1 font-medium dark:text-zinc-400">
                           {label}
                         </span>
