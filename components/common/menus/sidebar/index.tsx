@@ -18,6 +18,7 @@ const Sidebar = () => {
     pathname,
     sidebarStatus,
     viewportWidth,
+    border,
   } = useSidebar();
   return (
     <>
@@ -29,7 +30,11 @@ const Sidebar = () => {
       border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]`,
           sidebarStatus.close && viewportWidth < 767
             ? "left-[-256px] rtl:right-[-265px]"
-            : "!left-0 rtl:!right-0"
+            : "!left-0 rtl:!right-0",
+          {
+            "ms-border mt-border border-l-[1px] border-t-[1px] rounded-tl-xl  rtl:border-l-0 rtl:border-r-[1px] rtl:rounded-tl-none rtl:rounded-tr-xl":
+              border === "true",
+          }
         )}
       >
         <div className="w-full h-full flex items-start justify-start flex-col">

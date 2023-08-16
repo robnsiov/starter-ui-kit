@@ -40,6 +40,7 @@ const useRowMenu = () => {
     activeLevelTwo,
     activeLevelThree,
     dir: localStorage.getItem("dir") as OptionsDir,
+    border: localStorage.getItem("border"),
   };
 };
 export default useRowMenu;

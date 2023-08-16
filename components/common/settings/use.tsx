@@ -61,6 +61,7 @@ const useSettings = () => {
     setLayout,
     activeLayout,
     checkActiveLayout,
+    border,
   };
 };
 export default useSettings;

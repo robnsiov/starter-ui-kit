@@ -15,6 +15,7 @@ const useSidebar = () => {
     levelTwo: -1,
     levelThree: -1,
   });
+  const border = localStorage.getItem("border");
 
   const activeLevelOne = (levelOne: number) => {
     setActiveRoute({
@@ -46,6 +47,7 @@ const useSidebar = () => {
     activeLevelThree,
     sidebarStatus,
     viewportWidth,
+    border,
   };
 };
 export default useSidebar;

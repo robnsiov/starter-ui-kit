@@ -18,6 +18,7 @@ const IconMenu = () => {
     toggleActiveId,
     dir,
     layout,
+    border,
   } = useMenuIcon();
   return (
     <>
@@ -25,9 +26,12 @@ const IconMenu = () => {
         {selectedChildren.length !== 0 && (
           <>
             <motion.div
-              className="fixed left-[100px] top-0 bottom-0 w-[200px] shadow-md rtl:left-auto rtl:right-[100px]               
-      dark:bg-dark overflow-hidden dark:shadow-zinc-600/10
-      z-50  py-5 bg-white dark:shadow-none md:left-[40px] md:rtl:right-[40px]"
+              className={cls(
+                `fixed left-[100px] top-0 bottom-0 w-[200px]  rtl:left-auto rtl:right-[100px]               
+      dark:bg-dark overflow-hidden border-l-[1px] border-zinc-200/60 
+      z-50  py-5 bg-white  md:left-[40px] md:rtl:right-[40px]`,
+                { "ms-border border-t-[1px] mt-border": border === "true" }
+              )}
               initial={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -132,11 +136,17 @@ const IconMenu = () => {
       </AnimatePresence>
 
       <div
-        className={`fixed left-0 top-0 bottom-0 w-[100px] md:w-[40px]  rtl:left-auto rtl:right-0 
+        className={cls(
+          `fixed left-0 top-0 bottom-0 w-[100px] md:w-[40px]  rtl:left-auto rtl:right-0 
       dark:bg-dark overflow-hidden 
       dark:border-r-[1px] dark:border-zinc-600/20
       border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]
-      z-50 transition-all duration-300 bg-white`}
+      z-50 transition-all duration-300 bg-white`,
+          {
+            "ms-border mt-border  !border-x-[1px] !border-t-[1px] !rounded-tl-xl border-zinc-200/60   rtl:!rounded-tl-none rtl:!rounded-tr-xl":
+              border === "true",
+          }
+        )}
       >
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div

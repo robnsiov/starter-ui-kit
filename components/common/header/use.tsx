@@ -1,5 +1,6 @@
 const useHeader = () => {
   const layout = localStorage.getItem("layout");
-  return { layout };
+  const border = localStorage.getItem("border");
+  return { layout, border };
 };
 export default useHeader;

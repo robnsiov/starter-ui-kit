@@ -5,14 +5,12 @@ import useRootContainer from "./use";
 import OverlayContainer from "../overlay";
 
 const RootContainer = ({ children }: RootContainerImpl) => {
-  const {} = useRootContainer();
+  useRootContainer();
   return (
     <>
       <RecoilContainer>
-        <div className="">
-          <OverlayContainer />
-          {children}
-        </div>
+        <OverlayContainer />
+        {children}
       </RecoilContainer>
     </>
   );

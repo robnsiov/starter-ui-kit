@@ -9,6 +9,7 @@ const useMenuIcon = () => {
   const [activeSubChilrenId, setActiveSubChildrenId] = useState(-1);
   const [dir, setDir] = useState("ltr");
   const layout = localStorage.getItem("layout");
+  const border = localStorage.getItem("border");
 
   const toggleActiveId = (id: number) => {
     setActiveSubChildrenId((prev) => (prev === id ? -1 : id));
@@ -39,6 +40,7 @@ const useMenuIcon = () => {
     toggleChildren,
     dir,
     layout,
+    border,
   };
 };
 export default useMenuIcon;

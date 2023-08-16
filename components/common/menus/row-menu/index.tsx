@@ -20,6 +20,7 @@ const RowMenu = () => {
     activeLevelTwo,
     activeRoute,
     dir,
+    border,
   } = useRowMenu();
   const lastElementRef = useRef<HTMLDivElement>(null);
   const lastVisibleElement = useOnScreen(lastElementRef);
@@ -35,14 +36,25 @@ const RowMenu = () => {
   const goPrev = () => {
     if (!firstVisibleElement) splide.current.go("<");
   };
-
+  console.log(border);
   return (
     <>
+      {border === "true" && (
+        <div className="w-[1px] fixed left-border rtl:left-0 rtl:right-border top-[200px] lg:top-[20px] bottom-0 bg-zinc-200/60 dark:bg-dark z-40"></div>
+      )}
       <div
-        className="w-full fixed top-[74px] md:top-[54px] right-0 left-0
+        className={cls(
+          `fixed top-[74px] md:top-[54px]
          px-8 bg-white py-1
        dark:bg-dark-800
-       border-b-[1px] border-zinc-200/60 dark:border-zinc-700"
+       border-b-[1px] border-zinc-200/60 dark:border-zinc-700 z-20`,
+          border === "true"
+            ? "ms-border w-[calc(100%-200px)] lg:w-[calc(100%-20px)] mt-border"
+            : "w-full",
+          {
+            "!border-x-[1px]": border === "true",
+          }
+        )}
       >
         <ArrowLeft3
           onClick={goPrev}

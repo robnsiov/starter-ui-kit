@@ -6,12 +6,17 @@ import cls from "classnames";
 
 const Footer = () => {
   const t = tanslate();
-  const { layout } = useFooter();
+  const { layout, border } = useFooter();
   return (
     <>
       <div
-        className="w-full flex justify-end items-center 
-      border-t-[1px] border-zinc-200/60 dark:border-zinc-700"
+        className={cls(
+          `flex justify-end items-center 
+      border-t-[1px] border-zinc-200/60 dark:border-zinc-700`,
+          border === "true"
+            ? "ms-border w-[calc(100%-200px)] lg:!w-[calc(100%-20px)]"
+            : "w-full"
+        )}
       >
         <div
           className={cls(
@@ -20,7 +25,7 @@ const Footer = () => {
       text-sm  dark:bg-dark md:py-4`,
             { "w-[calc(100%-256px)] md:!w-full": layout === "cuba" },
             {
-              "w-[calc(100%-100px)] md:!w-[calc(100%-40px)]":
+              "w-[calc(100%-100px)] md:!w-[calc(100%-20px)]":
                 layout === "tokyo" || layout === "moscow",
             },
             { "w-full": layout === "singapore" }
