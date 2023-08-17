@@ -4,9 +4,12 @@ import { Inputs } from "./types";
 import zod from "zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
+import isAuthenticatedState from "@/context/is-authenticated";
 
 const useSignin = () => {
   const router = useRouter();
+  const setIsAuthenticated = useSetRecoilState(isAuthenticatedState);
   const [loading, setLoading] = useState(false);
   const schema = zod.object({
     email: zod.string().email(),
@@ -25,6 +28,7 @@ const useSignin = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     // call api
     setLoading(true);
+    setIsAuthenticated(true);
     setTimeout(() => {
       router.push("/");
     }, 300);
