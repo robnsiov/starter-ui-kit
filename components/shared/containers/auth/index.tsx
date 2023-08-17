@@ -10,26 +10,29 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
       <div
         className="w-full min-h-screen flex 
     justify-center items-center flex-col 
-     bg-cover bg-center bg-[url('/images/auth.jpg')] md:bg-none py-8"
+     bg-cover bg-center md:bg-none py-8 relative"
       >
-        <Link href={"/"} className="mb-8 md:mb-4">
+        <div className="w-full h-full absolute inset-0 bg-[url('/images/auth.jpg')] dark:hidden"></div>
+        <Link href={"/"} className="mb-8 md:mb-4 relative z-10">
           <Image src={"/images/logo.png"} width="130" height="50" alt="logo" />
         </Link>
         <div
           className="flex justify-center items-start flex-col 
-      p-8 bg-white shadow-xl w-full max-w-md rounded-lg 
-      shadow-indigo-300/10"
+      p-8 bg-white dark:bg-dark dark:shadow-none shadow-xl w-full max-w-md rounded-lg 
+      shadow-indigo-300/10 relative z-10"
         >
-          <h2 className="font-semibold text-2xl text-zinc-800 md:text-lg">
+          <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-300 md:text-lg">
             {title}
           </h2>
-          <span className="text-sm text-zinc-400 mt-2">{desc}</span>
+          <span className="text-sm text-zinc-400 dark:text-zinc-300 mt-2">
+            {desc}
+          </span>
           {children}
           {(type === "signin" || type === "signup") && (
             <>
               <div className="w-full flex justify-center items-center mt-6">
                 <span
-                  className="text-zinc-600/90 text-[15px]
+                  className="text-zinc-600/90 dark:text-zinc-300 text-[15px]
           font-semibold whitespace-nowrap me-3"
                 >
                   Or {type === "signin" && "sign in"}{" "}
@@ -43,7 +46,9 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
               >
                 <Link
                   href={"/"}
-                  className="px-4 py-2 border-indigo-100 flex justify-center items-center
+                  className="px-4 py-2 border-indigo-100 
+                  dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
+                   flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
              bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
                 >
@@ -52,7 +57,9 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                 </Link>
                 <Link
                   href={"/"}
-                  className="px-4 py-2 border-indigo-100 flex justify-center items-center mx-1.5
+                  className="px-4 py-2 border-indigo-100
+                  dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
+                  flex justify-center items-center mx-1.5
              border-[1px] rounded-md transition-all duration-200 my-1 460px:mx-0
              bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
                 >
@@ -61,7 +68,9 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                 </Link>
                 <Link
                   href={"/"}
-                  className="px-4 py-2 border-indigo-100 flex justify-center items-center
+                  className="px-4 py-2 border-indigo-100
+                  dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
+                  flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
              bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
                 >
@@ -77,8 +86,8 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
               {type === "signin" && "Don't have account?"}
             </span>
             <Link
-              className="text-indigo-500 ms-2 duration-200 transition-all
-          hover:text-indigo-400"
+              className="text-primary opacity-90 ms-2 duration-200 transition-all
+          hover:opacity-100"
               href={
                 type === "signin"
                   ? "/signup"

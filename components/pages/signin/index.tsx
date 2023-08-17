@@ -17,7 +17,7 @@ const Signin = () => {
     >
       <form className="mt-8 w-full" onSubmit={onSubmit}>
         <label className="flex justify-start items-start flex-col">
-          <span className="text-sm text-zinc-800 cursor-pointer">
+          <span className="text-sm dark:text-zinc-300 text-zinc-800 cursor-pointer">
             Email Address
           </span>
           <AuthInput
@@ -29,7 +29,9 @@ const Signin = () => {
           <AuthErrorMessage error={errors.email?.message} />
         </label>
         <label className="flex justify-start items-start flex-col mt-3">
-          <span className="text-sm text-zinc-800 cursor-pointer">Password</span>
+          <span className="text-sm text-zinc-800 dark:text-zinc-300 cursor-pointer">
+            Password
+          </span>
           <AuthInput
             error={errors.password?.message}
             {...register("password")}
@@ -40,8 +42,8 @@ const Signin = () => {
         </label>
         <div className="mt-4 text-right rtl:text-left">
           <Link
-            className="text-indigo-500 text-sm
-            duration-200 transition-all hover:text-indigo-400"
+            className="text-primary text-sm opacity-90
+            duration-200 transition-all hover:opacity-100"
             href={"/forgot-pass"}
           >
             Forgot password?

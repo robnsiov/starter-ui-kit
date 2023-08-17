@@ -6,9 +6,9 @@ const AuthButton = ({ loading, title }: AuthButtonImpl) => {
   return (
     <>
       <button
-        className="w-full bg-indigo-500 text-white p-2 
+        className="w-full bg-primary opacity-90 text-white p-2 
           rounded-md mt-6 text-sm transition-all
-           duration-200 hover:bg-indigo-600 flex justify-center items-center"
+           duration-200 hover:opacity-100 flex justify-center items-center"
       >
         <AnimatePresence>
           {loading && (
