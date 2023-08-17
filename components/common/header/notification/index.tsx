@@ -6,7 +6,7 @@ const Notification = () => {
     <>
       <div className="relative ms-3">
         <MotionDropDown
-          className="absolute top-7 w-[300px] rounded-md right-0 p-2 
+          className="absolute top-7 w-[300px] rounded-md right-0 p-2 rtl:right-auto rtl:left-0
                z-50 space-y-2 border-[1px] border-zinc-200/50
                dark:bg-dark-800 dark:border-zinc-700"
           childrenTagName=".notification"

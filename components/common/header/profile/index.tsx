@@ -12,7 +12,7 @@ const Profile = () => {
     <>
       <div className="flex justify-start items-center cursor-pointer ms-3 relative">
         <MotionDropDown
-          className="absolute top-11 w-[150px] rounded-md right-0  
+          className="absolute top-11 w-[150px] rounded-md right-0  rtl:right-auto rtl:left-0
                z-50 border-[1px] border-zinc-200/50 bg-white 
                dark:bg-dark-800 dark:border-zinc-700"
           childrenTagName=".profile-link"
