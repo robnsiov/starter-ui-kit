@@ -1,6 +1,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SelectedChildrenImpl } from "./types";
+import localManagement from "@/utils/local-management";
 
 const useMenuIcon = () => {
   const pathname = usePathname();
@@ -8,8 +9,9 @@ const useMenuIcon = () => {
     useState<SelectedChildrenImpl>([]);
   const [activeSubChilrenId, setActiveSubChildrenId] = useState(-1);
   const [dir, setDir] = useState("ltr");
-  const layout = localStorage.getItem("layout");
-  const border = localStorage.getItem("border");
+
+  const [border] = localManagement({ key: "border" });
+  const [layout] = localManagement({ key: "layout" });
 
   const toggleActiveId = (id: number) => {
     setActiveSubChildrenId((prev) => (prev === id ? -1 : id));
@@ -22,8 +24,10 @@ const useMenuIcon = () => {
   };
 
   const setCurrentDir = () => {
-    const currentDir = localStorage.getItem("dir");
-    if (currentDir) setDir(currentDir);
+    if (typeof localStorage !== "undefined") {
+      const currentDir = localStorage.getItem("dir");
+      if (currentDir) setDir(currentDir);
+    }
   };
 
   useEffect(() => {

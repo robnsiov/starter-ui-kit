@@ -9,8 +9,7 @@ import RowMenu from "@/components/common/menus/row-menu";
 import IconMenu from "@/components/common/menus/icon-menu";
 
 const DashboardContainer = ({ children }: DashboardContainerImpl) => {
-  useDashboardContainer();
-  const layout = localStorage.getItem("layout");
+  const { layout } = useDashboardContainer();
   return (
     <>
       <Header />

@@ -1,6 +1,7 @@
 import translation from "@/constants/translation";
 
 const findString = (inp: string | undefined) => {
+  if (typeof localStorage === "undefined") return;
   const lang = localStorage.getItem("lang");
   if (!lang || !inp) return "";
   if (inp in translation) {
@@ -16,7 +17,8 @@ const fillString = (inp: Record<string, any>) => {
   delete inp.title;
   const l = Object.keys(inp);
   l.forEach((key) => {
-    string = string.replace(`%{${key}}`, inp[key]);
+    if (typeof string === "string")
+      string = string.replace(`%{${key}}`, inp[key]);
   });
   return string;
 };
@@ -24,10 +26,10 @@ const fillString = (inp: Record<string, any>) => {
 const tanslate = () => {
   return (inp: string | Record<string, any>): string => {
     if (typeof inp === "string") {
-      return findString(inp);
-    } else {
-      return fillString(inp);
+      const res = findString(inp);
+      if (typeof res === "string") return res;
     }
+    return "";
   };
 };
 

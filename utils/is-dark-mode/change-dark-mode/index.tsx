@@ -1,4 +1,5 @@
 const changeDarkMode = (isDark: boolean, forceUpdate: Function | undefined) => {
+  if (typeof localStorage === "undefined") return;
   const html = document.documentElement;
   if (isDark) {
     localStorage.setItem("theme", "light");

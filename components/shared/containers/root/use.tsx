@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 const useRootContainer = () => {
   const { LANG, THEME } = settings;
+  if (typeof localStorage === "undefined") return;
 
   if (!("layout" in localStorage)) {
     localStorage.setItem("layout", "cuba");

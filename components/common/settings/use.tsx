@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import color from "color";
-import { useDidUpdate, useSetState } from "@mantine/hooks";
+import { useDidUpdate } from "@mantine/hooks";
 import { SameLayoutImpl, TabsImpl } from "./types";
 import { useRecoilState, useRecoilValue } from "recoil";
 import settingsTabsState from "@/context/toggle-settings-tabs";
 import treeForceUpdateState from "@/context/tree-force-update";
+import localManagement from "@/utils/local-management";
 
 const useSettings = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -12,8 +13,9 @@ const useSettings = () => {
   const [_, setSettingsTabsState] = useRecoilState(settingsTabsState);
   const treeForceUpdate = useRecoilValue(treeForceUpdateState);
   const [activeLayout, setActiveLayout] = useState("");
-  const html = document.documentElement;
-
+  const [primary] = localManagement({ key: "color" });
+  const [localLayout, setLocalLayout] = localManagement({ key: "layout" });
+  const [border, setBorder] = localManagement({ key: "border" });
   useEffect(() => {
     setSettingsTabsState({ done: setSelectedTab });
   }, []);
@@ -26,10 +28,8 @@ const useSettings = () => {
     if (!openMenu) setSelectedTab(undefined);
   }, [openMenu]);
 
-  const primary = localStorage.getItem("color");
-
   useEffect(() => {
-    const layout = localStorage.getItem("layout");
+    const layout = localLayout;
     if (layout) setActiveLayout(layout);
   }, []);
 
@@ -39,13 +39,11 @@ const useSettings = () => {
         .hex()
     : "";
   const setLayout = ({ def, layout }: SameLayoutImpl) => {
-    localStorage.setItem("layout", (def as string) ?? layout);
-    localStorage.setItem("border", def ? "true" : "false");
+    setLocalLayout((def as string) ?? layout);
+    setBorder(def ? "true" : "false");
     setActiveLayout((def as string) ?? layout);
     treeForceUpdate.done();
   };
-
-  const border = localStorage.getItem("border");
 
   const checkActiveLayout = ({ def, layout }: SameLayoutImpl) => {
     if (border === "true") return def === activeLayout;

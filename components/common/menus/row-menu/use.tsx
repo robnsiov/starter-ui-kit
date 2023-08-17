@@ -2,6 +2,7 @@ import { Options } from "@splidejs/react-splide";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { OptionsDir } from "./types";
+import localManagement from "@/utils/local-management";
 
 const useRowMenu = () => {
   const pathname = usePathname();
@@ -32,15 +33,16 @@ const useRowMenu = () => {
   ) => {
     setActiveRoute({ levelOne, levelTwo, levelThree });
   };
-
+  const [border] = localManagement({ key: "border" });
+  const [dir] = localManagement({ key: "dir" });
   return {
     pathname,
     activeRoute,
     activeLevelOne,
     activeLevelTwo,
     activeLevelThree,
-    dir: localStorage.getItem("dir") as OptionsDir,
-    border: localStorage.getItem("border"),
+    dir: dir as OptionsDir,
+    border,
   };
 };
 export default useRowMenu;

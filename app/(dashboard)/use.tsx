@@ -1,18 +1,19 @@
 import treeForceUpdateState from "@/context/tree-force-update";
-import { useForceUpdate, useLocalStorage } from "@mantine/hooks";
+import { useForceUpdate } from "@mantine/hooks";
 import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useMediaQuery } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
 import isAuthenticatedState from "@/context/is-authenticated";
+import localManagement from "@/utils/local-management";
 
 const useDashboardLayout = () => {
   const router = useRouter();
   const isAuthenticated = useRecoilValue(isAuthenticatedState);
   const match = useMediaQuery("(max-width:1023px)");
   const forceUpdate = useForceUpdate();
-  const [border] = useLocalStorage({ key: "border" });
-  const layout = localStorage.getItem("layout");
+  const [border] = localManagement({ key: "border" });
+  const [layout] = localManagement({ key: "layout" });
   const [forceTreeUpdate, setTreeForceUpdate] =
     useRecoilState(treeForceUpdateState);
   useEffect(() => {
