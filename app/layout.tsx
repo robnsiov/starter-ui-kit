@@ -1,10 +1,27 @@
 import "./globals.css";
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
+
 import Container from "@/components/shared/containers/root";
 
-const inter = Poppins({
+const pop = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--pop",
+});
+
+export const san = localFont({
+  src: [
+    {
+      path: "../public/fonts/rtl/san/normal.ttf",
+      weight: "400",
+    },
+    {
+      path: "../public/fonts/rtl/san/bold.otf",
+      weight: "700",
+    },
+  ],
+  variable: "--san",
 });
 
 export const metadata = {
@@ -19,7 +36,9 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className={`${inter.className} bg-white dark:bg-dark-800`}>
+      <body
+        className={`${pop.variable} ${san.variable} bg-white dark:bg-dark-800`}
+      >
         <Container>{children}</Container>
       </body>
     </html>

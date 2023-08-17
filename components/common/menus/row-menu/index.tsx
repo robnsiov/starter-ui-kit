@@ -79,6 +79,7 @@ const RowMenu = () => {
         />
         <div className="w-full flex justify-start items-start row-menu">
           <Splide
+            // @ts-ignore
             ref={splide}
             options={{
               autoWidth: true,
