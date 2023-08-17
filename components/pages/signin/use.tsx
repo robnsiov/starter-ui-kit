@@ -17,7 +17,10 @@ const useSignin = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>({ resolver: zodResolver(schema) });
+  } = useForm<Inputs>({
+    resolver: zodResolver(schema),
+    defaultValues: { email: "admin@gmail.com", password: "12345678" },
+  });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     // call api

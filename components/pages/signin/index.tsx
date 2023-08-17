@@ -15,7 +15,7 @@ const Signin = () => {
       title="Sign in to account"
       type="signin"
     >
-      <form className="mt-8 w-full" onSubmit={onSubmit}>
+      <form className="mt-8 w-full" autoComplete="off" onSubmit={onSubmit}>
         <label className="flex justify-start items-start flex-col">
           <span className="text-sm dark:text-zinc-300 text-zinc-800 cursor-pointer">
             Email Address
