@@ -36,7 +36,6 @@ const RowMenu = () => {
   const goPrev = () => {
     if (!firstVisibleElement) splide.current.go("<");
   };
-  console.log(border);
   return (
     <>
       {border === "true" && (

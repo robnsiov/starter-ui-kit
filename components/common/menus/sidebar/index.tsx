@@ -171,7 +171,7 @@ const Sidebar = () => {
                               style={{ overflow: "hidden" }}
                               initial={{ height: 0 }}
                               animate={{ height: "auto" }}
-                              transition={{ duration: 0.5 }}
+                              transition={{ duration: 0.3 }}
                               className="w-full"
                               exit={{ height: 0 }}
                               key={"container"}

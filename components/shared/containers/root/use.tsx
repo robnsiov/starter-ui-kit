@@ -27,20 +27,26 @@ const useRootContainer = () => {
   const dir = languages[lang as LANGS].dir;
   localStorage.setItem("dir", dir);
 
-  // set delay for dir attr
   const promise = Promise.resolve(() => {
+    // Forced to set color
+    if (!("color" in localStorage)) {
+      localStorage.setItem("color", "#d536cd");
+      const color = "#d536cd";
+      document.documentElement.style.setProperty("--primary", color);
+    } else {
+      const color = localStorage.getItem("color");
+      document.documentElement.style.setProperty("--primary", color);
+    }
+
+    // set delay for dir attr
     const html = document.documentElement;
     html.dir = dir;
     const theme = localStorage.getItem("theme");
     if (theme === "dark") html.classList.add("dark");
     else html.classList.remove("dark");
   });
-  promise.then((resolve) => resolve());
 
-  useEffect(() => {
-    const color = "#d536cd";
-    document.documentElement.style.setProperty("--primary", color);
-  }, []);
+  promise.then((resolve) => resolve());
 
   return {};
 };

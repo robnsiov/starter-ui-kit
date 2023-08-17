@@ -11,7 +11,7 @@ const Settings = () => {
           className="relative ms-3"
           onClick={() => setSelectedTab?.done("options")}
         >
-          <FiSettings
+          <BiColorFill
             size="20"
             className="text-zinc-500 cursor-pointer
                 duration-200 transition-all hover:text-primary dark:text-zinc-100"
@@ -21,10 +21,10 @@ const Settings = () => {
           className="relative ms-3 me-1"
           onClick={() => setSelectedTab?.done("layouts")}
         >
-          <BiColorFill
+          <FiSettings
             size="20"
             className="text-zinc-500 cursor-pointer
-                duration-200 transition-all hover:text-primary dark:text-zinc-100"
+            duration-200 transition-all hover:text-primary dark:text-zinc-100"
           />
         </div>
       </div>

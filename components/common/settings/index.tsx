@@ -99,7 +99,7 @@ const Settings = () => {
                   key={"container"}
                 >
                   <div className="w-full px-6 py-4 justify-start items-start flex-col">
-                    <div className="flex justify-start items-start flex-col mb-4">
+                    {/* <div className="flex justify-start items-start flex-col mb-4">
                       <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
                         LAYOUT TYPE
                       </h3>
@@ -126,16 +126,16 @@ const Settings = () => {
                         <Layouts layout="Stroke" active={false} />
                         <Layouts layout="Fill" active={true} />
                       </div>
-                    </div>
+                    </div> */}
                     <div className="flex justify-start items-start flex-col flex-wrap mb-4">
                       <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
                         UNLIMITED COLOR
                       </h3>
                       <div className="flex justify-start items-center mt-1">
-                        <Colros color="Unlimited" />
+                        <Colros />
                       </div>
                     </div>
-                    <div className="flex justify-start items-start flex-col flex-wrap mb-4">
+                    {/* <div className="flex justify-start items-start flex-col flex-wrap mb-4">
                       <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
                         LIGHT LAYOUT
                       </h3>
@@ -150,8 +150,8 @@ const Settings = () => {
                       <div className="flex justify-start items-center mt-1">
                         <Colros color="Dark" />
                       </div>
-                    </div>
-                    <div className="flex justify-start items-start flex-col flex-wrap mb-2">
+                    </div> */}
+                    {/* <div className="flex justify-start items-start flex-col flex-wrap mb-2">
                       <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
                         MIX LAYOUT
                       </h3>
@@ -160,7 +160,7 @@ const Settings = () => {
                         <Layouts layout="Half-Dark" active={false} />
                         <Layouts layout="Dark" active={false} />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               )}
@@ -229,17 +229,17 @@ const Settings = () => {
             )}
           >
             <Tab
-              Icon={BiColorFill}
-              title="Check layouts"
-              active={true}
-              primaryLighten={primaryLighten}
-              onClick={() => setSelectedTab("layouts")}
-            />
-            <Tab
               Icon={FiSettings}
               title="Quick options"
               active={true}
               size="18"
+              primaryLighten={primaryLighten}
+              onClick={() => setSelectedTab("layouts")}
+            />
+            <Tab
+              Icon={BiColorFill}
+              title="Check layouts"
+              active={true}
               primaryLighten={primaryLighten}
               onClick={() => setSelectedTab("options")}
             />

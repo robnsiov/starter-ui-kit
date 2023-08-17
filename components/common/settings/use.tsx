@@ -7,7 +7,6 @@ import settingsTabsState from "@/context/toggle-settings-tabs";
 import treeForceUpdateState from "@/context/tree-force-update";
 
 const useSettings = () => {
-  const [primary, setPrimary] = useState("");
   const [openMenu, setOpenMenu] = useState(false);
   const [selectedTab, setSelectedTab] = useState<TabsImpl>();
   const [_, setSettingsTabsState] = useRecoilState(settingsTabsState);
@@ -27,17 +26,18 @@ const useSettings = () => {
     if (!openMenu) setSelectedTab(undefined);
   }, [openMenu]);
 
-  useEffect(() => {
-    const color = html.style.getPropertyValue("--primary");
-    setPrimary(color);
-  }, []);
+  const primary = localStorage.getItem("color");
 
   useEffect(() => {
     const layout = localStorage.getItem("layout");
     if (layout) setActiveLayout(layout);
   }, []);
 
-  const primaryLighten = primary ? color(primary).lighten(0.8).hex() : "";
+  const primaryLighten = primary
+    ? color(primary || "#fff")
+        .lighten(0.8)
+        .hex()
+    : "";
   const setLayout = ({ def, layout }: SameLayoutImpl) => {
     localStorage.setItem("layout", (def as string) ?? layout);
     localStorage.setItem("border", def ? "true" : "false");
