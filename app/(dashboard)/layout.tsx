@@ -17,7 +17,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         )}
         <div
           className={cls(
-            `duration-300 transition-all p-5 dark:text-zinc-100 text-zinc-900 dark:bg-dark/60`,
+            `duration-300 transition-all p-5 dark:text-zinc-100 text-zinc-900 dark:bg-dark/60 empty:p-0`,
             {
               "ms-[100px] md:ms-[40px] mt-[74px] md:mt-[54px]":
                 border !== "true" &&
