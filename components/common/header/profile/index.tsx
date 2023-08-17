@@ -1,10 +1,11 @@
 "use client";
 import MotionDropDown from "@/components/shared/dropdowns/motion-dropdown";
 import SidebarLink from "@/components/shared/links/sidebar-link";
-import { ArrowDown2, Logout } from "iconsax-react";
+import { ArrowDown2, Image, Logout } from "iconsax-react";
 import routes from "./routes";
 import useProfile from "./use";
 import cls from "classnames";
+import Pic from "next/image";
 
 const Profile = () => {
   const { pathname } = useProfile();
@@ -18,7 +19,15 @@ const Profile = () => {
           childrenTagName=".profile-link"
           header={
             <div className="flex justify-start items-center group">
-              <div className="w-[35px] md:w-[25px] aspect-square bg-red-200 rounded-full"></div>
+              <div className="w-[35px] md:w-[25px] aspect-square">
+                <Pic
+                  src={"/images/profile.jpg"}
+                  alt="profile"
+                  width={85}
+                  height={85}
+                  className="w-full h-full object-cover object-top rounded-full"
+                />
+              </div>
               <div className="ms-2 flex justify-start items-start flex-col md:hidden">
                 <h3
                   className="duration-200 transition-all group-hover:text-primary
