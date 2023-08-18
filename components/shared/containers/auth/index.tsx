@@ -52,7 +52,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
              border-[1px] rounded-md transition-all duration-200 my-1
              bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
                 >
-                  <FiLinkedin className="me-2 text-blue-700" />
+                  <FiLinkedin className="me-2 text-blue-400" />
                   <span className="text-zinc-800 dark:text-zinc-300">
                     LinkedIn
                   </span>
@@ -65,8 +65,10 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
              border-[1px] rounded-md transition-all duration-200 my-1 460px:mx-0
              bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
                 >
-                  <RxTwitterLogo className="me-2 text-blue-400 dark:text-zinc-300" />
-                  <span className="text-zinc-800">Twitter</span>
+                  <RxTwitterLogo className="me-2 text-blue-400" />
+                  <span className="text-zinc-800 dark:text-zinc-300">
+                    Twitter
+                  </span>
                 </Link>
                 <Link
                   href={"/"}
@@ -76,8 +78,10 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
              border-[1px] rounded-md transition-all duration-200 my-1
              bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
                 >
-                  <FiFacebook className="me-2 text-blue-900 dark:text-zinc-300" />
-                  <span className="text-zinc-800">Facebook</span>
+                  <FiFacebook className="me-2 text-blue-900" />
+                  <span className="text-zinc-800 dark:text-zinc-300">
+                    Facebook
+                  </span>
                 </Link>
               </div>
             </>
