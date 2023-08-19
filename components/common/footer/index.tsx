@@ -1,11 +1,9 @@
 "use client";
 
-import tanslate from "@/utils/translation";
 import useFooter from "./use";
 import cls from "classnames";
 
 const Footer = () => {
-  const t = tanslate();
   const { layout, border } = useFooter();
   return (
     <>
@@ -31,7 +29,7 @@ const Footer = () => {
             { "w-full": layout === "singapore" }
           )}
         >
-          <p className="text-zinc-700 dark:text-zinc-400">{t("title")}</p>
+          <p className="text-zinc-700 dark:text-zinc-400">{"title"}</p>
         </div>
       </div>
     </>

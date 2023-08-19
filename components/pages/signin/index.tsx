@@ -6,13 +6,15 @@ import Link from "next/link";
 import useSignin from "./use";
 import AuthErrorMessage from "@/components/shared/error-messages/auth";
 import AuthButton from "@/components/shared/buttons/auth";
+import useTranslate from "@/hooks/use-translate";
 
 const Signin = () => {
   const { onSubmit, register, errors, loading } = useSignin();
+  const t = useTranslate("root");
   return (
     <AuthContaienr
       desc="Enter your email & password to login"
-      title="Sign in to account"
+      title={t({ key: "title", variables: { r: "sign" } })}
       type="signin"
     >
       <form className="mt-8 w-full" autoComplete="off" onSubmit={onSubmit}>
