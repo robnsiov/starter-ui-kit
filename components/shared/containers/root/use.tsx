@@ -23,13 +23,13 @@ const useRootContainer = () => {
     localStorage.setItem("lang", LANG);
   }
 
-  // Forced to set direction based on language
-  const lang = localStorage.getItem("lang");
-  const dir = languages[lang as LANGS].dir;
-  localStorage.setItem("dir", dir);
-
   const promise = Promise.resolve(() => {
     // Forced to set color
+
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+
     if (!("color" in localStorage)) {
       localStorage.setItem("color", "#d536cd");
       const color = "#d536cd";
@@ -38,13 +38,6 @@ const useRootContainer = () => {
       const color = localStorage.getItem("color");
       document.documentElement.style.setProperty("--primary", color);
     }
-
-    // set delay for dir attr
-    const html = document.documentElement;
-    html.dir = dir;
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") html.classList.add("dark");
-    else html.classList.remove("dark");
   });
 
   promise.then((resolve) => resolve());

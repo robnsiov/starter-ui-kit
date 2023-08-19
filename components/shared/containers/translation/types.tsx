@@ -4,4 +4,5 @@ export default interface TranslationContainerImpl extends UseTranslationImpl {
 
 export interface UseTranslationImpl {
   messages: { [key: string]: { [key: string]: string } };
+  locale: string;
 }

@@ -6,9 +6,19 @@ import useTranslation from "./use";
 const TranslationContainer = ({
   children,
   messages,
+  locale,
 }: TranslationContainerImpl) => {
-  useTranslation({ messages });
-  return <>{children}</>;
+  const { dir } = useTranslation({ messages, locale });
+  return (
+    <>
+      <div
+        dir={dir}
+        style={{ fontFamily: dir === "ltr" ? "var(--pop)" : "var(--san)" }}
+      >
+        {children}
+      </div>
+    </>
+  );
 };
 
 export default TranslationContainer;

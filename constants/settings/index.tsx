@@ -22,6 +22,7 @@ export const layoutes: LayoutesImpl = [
   // fake pic for rome
   { label: "rome", pic: "/images/dubai.png", border: true, default: "moscow" },
 ];
+
 const settings: SettingsImpl = {
   THEME: "Light",
   LANG: "English",

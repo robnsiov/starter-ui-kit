@@ -1,8 +1,11 @@
-type Lanuages = Record<string, { countryCode: string; dir: "ltr" | "rtl" }>;
+type Lanuages = Record<
+  string,
+  { countryCode: string; dir: "ltr" | "rtl"; path: string }
+>;
 
 export const languages: Lanuages = {
-  English: { countryCode: "US", dir: "ltr" },
-  Persian: { countryCode: "IR", dir: "rtl" },
+  English: { countryCode: "US", dir: "ltr", path: "en" },
+  Persian: { countryCode: "IR", dir: "rtl", path: "fa" },
   // German: { countryCode: "DE", dir: "ltr" },
   // Arabic: { countryCode: "Kw", dir: "rtl" },
 };

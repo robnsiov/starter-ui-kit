@@ -7,9 +7,3 @@ html {
   --border: 100px;
   --secondary: #fff;
 }
-html body{
-  font-family: var(--pop);
-}
-html[dir='rtl'] body{
-  font-family: var(--san) !important;
-}

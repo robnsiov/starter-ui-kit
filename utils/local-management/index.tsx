@@ -1,17 +1,14 @@
-interface localManagementImpl {
-  key: string;
-}
-type localManagementOutImpl = [string | null, (data: string) => void];
+import LocalManagementImpl, { LocalManagementOutImpl } from "./types";
 
 const localManagement = ({
   key,
-}: localManagementImpl): localManagementOutImpl => {
+}: LocalManagementImpl): LocalManagementOutImpl => {
   const get =
     typeof localStorage === "undefined" ? "" : localStorage.getItem(key);
-  const setLocal = (data: string) => {
+  const set = (data: string) => {
     if (typeof localStorage !== "undefined") localStorage.setItem(key, data);
   };
-  return [get, setLocal];
+  return [get, set];
 };
 
 export default localManagement;

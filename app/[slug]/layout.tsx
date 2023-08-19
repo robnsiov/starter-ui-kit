@@ -16,7 +16,7 @@ const Layout = async ({
   }
   return (
     <>
-      <TranslationContainer messages={messages}>
+      <TranslationContainer messages={messages} locale={slug}>
         {children}
       </TranslationContainer>
     </>
