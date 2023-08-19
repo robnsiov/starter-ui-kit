@@ -3,8 +3,14 @@ import DashboardContainer from "@/components/shared/containers/dashboard";
 import useDashboardLayout from "./use";
 import cls from "classnames";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { border, layout, isAuthenticated } = useDashboardLayout();
+const Layout = ({
+  children,
+  params: { slug },
+}: {
+  children: React.ReactNode;
+  params: { slug: string };
+}) => {
+  const { border, layout, isAuthenticated } = useDashboardLayout(slug);
   return (
     <>
       {isAuthenticated && (

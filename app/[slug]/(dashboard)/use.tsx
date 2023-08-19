@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import isAuthenticatedState from "@/context/is-authenticated";
 import localManagement from "@/utils/local-management";
 
-const useDashboardLayout = () => {
+const useDashboardLayout = (slug: string) => {
   const router = useRouter();
   const isAuthenticated = useRecoilValue(isAuthenticatedState);
   const match = useMediaQuery("(max-width:1023px)");
@@ -28,7 +28,7 @@ const useDashboardLayout = () => {
   }, [match]);
 
   useEffect(() => {
-    if (!isAuthenticated) router.push("/signin");
+    if (!isAuthenticated) router.push(`/${slug}/signin`);
   }, []);
 
   return { border, layout, isAuthenticated };

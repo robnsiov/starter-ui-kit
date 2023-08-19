@@ -6,11 +6,13 @@ import localManagement from "@/utils/local-management";
 import { languages } from "@/constants/settings/types";
 import settings from "@/constants/settings";
 import cookieManagement from "@/utils/cookie-management";
+import activePathState from "@/context/active-path";
 
 const useTranslation = ({ messages, locale }: UseTranslationImpl) => {
   const setTranslation = useSetRecoilState(TranslationState);
   const [_, setDir] = localManagement({ key: "dir" });
   const [__, setLang] = cookieManagement({ key: "lang" });
+  const setActivePath = useSetRecoilState(activePathState);
 
   let dir = "";
   let lang = Object.entries(languages).find(([_, { path }]) => path === locale);
@@ -27,6 +29,7 @@ const useTranslation = ({ messages, locale }: UseTranslationImpl) => {
 
   useEffect(() => {
     setTranslation(messages);
+    setActivePath(locale);
   }, []);
   return { dir };
 };
