@@ -1,5 +1,5 @@
+import NavLink from "@/components/shared/links/nav-link";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -21,13 +21,13 @@ export default function NotFound() {
           The page you are attempting to reach is currently not available. This
           may be because the page does not exist or has been moved.
         </p>
-        <Link
+        <NavLink
           className="px-4 py-2 bg-indigo-500 
           text-zinc-200 rounded-md transition-all duration-200 hover:bg-indigo-600"
           href={"/"}
         >
           Back To Home Page
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

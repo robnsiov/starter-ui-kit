@@ -6,7 +6,7 @@ import routes from "./routes";
 import useProfile from "./use";
 import cls from "classnames";
 import Pic from "next/image";
-import Link from "next/link";
+import NavLink from "@/components/shared/links/nav-link";
 
 const Profile = () => {
   const { pathname } = useProfile();
@@ -75,7 +75,7 @@ const Profile = () => {
               </span>
             </SidebarLink>
           ))}
-          <Link
+          <NavLink
             href={"/signin"}
             className="profile-link px-3 py-2 flex justify-start items-start
             group cursor-pointer"
@@ -91,7 +91,7 @@ const Profile = () => {
             >
               Logout
             </span>
-          </Link>
+          </NavLink>
         </MotionDropDown>
       </div>
     </>

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FiFacebook, FiLinkedin } from "react-icons/fi";
 import { RxTwitterLogo } from "react-icons/rx";
 import AuthContainerImpl from "./types";
+import NavLink from "../../links/nav-link";
 
 const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
   return (
@@ -13,9 +13,9 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
      bg-cover bg-center md:bg-none py-8 relative"
       >
         <div className="w-full h-full absolute inset-0 bg-[url('/images/auth.jpg')] dark:hidden"></div>
-        <Link href={"/"} className="mb-8 md:mb-4 relative z-10">
+        <NavLink href={"/"} className="mb-8 md:mb-4 relative z-10">
           <Image src={"/images/logo.png"} width="130" height="50" alt="logo" />
-        </Link>
+        </NavLink>
         <div
           className="flex justify-center items-start flex-col 
       p-8 bg-white dark:bg-dark dark:shadow-none shadow-xl w-full max-w-md rounded-lg 
@@ -44,7 +44,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                 className="w-full flex justify-center
          items-center mt-4 scale-90 460px:scale-x-100 460px:scale-y-95 flex-wrap"
               >
-                <Link
+                <NavLink
                   href={"/"}
                   className="px-4 py-2 border-indigo-100 
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
@@ -56,8 +56,8 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   <span className="text-zinc-800 dark:text-zinc-300">
                     LinkedIn
                   </span>
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   href={"/"}
                   className="px-4 py-2 border-indigo-100
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
@@ -69,8 +69,8 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   <span className="text-zinc-800 dark:text-zinc-300">
                     Twitter
                   </span>
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   href={"/"}
                   className="px-4 py-2 border-indigo-100
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
@@ -82,7 +82,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   <span className="text-zinc-800 dark:text-zinc-300">
                     Facebook
                   </span>
-                </Link>
+                </NavLink>
               </div>
             </>
           )}
@@ -91,7 +91,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
               {type === "signup" && "Already have an account"}
               {type === "signin" && "Don't have account?"}
             </span>
-            <Link
+            <NavLink
               className="text-primary opacity-90 ms-2 duration-200 transition-all
           hover:opacity-100"
               href={
@@ -104,7 +104,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
             >
               {type === "signin" && "Create Account"}
               {type === "signup" && "Sign in"}
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>

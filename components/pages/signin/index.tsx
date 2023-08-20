@@ -2,11 +2,11 @@
 
 import AuthContaienr from "@/components/shared/containers/auth";
 import AuthInput from "@/components/shared/inputs/auth";
-import Link from "next/link";
 import useSignin from "./use";
 import AuthErrorMessage from "@/components/shared/error-messages/auth";
 import AuthButton from "@/components/shared/buttons/auth";
 import useTranslate from "@/hooks/use-translate";
+import NavLink from "@/components/shared/links/nav-link";
 
 const Signin = () => {
   const { onSubmit, register, errors, loading } = useSignin();
@@ -43,13 +43,13 @@ const Signin = () => {
           <AuthErrorMessage error={errors.password?.message} />
         </label>
         <div className="mt-4 text-right rtl:text-left">
-          <Link
+          <NavLink
             className="text-primary text-sm opacity-90
             duration-200 transition-all hover:opacity-100"
             href={"/forgot-pass"}
           >
             Forgot password?
-          </Link>
+          </NavLink>
         </div>
         <AuthButton title="Sign in" loading={loading} />
       </form>
