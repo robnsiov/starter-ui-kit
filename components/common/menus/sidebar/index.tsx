@@ -8,6 +8,7 @@ import cls from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
 import SidebarLink from "@/components/shared/links/sidebar-link";
 import useSidebar from "./use";
+import matchPath from "@/utils/match-path";
 
 const Sidebar = () => {
   const {
@@ -88,7 +89,7 @@ const Sidebar = () => {
                               {
                                 "bg-[#F5F4FF] dark:bg-indigo-500/20":
                                   activeRoute.levelOne === levelOneId ||
-                                  pathname === href,
+                                  matchPath(href, pathname),
                               }
                             )}
                             onClick={() => activeLevelOne(levelOneId)}
@@ -98,7 +99,7 @@ const Sidebar = () => {
                                 `absolute top-1 right-0 rtl:right-auto rtl:left-0 bottom-1 w-1 transition-all duration-200
                           rounded-l-md bg-indigo-500 opacity-0 rtl:rounded-l-none rtl:rounded-r-md`,
                                 activeRoute.levelOne === levelOneId ||
-                                  pathname === href
+                                  matchPath(href, pathname)
                                   ? "opacity-100"
                                   : "opacity-0"
                               )}
@@ -111,7 +112,7 @@ const Sidebar = () => {
                                   {
                                     "text-primary":
                                       activeRoute.levelOne === levelOneId ||
-                                      pathname === href,
+                                      matchPath(href, pathname),
                                   }
                                 )}
                                 size="18"
@@ -121,7 +122,7 @@ const Sidebar = () => {
                                   `text-sm font-semibold transition-all duration-200
                    tracking-wider group-hover:text-primary dark:text-zinc-400`,
                                   activeRoute.levelOne === levelOneId ||
-                                    pathname === href
+                                    matchPath(href, pathname)
                                     ? "text-primary"
                                     : "text-zinc-500"
                                 )}
@@ -157,7 +158,7 @@ const Sidebar = () => {
                                   },
 
                                   activeRoute.levelOne === levelOneId ||
-                                    pathname === href
+                                    matchPath(href, pathname)
                                     ? "text-primary rotate-90"
                                     : "text-zinc-500 rtl:rotate-180"
                                 )}
@@ -211,7 +212,7 @@ const Sidebar = () => {
                                         group-hover:text-primary relative`,
                                                   activeRoute.levelTwo ===
                                                     levelTwoId ||
-                                                    pathname === href
+                                                    matchPath(href, pathname)
                                                     ? "text-primary"
                                                     : "text-zinc-500"
                                                 )}
@@ -225,7 +226,7 @@ const Sidebar = () => {
                                                transition-all duration-200`,
                                                     activeRoute.levelTwo ===
                                                       levelTwoId ||
-                                                      pathname === href
+                                                      matchPath(href, pathname)
                                                       ? "opacity-100"
                                                       : "opacity-0"
                                                   )}
@@ -243,7 +244,7 @@ const Sidebar = () => {
                                                 },
                                                 activeRoute.levelTwo ===
                                                   levelTwoId ||
-                                                  pathname === href
+                                                  matchPath(href, pathname)
                                                   ? "text-primary rotate-90"
                                                   : "text-zinc-500"
                                               )}

@@ -8,6 +8,7 @@ import { Fragment } from "react";
 import useMenuIcon from "./use";
 import cls from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
+import matchPath from "@/utils/match-path";
 
 const IconMenu = () => {
   const {
@@ -56,8 +57,10 @@ const IconMenu = () => {
                               `text-sm text-zinc-500 tracking-wide
           duration-200 transition-all group-hover:text-primary w-full truncate font-semibold dark:text-zinc-400`,
                               {
-                                "text-primary tracking-widest":
-                                  pathname === href,
+                                "text-primary tracking-widest": matchPath(
+                                  href,
+                                  pathname
+                                ),
                               }
                             )}
                           >
@@ -113,7 +116,7 @@ const IconMenu = () => {
           duration-200 transition-all hover:text-primary w-full truncate font-semibold dark:text-zinc-400`,
                                         {
                                           "text-primary tracking-widest":
-                                            pathname === href,
+                                            matchPath(href, pathname),
                                         }
                                       )}
                                     >
@@ -183,8 +186,10 @@ const IconMenu = () => {
                py-4 border-b-[1px] border-zinc-200 
                last:border-none group relative dark:border-zinc-700`,
                         {
-                          "bg-indigo-100/50 dark:bg-dark-800":
-                            pathname === href,
+                          "bg-indigo-100/50 dark:bg-dark-800": matchPath(
+                            href,
+                            pathname
+                          ),
                         }
                       )}
                     >
@@ -215,7 +220,7 @@ const IconMenu = () => {
                       <div className="relative">
                         <Icon
                           className={cls(`dark:text-white md:scale-90`, {
-                            "text-primary": pathname === href,
+                            "text-primary": matchPath(href, pathname),
                           })}
                         />
                       </div>
@@ -226,7 +231,7 @@ const IconMenu = () => {
               tracking-wide duration-200 transition-all
                group-hover:text-primary w-full
               truncate px-1 text-center dark:text-zinc-400 md:hidden`,
-                            { "text-primary": pathname === href }
+                            { "text-primary": matchPath(href, pathname) }
                           )}
                         >
                           {title}

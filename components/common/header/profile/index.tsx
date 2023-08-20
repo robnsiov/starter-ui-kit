@@ -7,6 +7,7 @@ import useProfile from "./use";
 import cls from "classnames";
 import Pic from "next/image";
 import NavLink from "@/components/shared/links/nav-link";
+import matchPath from "@/utils/match-path";
 
 const Profile = () => {
   const { pathname } = useProfile();
@@ -57,7 +58,7 @@ const Profile = () => {
               <Icon
                 className={cls(
                   `me-2 duration-200 transition-all group-hover:text-primary`,
-                  pathname === href
+                  matchPath(href, pathname)
                     ? "text-primary"
                     : "text-zinc-500 dark:text-zinc-100"
                 )}
@@ -66,7 +67,7 @@ const Profile = () => {
               <span
                 className={cls(
                   `text-sm duration-200 transition-all group-hover:text-primary`,
-                  pathname === href
+                  matchPath(href, pathname)
                     ? "text-primary"
                     : "text-zinc-900 dark:text-zinc-100"
                 )}

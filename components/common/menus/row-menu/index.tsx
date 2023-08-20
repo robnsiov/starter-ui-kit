@@ -11,6 +11,7 @@ import cls from "classnames";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import useOnScreen from "@/hooks/use-on-screen/use-one-screen";
+import matchPath from "@/utils/match-path";
 
 const RowMenu = () => {
   const {
@@ -122,7 +123,7 @@ const RowMenu = () => {
                             className={cls(
                               `duration-200 transition-all group-hover:text-primary`,
                               activeRoute.levelOne === levelOneId ||
-                                pathname === href
+                                matchPath(href, pathname)
                                 ? "text-primary"
                                 : "dark:text-zinc-300 text-zinc-700"
                             )}
@@ -132,7 +133,7 @@ const RowMenu = () => {
                               `font-semibold ms-2.5
                         duration-200 transition-all group-hover:text-primary dark:text-zinc-400 text-sm`,
                               activeRoute.levelOne === levelOneId ||
-                                pathname === href
+                                matchPath(href, pathname)
                                 ? "text-primary tracking-widest"
                                 : "text-zinc-800"
                             )}
@@ -166,7 +167,7 @@ const RowMenu = () => {
                                     href={href}
                                     active={
                                       activeRoute.levelTwo === levelTwoId ||
-                                      href === pathname
+                                      matchPath(href, pathname)
                                     }
                                   />
                                   {children && children.length !== 0 && (
@@ -180,7 +181,7 @@ const RowMenu = () => {
                                             active={
                                               activeRoute.levelThree ===
                                                 levelThreeId ||
-                                              href === pathname
+                                              matchPath(href, pathname)
                                             }
                                             onClick={() =>
                                               activeLevelThree(
