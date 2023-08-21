@@ -1,4 +1,10 @@
+import Home from "@/components/pages/home";
+
 const Page = () => {
-  return <>00</>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 };
 export default Page;

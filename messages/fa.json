@@ -59,5 +59,13 @@
         "los-angeles": "لس آنجلس",
         "paris": "پاریس",
         "rome ": "رم"
+    },
+    "pages": {
+        "home": "صفحه خانه",
+        "inbox": "صفحه صندوق",
+        "taskBoard" : "صفحه تسک",
+        "formValidation": "صفحه اعتبارسنجی فرم",
+        "baseInput": "صفحه اینپوت پایه",
+        "email" : "صفحه ایمیل"
     }
 }

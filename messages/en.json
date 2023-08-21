@@ -59,5 +59,13 @@
         "los-angeles": "Los-Angeles",
         "paris": "Paris",
         "rome ": "Rome"
+    },
+    "pages": {
+        "home": "Home Page",
+        "inbox": "Inbox Page",
+        "taskBoard" : "Tasks Page",
+        "formValidation": "Form validation Page",
+        "baseInput": "Base input Page",
+        "email" : "Email Page"
     }
 }
