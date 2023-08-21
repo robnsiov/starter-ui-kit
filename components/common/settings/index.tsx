@@ -14,7 +14,7 @@ import useTranslate from "@/hooks/use-translate";
 
 const Settings = () => {
   const {
-    primaryLighten,
+    primaryCL,
     selectedTab,
     setSelectedTab,
     openMenu,
@@ -234,14 +234,14 @@ const Settings = () => {
               title={t({ key: "layouts" })}
               active={selectedTab === "layouts"}
               size="18"
-              primaryLighten={primaryLighten}
+              primaryCL={primaryCL}
               onClick={() => setSelectedTab("layouts")}
             />
             <Tab
               Icon={BiColorFill}
               title={t({ key: "colors" })}
               active={selectedTab === "options"}
-              primaryLighten={primaryLighten}
+              primaryCL={primaryCL}
               onClick={() => setSelectedTab("options")}
             />
           </div>

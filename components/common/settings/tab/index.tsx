@@ -4,7 +4,7 @@ import cls from "classnames";
 const Tab = ({
   active,
   Icon,
-  primaryLighten,
+  primaryCL,
   title,
   size = "22",
   onClick = () => {},
@@ -32,18 +32,18 @@ const Tab = ({
           group-hover:visible scale-0 group-hover:scale-100
           group-hover:right-[38px]
           rtl:group-hover:left-[38px]
-          rtl:group-hover:right-auto
+          rtl:group-hover:right-auto dark:!bg-dark
           "
           style={{
-            background: primaryLighten || "",
+            background: primaryCL || "",
           }}
         >
           <span className="text-primary">{title}</span>
           <span
             className="absolute top-1/2 -translate-y-1/2 w-1.5 aspect-square
-            right-[-3px] rtl:right-auto rtl:left-[-3px] rotate-45"
+            right-[-3px] rtl:right-auto rtl:left-[-3px] rotate-45 dark:!bg-dark"
             style={{
-              background: primaryLighten || "",
+              background: primaryCL || "",
             }}
           ></span>
         </div>
@@ -51,11 +51,11 @@ const Tab = ({
           className={cls(
             `absolute inset-0 rounded-md  
           scale-0 transition-all duration-200 
-          group-hover:scale-100`,
+          group-hover:scale-100 dark:!bg-dark`,
             { "scale-100": active }
           )}
           style={{
-            background: primaryLighten || "",
+            background: primaryCL || "",
           }}
         ></span>
       </div>

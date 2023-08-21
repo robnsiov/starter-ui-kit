@@ -33,7 +33,7 @@ const useSettings = () => {
     if (layout) setActiveLayout(layout);
   }, []);
 
-  const primaryLighten = primary
+  const primaryCL = primary
     ? color(primary || "#fff")
         .lighten(0.8)
         .hex()
@@ -51,7 +51,7 @@ const useSettings = () => {
   };
 
   return {
-    primaryLighten,
+    primaryCL,
     selectedTab,
     setSelectedTab,
     openMenu,
