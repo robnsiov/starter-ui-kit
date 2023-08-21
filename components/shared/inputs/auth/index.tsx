@@ -16,7 +16,7 @@ const AuthInput = forwardRef(function AuthInput(props: AuthInputImpl, ref) {
           className={cls(
             `w-full outline-none mt-1.5 bg-indigo-100/60 dark:bg-dark-800 dark:text-zinc-200
             border-[1px] 
-             rounded-md caret-zinc-600 text-zinc-500 text-sm dark:caret-zinc-300`,
+             rounded-md caret-zinc-600 text-zinc-800 text-sm dark:caret-zinc-300`,
             props.className ? props.className : "",
             props.error ? "border-red-400" : "border-zinc-400/50",
             props.type === "password" ? "p-3 pe-14" : "p-3"
