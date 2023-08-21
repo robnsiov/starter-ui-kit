@@ -1,4 +1,3 @@
-// @ts-ignore
 import LocalManagementImpl, { LocalManagementOutImpl } from "./types";
 
 const localManagement = ({
@@ -7,10 +6,10 @@ const localManagement = ({
   const get =
     typeof window !== "undefined" && typeof localStorage !== "undefined"
       ? ""
-      : localStorage.getItem(key);
+      : window.localStorage.getItem(key);
   const set = (data: string) => {
     if (typeof window !== "undefined" && typeof localStorage !== "undefined")
-      localStorage.setItem(key, data);
+      window.localStorage.setItem(key, data);
   };
   return [get, set];
 };
