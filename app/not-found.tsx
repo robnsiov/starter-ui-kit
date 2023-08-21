@@ -1,7 +1,10 @@
+"use client";
 import NavLink from "@/components/shared/links/nav-link";
+import useTranslate from "@/hooks/use-translate";
 import Image from "next/image";
 
-export default function NotFound() {
+const NotFound = () => {
+  const t = useTranslate("notFound");
   return (
     <div
       className="w-full h-screen flex justify-center items-center
@@ -17,18 +20,17 @@ export default function NotFound() {
         <span className="text-blue-500 font-extrabold text-[200px] md:text-[100px]">
           400
         </span>
-        <p className="mb-8 md:mb-4  text-zinc-400">
-          The page you are attempting to reach is currently not available. This
-          may be because the page does not exist or has been moved.
-        </p>
+        <p className="mb-8 md:mb-4  text-zinc-400">{t({ key: "desc" })}</p>
         <NavLink
           className="px-4 py-2 bg-indigo-500 
           text-zinc-200 rounded-md transition-all duration-200 hover:bg-indigo-600"
           href={"/"}
         >
-          Back To Home Page
+          {t({ key: "button" })}
         </NavLink>
       </div>
     </div>
   );
-}
+};
+
+export default NotFound;
