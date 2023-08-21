@@ -4,9 +4,12 @@ const localManagement = ({
   key,
 }: LocalManagementImpl): LocalManagementOutImpl => {
   const get =
-    typeof typeof window !== "undefined" ? "" : localStorage.getItem(key);
+    typeof window !== "undefined" && typeof localStorage !== "undefined"
+      ? ""
+      : localStorage.getItem(key);
   const set = (data: string) => {
-    if (typeof window !== "undefined") localStorage.setItem(key, data);
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined")
+      localStorage.setItem(key, data);
   };
   return [get, set];
 };
