@@ -13,8 +13,9 @@ const matchPath = (href: string, pathname: string) => {
   if (slashCount === 1) mainPathname = "/";
   else {
     const withoutFirstSlash = pathname.slice(1);
-    mainPathname = pathname.slice(withoutFirstSlash.indexOf("/"));
+    mainPathname = pathname.slice(withoutFirstSlash.indexOf("/") + 1);
   }
+  console.log(mainPathname, href);
   return mainPathname === href;
 };
 
