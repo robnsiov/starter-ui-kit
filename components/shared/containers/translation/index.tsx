@@ -13,6 +13,7 @@ const TranslationContainer = ({
     <>
       <div
         dir={dir}
+        id="translation"
         style={{ fontFamily: dir === "ltr" ? "var(--pop)" : "var(--san)" }}
       >
         {children}

@@ -3,7 +3,7 @@ import { LANGS, languages } from "@/constants/settings/types";
 import { useEffect } from "react";
 
 const useRootContainer = () => {
-  const { LANG, THEME } = settings;
+  const { THEME } = settings;
   if (typeof localStorage === "undefined") return;
 
   if (!("layout" in localStorage)) {
@@ -18,13 +18,11 @@ const useRootContainer = () => {
     localStorage.setItem("theme", THEME);
   }
 
-  // If the lang was not selected by the user
-  if (!("lang" in localStorage)) {
-    localStorage.setItem("lang", LANG);
-  }
-
   const promise = Promise.resolve(() => {
     // Forced to set color
+
+    const dir = localStorage.getItem("dir");
+    if (dir) document.documentElement.dir = dir;
 
     const theme = localStorage.getItem("theme");
     if (theme === "dark") document.documentElement.classList.add("dark");
