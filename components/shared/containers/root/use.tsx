@@ -1,45 +1,42 @@
 import settings from "@/constants/settings";
 import { LANGS, languages } from "@/constants/settings/types";
-import { useEffect } from "react";
+import localManagement from "@/utils/local-management";
+import { useEffect, useLayoutEffect } from "react";
 
 const useRootContainer = () => {
   const { THEME } = settings;
-  if (typeof localStorage === "undefined") return;
+  const [layout, setLayout] = localManagement({ key: "layout" });
+  const [theme, setTheme] = localManagement({ key: "theme" });
+  const [dir] = localManagement({ key: "dir" });
+  const [border, setBorder] = localManagement({ key: "border" });
+  const [color, setColor] = localManagement({ key: "color" });
 
-  if (!("layout" in localStorage)) {
-    localStorage.setItem("layout", "cuba");
+  if (!layout) {
+    setLayout("cuba");
   }
-  if (!("border" in localStorage)) {
-    localStorage.setItem("border", "false");
+  if (!border) {
+    setBorder("false");
   }
 
   // If the theme was not selected by the user
-  if (!("theme" in localStorage)) {
-    localStorage.setItem("theme", THEME);
+  if (!theme) {
+    setTheme(THEME);
   }
 
-  const promise = Promise.resolve(() => {
-    // Forced to set color
-
-    const dir = localStorage.getItem("dir");
+  useLayoutEffect(() => {
     if (dir) document.documentElement.dir = dir;
 
-    const theme = localStorage.getItem("theme");
     if (theme === "dark") document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
-
-    if (!("color" in localStorage)) {
-      localStorage.setItem("color", "#d536cd");
+    // Forced to set color
+    if (!color) {
       const color = "#d536cd";
+      setColor(color);
       document.documentElement.style.setProperty("--primary", color);
     } else {
-      const color = localStorage.getItem("color");
       document.documentElement.style.setProperty("--primary", color);
     }
-  });
-
-  promise.then((resolve) => resolve());
-
+  }, []);
   return {};
 };
 export default useRootContainer;

@@ -5,6 +5,7 @@ import localManagement from "@/utils/local-management";
 
 const useMenuIcon = () => {
   const pathname = usePathname();
+  const [currentDir] = localManagement({ key: "dir" });
   const [selectedChildren, setSelectedChildren] =
     useState<SelectedChildrenImpl>([]);
   const [activeSubChilrenId, setActiveSubChildrenId] = useState(-1);
@@ -27,10 +28,7 @@ const useMenuIcon = () => {
   };
 
   const setCurrentDir = () => {
-    if (typeof localStorage !== "undefined") {
-      const currentDir = localStorage.getItem("dir");
-      if (currentDir) setDir(currentDir);
-    }
+    if (currentDir) setDir(currentDir);
   };
 
   useEffect(() => {

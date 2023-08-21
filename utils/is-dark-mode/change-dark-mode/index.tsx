@@ -1,11 +1,14 @@
+import localManagement from "@/utils/local-management";
+
 const changeDarkMode = (isDark: boolean, forceUpdate: Function | undefined) => {
-  if (typeof localStorage === "undefined") return;
+  const [theme, setTheme] = localManagement({ key: "theme" });
+  if (typeof document === "undefined") return;
   const html = document.documentElement;
   if (isDark) {
-    localStorage.setItem("theme", "light");
+    setTheme("light");
     html.classList.remove("dark");
   } else {
-    localStorage.setItem("theme", "dark");
+    setTheme("dark");
     html.classList.add("dark");
   }
   if (forceUpdate) forceUpdate();
