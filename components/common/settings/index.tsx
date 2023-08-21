@@ -133,7 +133,7 @@ const Settings = () => {
                         {t({ key: "unlimitedColors" })}
                       </h3>
                       <div className="flex justify-start items-center mt-1">
-                        <Colros />
+                        <Colros closeMenu={() => setOpenMenu(false)} />
                       </div>
                     </div>
                     {/* <div className="flex justify-start items-start flex-col flex-wrap mb-4">

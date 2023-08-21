@@ -12,7 +12,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
       <div
         className="w-full min-h-screen flex 
     justify-center items-center flex-col 
-     bg-cover bg-center md:bg-none py-8 relative"
+     bg-cover bg-center md:bg-none py-8 relative px-3"
       >
         <div className="w-full h-full absolute inset-0 bg-[url('/images/auth.jpg')] dark:hidden"></div>
         <NavLink href={"/"} className="mb-8 md:mb-4 relative z-10">
@@ -44,7 +44,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
               </div>
               <div
                 className="w-full flex justify-center
-         items-center mt-4 scale-90 460px:scale-x-100 460px:scale-y-95 flex-wrap"
+         items-center mt-4 460px:mt-1 scale-90 460px:scale-x-100 460px:scale-y-95 flex-wrap"
               >
                 <NavLink
                   href={"/"}
@@ -52,7 +52,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                    flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
-             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
+             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70"
                 >
                   <FiLinkedin className="me-2 text-blue-400" />
                   <span className="text-zinc-800 dark:text-zinc-300">
@@ -65,7 +65,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                   flex justify-center items-center mx-1.5
              border-[1px] rounded-md transition-all duration-200 my-1 460px:mx-0
-             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
+             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:ml-2"
                 >
                   <RxTwitterLogo className="me-2 text-blue-400" />
                   <span className="text-zinc-800 dark:text-zinc-300">
@@ -78,7 +78,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                   flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
-             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-full"
+             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70"
                 >
                   <FiFacebook className="me-2 text-blue-900" />
                   <span className="text-zinc-800 dark:text-zinc-300">

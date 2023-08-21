@@ -43,6 +43,7 @@ const useSettings = () => {
     setBorder(def ? "true" : "false");
     setActiveLayout((def as string) ?? layout);
     treeForceUpdate.done();
+    setOpenMenu(false);
   };
 
   const checkActiveLayout = ({ def, layout }: SameLayoutImpl) => {

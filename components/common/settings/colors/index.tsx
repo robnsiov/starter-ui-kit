@@ -1,9 +1,10 @@
 import cls from "classnames";
 import useColors from "./use";
 import { useRef } from "react";
+import ColorsImpl from "./type";
 
-const Colros = () => {
-  const { color, setColor } = useColors();
+const Colros = ({ closeMenu }: ColorsImpl) => {
+  const { color, setColor } = useColors({ closeMenu });
 
   const ref = useRef<HTMLInputElement>(null);
 

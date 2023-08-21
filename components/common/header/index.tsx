@@ -27,7 +27,7 @@ const Header = () => {
           className={cls(
             `h-full  relative
               border-b-[1px] border-zinc-200/60 dark:border-zinc-700 
-      flex justify-end items-center py-4 px-5
+      flex justify-between items-center py-4 px-5
       transition-all duration-300 bg-white dark:bg-dark w-full `,
             {
               "border-t-[1px] border-r-[1px] rounded-tr-xl border-zinc-200/60 rtl:border-r-0 rtl:border-l-[1px] rtl:rounded-tr-none rtl:rounded-tl-xl":
@@ -43,6 +43,8 @@ const Header = () => {
             }
           )}
         >
+          {/* don't remove this fake element */}
+          <div id="fake"></div>
           {layout === "cuba" && <MenuIcon />}
           <div className="flex justify-start items-center relative">
             <SettingsIocns />

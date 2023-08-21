@@ -4,8 +4,9 @@ import { useDidUpdate } from "@mantine/hooks";
 import { useRecoilValue } from "recoil";
 import treeForceUpdateState from "@/context/tree-force-update";
 import localManagement from "@/utils/local-management";
+import { UseColorsImpl } from "./type";
 
-const useColors = () => {
+const useColors = ({ closeMenu }: UseColorsImpl) => {
   const [color, setColor] = useState("");
   const forceTreeUpdate = useRecoilValue(treeForceUpdateState);
   const [localColor, setLocalColor] = localManagement({ key: "color" });
@@ -32,6 +33,7 @@ const useColors = () => {
     setTimeout(() => {
       forceTreeUpdate.done();
     });
+    closeMenu();
   };
 
   return { color, setColor: setActiveColor };
