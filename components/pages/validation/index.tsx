@@ -3,10 +3,10 @@
 import useTranslate from "@/hooks/use-translate";
 
 const Validation = () => {
-  const t = useTranslate("taskBoard");
+  const t = useTranslate("pages");
   return (
     <>
-      <p>{t({ key: "home" })}</p>
+      <p>{t({ key: "formValidation" })}</p>
     </>
   );
 };

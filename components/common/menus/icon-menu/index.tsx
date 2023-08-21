@@ -49,6 +49,7 @@ const IconMenu = () => {
               last:border-none relative"
                       >
                         <SidebarLink
+                          onClick={() => href === "#" || toggleChildren([])}
                           href={href}
                           className="py-3 px-4 
           w-[calc(100%-25px)] flex justify-start items-center group"
@@ -108,6 +109,9 @@ const IconMenu = () => {
                                 >
                                   <SidebarLink
                                     href={href}
+                                    onClick={() =>
+                                      href === "#" || toggleChildren([])
+                                    }
                                     className="w-full border-b-[1px] border-zinc-100
                                     dark:border-zinc-700
             flex justify-start items-center"
@@ -178,6 +182,7 @@ const IconMenu = () => {
                   ({ href, icon: Icon, id, title, label, children }) => (
                     <SidebarLink
                       onClick={() => {
+                        href === "#" || toggleChildren([]);
                         if (children) toggleChildren(children);
                       }}
                       key={id}
