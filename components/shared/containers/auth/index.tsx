@@ -3,8 +3,10 @@ import { FiFacebook, FiLinkedin } from "react-icons/fi";
 import { RxTwitterLogo } from "react-icons/rx";
 import AuthContainerImpl from "./types";
 import NavLink from "../../links/nav-link";
+import useTranslate from "@/hooks/use-translate";
 
 const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
+  const t = useTranslate("signin");
   return (
     <>
       <div
@@ -35,8 +37,8 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   className="text-zinc-600/90 dark:text-zinc-300 text-[15px]
           font-semibold whitespace-nowrap me-3"
                 >
-                  Or {type === "signin" && "sign in"}{" "}
-                  {type === "signup" && "sign up"} with
+                  {type === "signin" && t({ key: "or" })}{" "}
+                  {type === "signup" && "sign up"}
                 </span>
                 <div className="w-full h-0.5 bg-indigo-100/70"></div>
               </div>
@@ -54,7 +56,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                 >
                   <FiLinkedin className="me-2 text-blue-400" />
                   <span className="text-zinc-800 dark:text-zinc-300">
-                    LinkedIn
+                    {t({ key: "linkedin" })}
                   </span>
                 </NavLink>
                 <NavLink
@@ -67,7 +69,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                 >
                   <RxTwitterLogo className="me-2 text-blue-400" />
                   <span className="text-zinc-800 dark:text-zinc-300">
-                    Twitter
+                    {t({ key: "twitter" })}
                   </span>
                 </NavLink>
                 <NavLink
@@ -80,7 +82,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                 >
                   <FiFacebook className="me-2 text-blue-900" />
                   <span className="text-zinc-800 dark:text-zinc-300">
-                    Facebook
+                    {t({ key: "facebook" })}
                   </span>
                 </NavLink>
               </div>
@@ -89,7 +91,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
           <div className="w-full text-center  text-sm mt-2.5">
             <span className="text-zinc-500">
               {type === "signup" && "Already have an account"}
-              {type === "signin" && "Don't have account?"}
+              {type === "signin" && t({ key: "dontHave" })}
             </span>
             <NavLink
               className="text-primary opacity-90 ms-2 duration-200 transition-all
@@ -102,7 +104,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   : ""
               }
             >
-              {type === "signin" && "Create Account"}
+              {type === "signin" && t({ key: "createAccount" })}
               {type === "signup" && "Sign in"}
             </NavLink>
           </div>

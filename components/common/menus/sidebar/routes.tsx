@@ -1,30 +1,42 @@
-import { Home2 } from "iconsax-react";
+import { DirectInbox, Grid3, Home, TaskSquare } from "iconsax-react";
 import { RoutesImpl } from "./types";
 
 const routes: RoutesImpl = [
   {
-    subject: "Dashborad",
+    subject: "dashborad",
     id: 0,
     children: [
-      { title: "Default", href: "/def", label: "New", id: 1, icon: Home2 },
-      { title: "Eccomerce", href: "/ecc", id: 2, icon: Home2 },
       {
-        title: "Forms",
+        title: "home",
         href: "/",
+        id: 0,
+        icon: Home,
+      },
+      {
+        title: "inbox",
+        href: "/inbox",
+        label: "new",
+        id: 1,
+        icon: DirectInbox,
+      },
+      { title: "taskBoard", href: "/taskboard", id: 2, icon: TaskSquare },
+      {
+        title: "forms",
+        href: "#",
         id: 3,
-        icon: Home2,
+        icon: Grid3,
         children: [
           {
-            title: "FormConrols",
+            title: "formConrols",
             href: "#",
             id: 4,
             children: [
-              { title: "FormValidation", href: "/", id: 5 },
+              { title: "formValidation", href: "/validation", id: 5 },
               { title: "baseInput", href: "/base-inp", id: 6 },
             ],
           },
           {
-            title: "Email",
+            title: "email",
             href: "/email",
             id: 7,
           },

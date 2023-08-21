@@ -10,17 +10,17 @@ import NavLink from "@/components/shared/links/nav-link";
 
 const Signin = () => {
   const { onSubmit, register, errors, loading } = useSignin();
-  const t = useTranslate("root");
+  const t = useTranslate("signin");
   return (
     <AuthContaienr
-      desc="Enter your email & password to login"
-      title={t({ key: "title", variables: { r: "sign" } })}
+      desc={t({ key: "desc" })}
+      title={t({ key: "title" })}
       type="signin"
     >
       <form className="mt-8 w-full" autoComplete="off" onSubmit={onSubmit}>
         <label className="flex justify-start items-start flex-col">
           <span className="text-sm dark:text-zinc-300 text-zinc-800 cursor-pointer">
-            Email Address
+            {t({ key: "email" })}
           </span>
           <AuthInput
             error={errors.email?.message}
@@ -32,7 +32,7 @@ const Signin = () => {
         </label>
         <label className="flex justify-start items-start flex-col mt-3">
           <span className="text-sm text-zinc-800 dark:text-zinc-300 cursor-pointer">
-            Password
+            {t({ key: "password" })}
           </span>
           <AuthInput
             error={errors.password?.message}
@@ -48,10 +48,10 @@ const Signin = () => {
             duration-200 transition-all hover:opacity-100"
             href={"/forgot-pass"}
           >
-            Forgot password?
+            {t({ key: "forgot" })}
           </NavLink>
         </div>
-        <AuthButton title="Sign in" loading={loading} />
+        <AuthButton title={t({ key: "button" })} loading={loading} />
       </form>
     </AuthContaienr>
   );

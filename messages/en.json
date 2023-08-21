@@ -1,5 +1,63 @@
 {
-    "root": {
-        "title": "ok %r"
+    "general": {
+        "show": "show",
+        "hide": "hide"
+    },
+    "signin" : {
+        "desc": "Enter your password and email to signin",
+        "title" : "Signin to user account",
+        "email": "Email",
+        "password": "Password",
+        "forgot": "Forgot your password?",
+        "button": "Confirm",
+        "or": "Or singin by",
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "linkedin": "Linkedin",
+        "dontHave": "Don't have an account yet?",
+        "createAccount": "Create account"
+    },
+    "menu" : {
+        "dashborad": "dashborad",
+        "inbox": "inbox",
+        "home": "home",
+        "new": "new",
+        "taskBoard": "taskBoard",
+        "forms": "forms",
+        "formConrols": "formConrols",
+        "formValidation" : "formValidation",
+        "baseInput": "baseInput",
+        "email" : "email"
+    },
+    "notification": {
+        "task": "Task Complete",
+        "time": "10ms"
+    },
+    "profile": {
+        "account": "profile",
+        "inbox": "inbox",
+        "taskBoard": "taskBoard",
+        "logout": "logout",
+        "name": "John Wick",
+        "role": "Admin"
+    },
+    "footer": {
+        "desc": "Developed by"
+    },
+    "settings": {
+        "title": "PREVIEW SETTINGS",
+        "desc": "Try It Real Time",
+        "unlimitedColors": "UNLIMITED COLOR",
+        "colors": "colors",
+        "layouts": "layouts",
+        "apply": "Apply",
+        "cuba": "Cuba",
+        "tokyo": "Tokyo",
+        "singapore": "Singapore",
+        "moscow": "Moscow",
+        "dubai": "Dubai",
+        "los-angeles": "Los-Angeles",
+        "paris": "Paris",
+        "rome ": "Rome"
     }
 }

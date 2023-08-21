@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import cls from "classnames";
 import { layoutes } from "@/constants/settings";
 import Image from "next/image";
+import useTranslate from "@/hooks/use-translate";
 
 const Settings = () => {
   const {
@@ -23,7 +24,7 @@ const Settings = () => {
     checkActiveLayout,
     border,
   } = useSettings();
-
+  const t = useTranslate("settings");
   return (
     <>
       <div>
@@ -75,7 +76,7 @@ const Settings = () => {
             )}
           >
             <h2 className="text-xl font-semibold relative w-full">
-              <span className="dark:text-zinc-400">PREVIEW SETTINGS</span>
+              <span className="dark:text-zinc-400">{t({ key: "title" })}</span>
               <LiaTimesSolid
                 onClick={() => setOpenMenu(false)}
                 className="absolute top-0 right-0
@@ -84,7 +85,7 @@ const Settings = () => {
             </h2>
             <div>
               <span className="text-sm text-zinc-700 dark:text-zinc-300">
-                Try It Real Time
+                {t({ key: "desc" })}
               </span>
             </div>
           </div>
@@ -129,7 +130,7 @@ const Settings = () => {
                     </div> */}
                     <div className="flex justify-start items-start flex-col flex-wrap mb-4">
                       <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
-                        UNLIMITED COLOR
+                        {t({ key: "unlimitedColors" })}
                       </h3>
                       <div className="flex justify-start items-center mt-1">
                         <Colros />
@@ -210,7 +211,7 @@ const Settings = () => {
                           />
                         </div>
                         <span className="mt-2 mb-1 font-medium dark:text-zinc-400">
-                          {label}
+                          {t({ key: label })}
                         </span>
                       </div>
                     ))}
@@ -230,16 +231,16 @@ const Settings = () => {
           >
             <Tab
               Icon={FiSettings}
-              title="Quick options"
-              active={true}
+              title={t({ key: "layouts" })}
+              active={selectedTab === "layouts"}
               size="18"
               primaryLighten={primaryLighten}
               onClick={() => setSelectedTab("layouts")}
             />
             <Tab
               Icon={BiColorFill}
-              title="Check layouts"
-              active={true}
+              title={t({ key: "colors" })}
+              active={selectedTab === "options"}
               primaryLighten={primaryLighten}
               onClick={() => setSelectedTab("options")}
             />

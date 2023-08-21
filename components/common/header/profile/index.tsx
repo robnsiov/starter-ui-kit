@@ -8,12 +8,14 @@ import cls from "classnames";
 import Pic from "next/image";
 import NavLink from "@/components/shared/links/nav-link";
 import matchPath from "@/utils/match-path";
+import useTranslate from "@/hooks/use-translate";
 
 const Profile = () => {
   const { pathname } = useProfile();
+  const t = useTranslate("profile");
   return (
     <>
-      <div className="flex justify-start items-center cursor-pointer ms-3 relative">
+      <div className="flex justify-start items-center cursor-pointer ms-3 relative uppercase">
         <MotionDropDown
           className="absolute top-11 w-[150px] rounded-md right-0  rtl:right-auto rtl:left-0
                z-50 border-[1px] border-zinc-200/50 bg-white 
@@ -35,13 +37,13 @@ const Profile = () => {
                   className="duration-200 transition-all group-hover:text-primary
                  text-sm font-semibold dark:text-zinc-400"
                 >
-                  Emay Walter
+                  {t({ key: "name" })}
                 </h3>
                 <span
                   className="text-[12px] text-zinc-500 
                 duration-200 transition-all group-hover:text-primary"
                 >
-                  Admin{" "}
+                  {t({ key: "role" })}{" "}
                   <ArrowDown2 className="ms-[2px] inline-block" size="10" />
                 </span>
               </div>
@@ -72,7 +74,7 @@ const Profile = () => {
                     : "text-zinc-900 dark:text-zinc-100"
                 )}
               >
-                {title}
+                {t({ key: title })}
               </span>
             </SidebarLink>
           ))}
@@ -90,7 +92,7 @@ const Profile = () => {
               className="text-sm duration-200 transition-all 
             group-hover:text-primary dark:text-zinc-100"
             >
-              Logout
+              {t({ key: "logout" })}
             </span>
           </NavLink>
         </MotionDropDown>

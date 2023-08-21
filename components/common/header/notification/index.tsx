@@ -1,7 +1,10 @@
+"use client";
 import MotionDropDown from "@/components/shared/dropdowns/motion-dropdown";
+import useTranslate from "@/hooks/use-translate";
 import { NotificationBing } from "iconsax-react";
 
 const Notification = () => {
+  const t = useTranslate("notification");
   return (
     <>
       <div className="relative ms-3">
@@ -38,9 +41,11 @@ const Notification = () => {
                 left-0 bg-red-500 rounded-r-md"
             ></span>
             <span className="text-sm ps-1 dark:text-zinc-400">
-              Order Complete
+              {t({ key: "task" })}
             </span>
-            <span className="text-[10px] text-red-400">10ms</span>
+            <span className="text-[10px] text-red-400">
+              {t({ key: "time" })}
+            </span>
           </div>
           <div
             className="notification w-full flex justify-between
@@ -52,9 +57,11 @@ const Notification = () => {
                 left-0 bg-indigo-500 rounded-r-md"
             ></span>
             <span className="text-sm ps-1 dark:text-zinc-400">
-              Order Complete
+              {t({ key: "task" })}
             </span>
-            <span className="text-[10px] text-indigo-500">10ms</span>
+            <span className="text-[10px] text-indigo-500">
+              {t({ key: "time" })}
+            </span>
           </div>
         </MotionDropDown>
       </div>

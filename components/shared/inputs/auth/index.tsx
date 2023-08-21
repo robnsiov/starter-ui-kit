@@ -2,7 +2,9 @@ import AuthInputImpl from "./types";
 import { forwardRef, LegacyRef } from "react";
 import cls from "classnames";
 import useAuthInput from "./use";
+import useTranslate from "@/hooks/use-translate";
 const AuthInput = forwardRef(function AuthInput(props: AuthInputImpl, ref) {
+  const t = useTranslate("general");
   const { setType, type } = useAuthInput(props.type);
   return (
     <>
@@ -27,7 +29,7 @@ const AuthInput = forwardRef(function AuthInput(props: AuthInputImpl, ref) {
             top-[20px]  right-2 rtl:right-auto rtl:left-2 cursor-pointer"
               onClick={() => setType(type === "password" ? "text" : "password")}
             >
-              {type === "password" ? "show" : "hide"}
+              {type === "password" ? t({ key: "show" }) : t({ key: "hide" })}
             </span>
           </>
         )}

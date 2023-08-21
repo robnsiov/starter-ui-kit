@@ -12,6 +12,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import useOnScreen from "@/hooks/use-on-screen/use-one-screen";
 import matchPath from "@/utils/match-path";
+import useTranslate from "@/hooks/use-translate";
 
 const RowMenu = () => {
   const {
@@ -23,6 +24,7 @@ const RowMenu = () => {
     dir,
     border,
   } = useRowMenu();
+  const t = useTranslate("menu");
   const lastElementRef = useRef<HTMLDivElement>(null);
   const lastVisibleElement = useOnScreen(lastElementRef);
 
@@ -47,7 +49,7 @@ const RowMenu = () => {
           `fixed top-[74px] md:top-[54px]
          px-8 bg-white py-1
        dark:bg-dark-800
-       border-b-[1px] border-zinc-200/60 dark:border-zinc-700 z-20`,
+       border-b-[1px] border-zinc-200/60 dark:border-zinc-700 z-20 uppercase`,
           border === "true"
             ? "ms-border w-[calc(100%-200px)] lg:w-[calc(100%-20px)] mt-border"
             : "w-full",
@@ -139,7 +141,7 @@ const RowMenu = () => {
                             )}
                           >
                             {" "}
-                            {title}
+                            {t({ key: title })}
                           </span>
                           {label && (
                             <span
@@ -147,7 +149,7 @@ const RowMenu = () => {
                 tracking-wide font-bold rounded-lg
               text-red-500 py-0.5 px-2 rtl:right-auto rtl:-left-4"
                             >
-                              {label}
+                              {t({ key: label })}
                             </span>
                           )}
                         </SidebarLink>
@@ -163,7 +165,7 @@ const RowMenu = () => {
                                     onClick={() =>
                                       activeLevelTwo(levelOneId, levelTwoId)
                                     }
-                                    title={title}
+                                    title={t({ key: title })}
                                     href={href}
                                     active={
                                       activeRoute.levelTwo === levelTwoId ||
@@ -175,7 +177,7 @@ const RowMenu = () => {
                                       {children?.map(
                                         ({ href, id: levelThreeId, title }) => (
                                           <MenuItem
-                                            title={title}
+                                            title={t({ key: title })}
                                             href={href}
                                             key={levelThreeId}
                                             active={

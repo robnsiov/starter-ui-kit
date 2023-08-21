@@ -1,6 +1,63 @@
 {
-    "root": {
-
-        "title": "باشه %r"
+    "general": {
+        "show": "نمایش",
+        "hide": "مخفی"
+    },
+    "signin" : {
+        "desc": "رمزعبور و ایمیل خود را برای وارد شدن وارد کنید",
+        "title" : "وارد شدن به حساب کاربری",
+        "email": "ایمیل",
+        "password": "رمزعبور",
+        "forgot": "رمزعبور خود را فراموش کرده اید؟",
+        "button": "تایید",
+        "or": "یا وارد شوید توسط",
+        "facebook": "فیسبوک",
+        "twitter": "توییتر",
+        "linkedin": "لینکدین",
+        "dontHave": "هنوز حساب کاربری ندارید؟",
+        "createAccount": "ساخت حساب"
+    },
+    "menu" : {
+        "dashborad": "پنل مدیریت",
+        "inbox": "صندوق ورودی",
+        "home": "خانه",
+        "new": "جدید",
+        "taskBoard": "تسک ها",
+        "forms": "فرم ها",
+        "formConrols": "فرم کنترل",
+        "formValidation" : "فرم اعتبار سنجی",
+        "baseInput": "فرم پایه",
+        "email" : "ایمیل"
+    },
+    "notification": {
+        "task": "تسک تکمیل شد",
+        "time": "10 میلی ثانیه"
+    },
+    "profile": {
+        "account": "پروفایل",
+        "inbox": "صندوق ورودی",
+        "taskBoard": "تسک ها",
+        "logout": "خروج از حساب",
+        "name": "جان ویک",
+        "role": "مدیر"
+    },
+    "footer": {
+        "desc": "توسعه داده شده توسط"
+    },
+    "settings": {
+        "title": "پیش نمایش تنظیمات",
+        "desc": "در لحظه تغییرات را مشاهده کنید",
+        "unlimitedColors": "رنگ های نامحدود",
+        "colors": "رنگ ها",
+        "layouts": "لایه ها",
+        "apply": "اعمال",
+        "cuba": "کوبا",
+        "tokyo": "توکیو",
+        "singapore": "سنگاپور",
+        "moscow": "مسکو",
+        "dubai": "دبی",
+        "los-angeles": "لس آنجلس",
+        "paris": "پاریس",
+        "rome ": "رم"
     }
 }

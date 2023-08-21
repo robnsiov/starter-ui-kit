@@ -20,7 +20,8 @@ const Tab = ({
           size={size}
           className={cls(
             `text-zinc-500
-          transition-all duration-200 group-hover:text-primary relative z-10 dark:text-zinc-300`
+          transition-all duration-200 group-hover:text-primary relative z-10 dark:text-zinc-300`,
+            { "text-primary": active }
           )}
         />
         <div
@@ -47,9 +48,12 @@ const Tab = ({
           ></span>
         </div>
         <span
-          className="absolute inset-0 rounded-md  
+          className={cls(
+            `absolute inset-0 rounded-md  
           scale-0 transition-all duration-200 
-          group-hover:scale-100"
+          group-hover:scale-100`,
+            { "scale-100": active }
+          )}
           style={{
             background: primaryLighten || "",
           }}

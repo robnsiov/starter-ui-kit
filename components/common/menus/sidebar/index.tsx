@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SidebarLink from "@/components/shared/links/sidebar-link";
 import useSidebar from "./use";
 import matchPath from "@/utils/match-path";
+import useTranslate from "@/hooks/use-translate";
 
 const Sidebar = () => {
   const {
@@ -21,6 +22,7 @@ const Sidebar = () => {
     viewportWidth,
     border,
   } = useSidebar();
+  const t = useTranslate("menu");
   return (
     <>
       <div
@@ -57,16 +59,16 @@ const Sidebar = () => {
             </div>
           </div>
 
-          <div className="w-full h-full flex justify-start items-start flex-col">
+          <div className="w-full h-full flex justify-start items-start flex-col uppercase">
             {routes.map(({ id, subject, children }) => (
               <Fragment key={id}>
                 <div className="w-full px-4">
                   <div className="w-full">
                     <h2
                       className="text-sm font-bold text-slate-700 pb-1 mb-3
-                    mt-3 dark:border-zinc-600 dark:text-zinc-400"
+                    mt-3 dark:border-zinc-600 dark:text-zinc-400 "
                     >
-                      {subject}
+                      {t({ key: subject })}
                     </h2>
                   </div>
                 </div>
@@ -127,7 +129,7 @@ const Sidebar = () => {
                                     : "text-zinc-500"
                                 )}
                               >
-                                {title}
+                                {t({ key: title })}
                               </span>
                             </div>
                             <div className="flex justify-start items-center">
@@ -136,7 +138,7 @@ const Sidebar = () => {
                                   className="bg-pink-50 dark:bg-pink-700/10 text-[10px] tracking-wide font-bold rounded-lg 
               text-red-500 py-0.5 px-2"
                                 >
-                                  New
+                                  {t({ key: label })}
                                 </span>
                               )}
 
@@ -217,7 +219,7 @@ const Sidebar = () => {
                                                     : "text-zinc-500"
                                                 )}
                                               >
-                                                {title}
+                                                {t({ key: title })}
                                                 <span
                                                   className={cls(
                                                     `w-1 aspect-square bg-primary absolute
@@ -298,7 +300,9 @@ const Sidebar = () => {
                                                                 : "text-zinc-500"
                                                             )}
                                                           >
-                                                            {title}
+                                                            {t({
+                                                              key: title,
+                                                            })}
                                                           </span>
                                                         </div>
                                                       </SidebarLink>

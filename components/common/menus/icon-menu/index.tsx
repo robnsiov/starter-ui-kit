@@ -9,6 +9,7 @@ import useMenuIcon from "./use";
 import cls from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import matchPath from "@/utils/match-path";
+import useTranslate from "@/hooks/use-translate";
 
 const IconMenu = () => {
   const {
@@ -21,6 +22,7 @@ const IconMenu = () => {
     layout,
     border,
   } = useMenuIcon();
+  const t = useTranslate("menu");
   return (
     <>
       <AnimatePresence>
@@ -29,7 +31,7 @@ const IconMenu = () => {
             <motion.div
               className={cls(
                 `fixed left-[100px] top-0 bottom-0 w-[200px]  rtl:left-auto rtl:right-[100px]               
-      dark:bg-dark overflow-hidden border-l-[1px] border-zinc-200/60 
+      dark:bg-dark overflow-hidden border-r-[1px] rtl:border-r-0 rtl:border-l-[1px] dark:border-x-zinc-700 border-zinc-200/60 
       z-50  py-5 bg-white  md:left-[40px] md:rtl:right-[40px]`,
                 { "ms-border border-t-[1px] mt-border": border === "true" }
               )}
@@ -39,7 +41,7 @@ const IconMenu = () => {
               exit={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
             >
               <div className="w-full">
-                <div className="relative w-full flex justify-center items-center flex-col">
+                <div className="relative w-full flex justify-center items-center flex-col uppercase">
                   {selectedChildren.map(({ href, id, title, children }) => (
                     <Fragment key={id}>
                       <div
@@ -64,7 +66,7 @@ const IconMenu = () => {
                               }
                             )}
                           >
-                            {title}
+                            {t({ key: title })}
                           </span>
                         </SidebarLink>
                         {children && children.length !== 0 && (
@@ -120,7 +122,7 @@ const IconMenu = () => {
                                         }
                                       )}
                                     >
-                                      {title}
+                                      {t({ key: title })}
                                     </span>
                                   </SidebarLink>
                                 </div>
@@ -144,7 +146,7 @@ const IconMenu = () => {
       dark:bg-dark overflow-hidden 
       dark:border-r-[1px] dark:border-zinc-600/20
       border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]
-      z-50 transition-all duration-300 bg-white`,
+      z-50 transition-all duration-300 bg-white uppercase`,
           {
             "ms-border mt-border  !border-x-[1px] !border-t-[1px] !rounded-tl-xl border-zinc-200/60   rtl:!rounded-tl-none rtl:!rounded-tr-xl":
               border === "true",
@@ -200,7 +202,7 @@ const IconMenu = () => {
               text-red-500 py-0.5 px-2 absolute top-2 right-2.5 
               md:hidden"
                         >
-                          {label}
+                          {t({ key: label })}
                         </span>
                       )}
 
@@ -234,7 +236,7 @@ const IconMenu = () => {
                             { "text-primary": matchPath(href, pathname) }
                           )}
                         >
-                          {title}
+                          {t({ key: title })}
                         </h2>
                       )}
                     </SidebarLink>

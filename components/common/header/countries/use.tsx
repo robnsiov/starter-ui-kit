@@ -35,7 +35,6 @@ const useCountries = () => {
     window.dispatchEvent(event);
 
     // change route
-    console.log(1);
     router.push(`/${path}`);
   }, [selectedLang]);
 
