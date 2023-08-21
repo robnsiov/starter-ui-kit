@@ -1,3 +1,4 @@
+// @ts-ignore
 import LocalManagementImpl, { LocalManagementOutImpl } from "./types";
 
 const localManagement = ({
