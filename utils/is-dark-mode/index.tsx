@@ -1,5 +1,8 @@
+import localManagement from "../local-management";
+
 const isDarkMode = () => {
-  const mode = localStorage.theme;
+  const [theme] = localManagement({ key: "theme" });
+  const mode = theme;
   return mode === "dark";
 };
 export default isDarkMode;

@@ -4,5 +4,6 @@
 
 html {
   --primary: #fff;
+  --border: 100px;
   --secondary: #fff;
 }

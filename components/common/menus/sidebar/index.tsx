@@ -8,6 +8,9 @@ import cls from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
 import SidebarLink from "@/components/shared/links/sidebar-link";
 import useSidebar from "./use";
+import matchPath from "@/utils/match-path";
+import useTranslate from "@/hooks/use-translate";
+import NavLink from "@/components/shared/links/nav-link";
 
 const Sidebar = () => {
   const {
@@ -16,20 +19,38 @@ const Sidebar = () => {
     activeLevelTwo,
     activeRoute,
     pathname,
+    sidebarStatus,
+    viewportWidth,
+    border,
   } = useSidebar();
+  const t = useTranslate("menu");
   return (
     <>
       <div
-        className="fixed left-0 top-0 bottom-0 w-[265px] shadow-md rtl:left-auto rtl:right-0 
-      dark:bg-[#262932] overflow-hidden"
+        className={cls(
+          `fixed left-0 top-0 bottom-0 w-[265px] -md rtl:left-auto rtl:right-0 
+      dark:bg-dark overflow-hidden  
+      z-50 transition-all duration-300 md:left-[-265px] rtl:md:right-[-265px] bg-white
+      border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]`,
+          sidebarStatus.close && viewportWidth < 767
+            ? "left-[-256px] rtl:right-[-265px]"
+            : "!left-0 rtl:!right-0",
+          {
+            "ms-border mt-border border-l-[1px] border-t-[1px] rounded-tl-xl  rtl:border-l-0 rtl:border-r-[1px] rtl:rounded-tl-none rtl:rounded-tr-xl":
+              border === "true",
+          }
+        )}
       >
         <div className="w-full h-full flex items-start justify-start flex-col">
           <div
             className="w-full flex justify-between items-center h-[79px] 
-          py-4 px-5 shadow-sm mb-1 dark:bg-[#262932]"
+          py-4 px-5  dark:bg-dark"
           >
             <span className="font-semibold text-lg"></span>
-            <div className="flex justify-center items-center group cursor-pointer">
+            <NavLink
+              href="/"
+              className="flex justify-center items-center group cursor-pointer"
+            >
               <Box1
                 className="text-zinc-800 transition-all 
               duration-200 hover:text-primary relative z-10 dark:text-primary"
@@ -39,19 +60,19 @@ const Sidebar = () => {
               bg-pink-50 rounded-full transition-all duration-200
                 scale-0 group-hover:scale-100 dark:bg-indigo-600/10"
               ></span>
-            </div>
+            </NavLink>
           </div>
 
-          <div className="w-full h-full flex justify-start items-start flex-col">
+          <div className="w-full h-full flex justify-start items-start flex-col uppercase">
             {routes.map(({ id, subject, children }) => (
               <Fragment key={id}>
                 <div className="w-full px-4">
                   <div className="w-full">
                     <h2
-                      className="text-sm font-bold text-slate-700 pb-1 pt-5 border-t-[1px] 
-                    border-zinc-200 mt-3 dark:border-zinc-600 dark:text-zinc-400"
+                      className="text-sm font-bold text-slate-700 pb-1 mb-3
+                    mt-3 dark:border-zinc-600 dark:text-zinc-400 "
                     >
-                      {subject}
+                      {t({ key: subject })}
                     </h2>
                   </div>
                 </div>
@@ -74,7 +95,7 @@ const Sidebar = () => {
                               {
                                 "bg-[#F5F4FF] dark:bg-indigo-500/20":
                                   activeRoute.levelOne === levelOneId ||
-                                  pathname === href,
+                                  matchPath(href, pathname),
                               }
                             )}
                             onClick={() => activeLevelOne(levelOneId)}
@@ -84,7 +105,7 @@ const Sidebar = () => {
                                 `absolute top-1 right-0 rtl:right-auto rtl:left-0 bottom-1 w-1 transition-all duration-200
                           rounded-l-md bg-indigo-500 opacity-0 rtl:rounded-l-none rtl:rounded-r-md`,
                                 activeRoute.levelOne === levelOneId ||
-                                  pathname === href
+                                  matchPath(href, pathname)
                                   ? "opacity-100"
                                   : "opacity-0"
                               )}
@@ -97,7 +118,7 @@ const Sidebar = () => {
                                   {
                                     "text-primary":
                                       activeRoute.levelOne === levelOneId ||
-                                      pathname === href,
+                                      matchPath(href, pathname),
                                   }
                                 )}
                                 size="18"
@@ -107,12 +128,12 @@ const Sidebar = () => {
                                   `text-sm font-semibold transition-all duration-200
                    tracking-wider group-hover:text-primary dark:text-zinc-400`,
                                   activeRoute.levelOne === levelOneId ||
-                                    pathname === href
+                                    matchPath(href, pathname)
                                     ? "text-primary"
                                     : "text-zinc-500"
                                 )}
                               >
-                                {title}
+                                {t({ key: title })}
                               </span>
                             </div>
                             <div className="flex justify-start items-center">
@@ -121,7 +142,7 @@ const Sidebar = () => {
                                   className="bg-pink-50 dark:bg-pink-700/10 text-[10px] tracking-wide font-bold rounded-lg 
               text-red-500 py-0.5 px-2"
                                 >
-                                  New
+                                  {t({ key: label })}
                                 </span>
                               )}
 
@@ -143,7 +164,7 @@ const Sidebar = () => {
                                   },
 
                                   activeRoute.levelOne === levelOneId ||
-                                    pathname === href
+                                    matchPath(href, pathname)
                                     ? "text-primary rotate-90"
                                     : "text-zinc-500 rtl:rotate-180"
                                 )}
@@ -157,7 +178,7 @@ const Sidebar = () => {
                               style={{ overflow: "hidden" }}
                               initial={{ height: 0 }}
                               animate={{ height: "auto" }}
-                              transition={{ duration: 0.5 }}
+                              transition={{ duration: 0.3 }}
                               className="w-full"
                               exit={{ height: 0 }}
                               key={"container"}
@@ -197,12 +218,12 @@ const Sidebar = () => {
                                         group-hover:text-primary relative`,
                                                   activeRoute.levelTwo ===
                                                     levelTwoId ||
-                                                    pathname === href
+                                                    matchPath(href, pathname)
                                                     ? "text-primary"
                                                     : "text-zinc-500"
                                                 )}
                                               >
-                                                {title}
+                                                {t({ key: title })}
                                                 <span
                                                   className={cls(
                                                     `w-1 aspect-square bg-primary absolute
@@ -211,7 +232,7 @@ const Sidebar = () => {
                                                transition-all duration-200`,
                                                     activeRoute.levelTwo ===
                                                       levelTwoId ||
-                                                      pathname === href
+                                                      matchPath(href, pathname)
                                                       ? "opacity-100"
                                                       : "opacity-0"
                                                   )}
@@ -229,7 +250,7 @@ const Sidebar = () => {
                                                 },
                                                 activeRoute.levelTwo ===
                                                   levelTwoId ||
-                                                  pathname === href
+                                                  matchPath(href, pathname)
                                                   ? "text-primary rotate-90"
                                                   : "text-zinc-500"
                                               )}
@@ -283,7 +304,9 @@ const Sidebar = () => {
                                                                 : "text-zinc-500"
                                                             )}
                                                           >
-                                                            {title}
+                                                            {t({
+                                                              key: title,
+                                                            })}
                                                           </span>
                                                         </div>
                                                       </SidebarLink>

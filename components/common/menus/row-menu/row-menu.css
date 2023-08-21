@@ -1,0 +1,12 @@
+.row-menu .splide__track {
+  overflow: unset !important;
+  overflow-x: clip !important;
+}
+
+
+
+.row-menu .children:hover .sub-menu,
+.row-menu .menu-item:hover .sub-menu-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
