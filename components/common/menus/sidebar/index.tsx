@@ -10,6 +10,7 @@ import SidebarLink from "@/components/shared/links/sidebar-link";
 import useSidebar from "./use";
 import matchPath from "@/utils/match-path";
 import useTranslate from "@/hooks/use-translate";
+import NavLink from "@/components/shared/links/nav-link";
 
 const Sidebar = () => {
   const {
@@ -46,7 +47,10 @@ const Sidebar = () => {
           py-4 px-5  dark:bg-dark"
           >
             <span className="font-semibold text-lg"></span>
-            <div className="flex justify-center items-center group cursor-pointer">
+            <NavLink
+              href="/"
+              className="flex justify-center items-center group cursor-pointer"
+            >
               <Box1
                 className="text-zinc-800 transition-all 
               duration-200 hover:text-primary relative z-10 dark:text-primary"
@@ -56,7 +60,7 @@ const Sidebar = () => {
               bg-pink-50 rounded-full transition-all duration-200
                 scale-0 group-hover:scale-100 dark:bg-indigo-600/10"
               ></span>
-            </div>
+            </NavLink>
           </div>
 
           <div className="w-full h-full flex justify-start items-start flex-col uppercase">

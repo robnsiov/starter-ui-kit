@@ -10,6 +10,7 @@ import cls from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import matchPath from "@/utils/match-path";
 import useTranslate from "@/hooks/use-translate";
+import NavLink from "@/components/shared/links/nav-link";
 
 const IconMenu = () => {
   const {
@@ -162,7 +163,10 @@ const IconMenu = () => {
             className="w-full flex justify-center items-center h-[79px] 
           py-4 px-5  mb-1 dark:bg-dark"
           >
-            <div className="flex justify-center items-center group cursor-pointer">
+            <NavLink
+              href="/"
+              className="flex justify-center items-center group cursor-pointer"
+            >
               <Box1
                 className="text-zinc-800 transition-all 
               duration-200 hover:text-primary relative z-10 dark:text-primary"
@@ -172,7 +176,7 @@ const IconMenu = () => {
               bg-pink-50 rounded-full transition-all duration-200
                 scale-0 group-hover:scale-100 dark:bg-indigo-600/10"
               ></span>
-            </div>
+            </NavLink>
           </div>
 
           <div className="w-full h-full flex justify-start items-start flex-col">
