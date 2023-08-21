@@ -18,7 +18,19 @@ export const san = localFont({
     },
     {
       path: "../public/fonts/rtl/san/bold.otf",
+      weight: "500",
+    },
+    {
+      path: "../public/fonts/rtl/san/bold.otf",
+      weight: "600",
+    },
+    {
+      path: "../public/fonts/rtl/san/bold.otf",
       weight: "700",
+    },
+    {
+      path: "../public/fonts/rtl/san/bold.otf",
+      weight: "800",
     },
   ],
   variable: "--san",
