@@ -23,10 +23,10 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
       p-8 bg-white dark:bg-dark dark:shadow-none shadow-xl w-full max-w-md rounded-lg 
       shadow-indigo-300/10 relative z-10"
         >
-          <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-300 md:text-lg">
+          <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-400 md:text-lg">
             {title}
           </h2>
-          <span className="text-sm text-zinc-400 dark:text-zinc-300 mt-2">
+          <span className="text-sm text-zinc-400 dark:text-zinc-400 mt-2">
             {desc}
           </span>
           {children}
@@ -34,17 +34,17 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
             <>
               <div className="w-full flex justify-center items-center mt-6">
                 <span
-                  className="text-zinc-600/90 dark:text-zinc-300 text-[15px]
+                  className="text-zinc-600/90 dark:text-zinc-400 text-[15px]
           font-semibold whitespace-nowrap me-3"
                 >
                   {type === "signin" && t({ key: "or" })}{" "}
                   {type === "signup" && "sign up"}
                 </span>
-                <div className="w-full h-0.5 bg-indigo-100/70"></div>
+                <div className="w-full h-0.5 bg-indigo-100/70 dark:bg-zinc-700"></div>
               </div>
               <div
                 className="w-full flex justify-center
-         items-center mt-4 460px:mt-1 scale-90 460px:scale-x-100 460px:scale-y-95 flex-wrap"
+         items-center mt-4 460px:mt-1 scale-90 460px:scale-100 flex-wrap"
               >
                 <NavLink
                   href={"/"}
@@ -52,7 +52,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                    flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
-             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70"
+             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-[calc(50%-4px)] 460px:me-1 460px:!p-1.5"
                 >
                   <FiLinkedin className="me-2 text-blue-400" />
                   <span className="text-zinc-800 dark:text-zinc-300">
@@ -65,7 +65,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                   flex justify-center items-center mx-1.5
              border-[1px] rounded-md transition-all duration-200 my-1 460px:mx-0
-             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:ml-2"
+             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:w-[calc(50%-4px)] 460px:ms-1 460px:!p-1.5"
                 >
                   <RxTwitterLogo className="me-2 text-blue-400" />
                   <span className="text-zinc-800 dark:text-zinc-300">
@@ -78,7 +78,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                   flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
-             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70"
+             bg-indigo-100/60 hover:bg-indigo-100 hover:border-indigo-200/70 460px:!py-1.5"
                 >
                   <FiFacebook className="me-2 text-blue-900" />
                   <span className="text-zinc-800 dark:text-zinc-300">

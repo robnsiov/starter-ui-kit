@@ -43,10 +43,10 @@ const Header = () => {
             }
           )}
         >
-          {/* don't remove this fake element */}
-          <div id="fake"></div>
           {layout === "cuba" && <MenuIcon />}
-          <div className="flex justify-start items-center relative">
+          {/* don't remove this element */}
+          <div id="fale"></div>
+          <div className="flex justify-start items-center">
             <SettingsIocns />
             <Countries />
             <Search />

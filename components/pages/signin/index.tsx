@@ -19,7 +19,7 @@ const Signin = () => {
     >
       <form className="mt-8 w-full" autoComplete="off" onSubmit={onSubmit}>
         <label className="flex justify-start items-start flex-col">
-          <span className="text-sm dark:text-zinc-300 text-zinc-800 cursor-pointer">
+          <span className="text-sm dark:text-zinc-400 text-zinc-800 cursor-pointer">
             {t({ key: "email" })}
           </span>
           <AuthInput
@@ -31,7 +31,7 @@ const Signin = () => {
           <AuthErrorMessage error={errors.email?.message} />
         </label>
         <label className="flex justify-start items-start flex-col mt-3">
-          <span className="text-sm text-zinc-800 dark:text-zinc-300 cursor-pointer">
+          <span className="text-sm text-zinc-800 dark:text-zinc-400 cursor-pointer">
             {t({ key: "password" })}
           </span>
           <AuthInput
