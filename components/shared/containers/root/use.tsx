@@ -11,19 +11,19 @@ const useRootContainer = () => {
   const [border, setBorder] = localManagement({ key: "border" });
   const [color, setColor] = localManagement({ key: "color" });
 
-  if (!layout) {
-    setLayout("cuba");
-  }
-  if (!border) {
-    setBorder("false");
-  }
-
-  // If the theme was not selected by the user
-  if (!theme) {
-    setTheme(THEME);
-  }
-
   useLayoutEffect(() => {
+    if (!layout) {
+      setLayout("cuba");
+    }
+    if (!border) {
+      setBorder("false");
+    }
+
+    // If the theme was not selected by the user
+    if (!theme) {
+      setTheme(THEME);
+    }
+
     if (dir) document.documentElement.dir = dir;
 
     if (theme === "dark") document.documentElement.classList.add("dark");
