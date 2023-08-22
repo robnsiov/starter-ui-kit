@@ -42,7 +42,7 @@ const RowMenu = () => {
   return (
     <>
       {border === "true" && (
-        <div className="w-[1px] fixed left-border rtl:left-0 rtl:right-border top-[200px] lg:top-[20px] bottom-0 bg-zinc-200/60 dark:bg-dark z-40"></div>
+        <div className="w-[1px] fixed left-border rtl:left-0 rtl:right-border top-[200px] lg:top-[64px] bottom-0 bg-zinc-200/60 dark:bg-dark z-40"></div>
       )}
       <div
         className={cls(

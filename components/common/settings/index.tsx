@@ -31,12 +31,12 @@ const Settings = () => {
         {border === "true" && (
           <>
             <div
-              className="w-[1px] fixed right-border rtl:hidden
-          top-[120px] lg:top-[63px] bottom-0 bg-zinc-200/60 dark:bg-dark z-40"
+              className="w-[0.8px] fixed right-border 
+          top-[174px]  ltr:lg:top-[84px] md:top-[64px] bottom-0 bg-zinc-200/60 dark:bg-zinc-700 rtl:lg:top-[64px] z-40"
             ></div>
             <div
               className="w-[1px] fixed left-border  
-          top-[120px] lg:top-[63px] bottom-0 bg-zinc-200/60 dark:bg-dark z-40"
+          top-[174px] lg:top-[64px] md:top-[64px] bottom-0 bg-zinc-200/60 dark:bg-zinc-700 z-40"
             ></div>
           </>
         )}

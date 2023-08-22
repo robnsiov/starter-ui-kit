@@ -39,11 +39,11 @@ const Layout = ({
                   border !== "true" && layout === "cuba",
               },
               {
-                "me-border ms-[calc(var(--border)+264px)] mt-[calc(var(--border)+74px)]  md:!me-0 md:!ms-0 md:mt-[65px]  md:w-[calc(100%-20px)] md:relative md:left-[10px]":
+                "me-border ms-[calc(var(--border)+264px)] mt-[calc(var(--border)+74px)]  md:!me-0 md:!ms-0 md:mt-[65px]  md:w-[calc(100%-20px)] md:relative md:left-[10px] rtl:md:left-auto rtl:md:right-[10px]":
                   border === "true" && layout === "cuba",
               },
               {
-                "me-border ms-[calc(var(--border)+99px)] mt-[calc(var(--border)+74px)]  md:!me-0 md:!ms-0 md:mt-[65px]  md:w-[calc(100%-60px)] md:relative md:left-[50px]":
+                "me-border ms-[calc(var(--border)+99px)] mt-[calc(var(--border)+74px)]  md:!me-0 md:!ms-0 md:mt-[65px]  md:w-[calc(100%-60px)] md:relative md:left-[50px] rtl:md:left-auto rtl:md:right-[50px]":
                   border === "true" &&
                   (layout === "tokyo" || layout === "moscow"),
               },
