@@ -63,7 +63,7 @@ const Sidebar = () => {
             </NavLink>
           </div>
 
-          <div className="w-full h-full flex justify-start items-start flex-col uppercase">
+          <div className="w-full h-full flex justify-start items-start flex-col uppercase overflow-y-auto">
             {routes.map(({ id, subject, children }) => (
               <Fragment key={id}>
                 <div className="w-full px-4">

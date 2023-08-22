@@ -33,7 +33,7 @@ const IconMenu = () => {
               className={cls(
                 `fixed left-[100px] top-0 bottom-0 w-[200px]  rtl:left-auto rtl:right-[100px]               
       dark:bg-dark overflow-hidden border-r-[1px] rtl:border-r-0 rtl:border-l-[1px] dark:border-x-zinc-700 border-zinc-200/60 
-      z-50  py-5 bg-white  md:left-[40px] md:rtl:right-[40px]`,
+      z-50  py-5 bg-white  md:left-[40px] md:rtl:right-[40px] overflow-y-auto`,
                 { "ms-border border-t-[1px] mt-border": border === "true" }
               )}
               initial={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
@@ -158,7 +158,7 @@ const IconMenu = () => {
           }
         )}
       >
-        <div className="w-full h-full flex items-start justify-start flex-col">
+        <div className="w-full h-full flex items-start justify-start flex-col overflow-y-auto">
           <div
             className="w-full flex justify-center items-center h-[79px] 
           py-4 px-5  mb-1 dark:bg-dark"

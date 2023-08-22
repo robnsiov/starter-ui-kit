@@ -193,11 +193,10 @@ const Settings = () => {
                duration-200 transition-all 
                 `,
                           {
-                            "!border-zinc-300 dark:!border-zinc-400":
-                              checkActiveLayout({
-                                def,
-                                layout: label,
-                              }),
+                            "!border-primary": checkActiveLayout({
+                              def,
+                              layout: label,
+                            }),
                           }
                         )}
                       >
@@ -210,7 +209,17 @@ const Settings = () => {
                             height={300}
                           />
                         </div>
-                        <span className="mt-2 mb-1 font-medium dark:text-zinc-400">
+                        <span
+                          className={cls(
+                            `mt-2 mb-1 font-medium dark:text-zinc-400`,
+                            {
+                              "!text-primary": checkActiveLayout({
+                                def,
+                                layout: label,
+                              }),
+                            }
+                          )}
+                        >
                           {t({ key: label })}
                         </span>
                       </div>
