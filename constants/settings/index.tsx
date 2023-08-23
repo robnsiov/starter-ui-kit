@@ -26,5 +26,10 @@ export const layoutes: LayoutesImpl = [
 const settings: SettingsImpl = {
   THEME: "Light",
   LANG: "English",
+  COLOR: "#3891f0",
+  DARK: "#262932",
+  DARK_800: "#1d1e26",
+  LIGHT: "#fff",
+  LIGHT_800: "#f9fafb",
 };
 export default settings;

@@ -11,7 +11,7 @@ const Countries = () => {
       <div className="relative ms-3">
         <MotionDropDown
           className="absolute top-7 min-w-[120px] rounded-md right-0 rtl:right-auto rtl:left-0
-               z-50  border-[1px] border-zinc-200/50 bg-white 
+               z-50  border-[1px] border-zinc-200/50 bg-light 
                dark:bg-dark-800 dark:border-zinc-700"
           childrenTagName=".country"
           header={

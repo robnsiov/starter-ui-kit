@@ -30,7 +30,7 @@ const Sidebar = () => {
         className={cls(
           `fixed left-0 top-0 bottom-0 w-[265px] -md rtl:left-auto rtl:right-0 
       dark:bg-dark overflow-hidden  
-      z-50 transition-all duration-300 md:left-[-265px] rtl:md:right-[-265px] bg-white
+      z-50 transition-all duration-300 md:left-[-265px] rtl:md:right-[-265px] bg-light-800
       border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]`,
           sidebarStatus.close && viewportWidth < 767
             ? "left-[-256px] rtl:right-[-265px]"
@@ -63,7 +63,7 @@ const Sidebar = () => {
             </NavLink>
           </div>
 
-          <div className="w-full h-full flex justify-start items-start flex-col uppercase overflow-y-auto">
+          <div className="w-full h-full flex justify-start items-start flex-col uppercase overflow-y-auto overflow-x-hidden">
             {routes.map(({ id, subject, children }) => (
               <Fragment key={id}>
                 <div className="w-full px-4">

@@ -6,7 +6,7 @@ const Layouts = ({ layout, active }: LayoutImpl) => {
     <>
       <div
         className={cls(
-          `bg-white flex justify-start items-center flex-col 
+          `bg-light flex justify-start items-center flex-col 
         cursor-pointer me-2 mb-2
       rounded-md  border-[1px] p-1 w-[83.6px] border-zinc-100
        transition-all duration-200 dark:border-zinc-800`,

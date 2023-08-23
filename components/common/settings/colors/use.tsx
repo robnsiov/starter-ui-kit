@@ -6,10 +6,10 @@ import treeForceUpdateState from "@/context/tree-force-update";
 import localManagement from "@/utils/local-management";
 import { UseColorsImpl } from "./type";
 
-const useColors = ({ closeMenu }: UseColorsImpl) => {
+const useColors = ({ closeMenu, colorVariable }: UseColorsImpl) => {
   const [color, setColor] = useState("");
   const forceTreeUpdate = useRecoilValue(treeForceUpdateState);
-  const [localColor, setLocalColor] = localManagement({ key: "color" });
+  const [localColor, setLocalColor] = localManagement({ key: colorVariable });
 
   const toHex = (cl: string) => {
     return Color(cl).hex();
@@ -22,7 +22,7 @@ const useColors = ({ closeMenu }: UseColorsImpl) => {
 
   useDidUpdate(() => {
     if (typeof window !== "undefined") {
-      document.documentElement.style.setProperty("--primary", color);
+      document.documentElement.style.setProperty(colorVariable, color);
     }
   }, [color]);
 

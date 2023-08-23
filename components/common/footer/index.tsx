@@ -12,7 +12,7 @@ const Footer = () => {
     <>
       <div
         className={cls(
-          `flex justify-end items-center 
+          `flex justify-end items-center bg-light-800
       border-t-[1px] border-zinc-200/60 dark:border-zinc-700`,
           border === "true"
             ? "ms-border w-[calc(100%-200px)] lg:!w-[calc(100%-20px)]"
@@ -22,7 +22,7 @@ const Footer = () => {
         <div
           className={cls(
             `transition-all duration-300
-            bg-white p-5 text-center
+             p-5 text-center
       text-sm  dark:bg-dark md:py-4`,
             { "w-[calc(100%-256px)] md:!w-full": layout === "cuba" },
             {

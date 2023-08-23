@@ -20,7 +20,7 @@ const AuthContaienr = ({ children, desc, title, type }: AuthContainerImpl) => {
         </NavLink>
         <div
           className="flex justify-center items-start flex-col 
-      p-8 bg-white dark:bg-dark dark:shadow-none shadow-xl w-full max-w-md rounded-lg 
+      p-8 bg-light dark:bg-dark dark:shadow-none shadow-xl w-full max-w-md rounded-lg 
       shadow-indigo-300/10 relative z-10"
         >
           <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-400 md:text-lg">

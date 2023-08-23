@@ -28,7 +28,7 @@ const Header = () => {
             `h-full  relative
               border-b-[1px] border-zinc-200/60 dark:border-zinc-700 
       flex justify-between items-center py-4 px-5
-      transition-all duration-300 bg-white dark:bg-dark w-full `,
+      transition-all duration-300 bg-light-800 dark:bg-dark w-full `,
             {
               "border-t-[1px] border-r-[1px] rounded-tr-xl border-zinc-200/60 rtl:border-r-0 rtl:border-l-[1px] rtl:rounded-tr-none rtl:rounded-tl-xl":
                 border === "true",
@@ -46,7 +46,7 @@ const Header = () => {
           {layout === "cuba" && <MenuIcon />}
           {/* don't remove this element */}
           <div id="fale"></div>
-          <div className="flex justify-start items-center">
+          <div className="flex justify-start items-center relative">
             <SettingsIocns />
             <Countries />
             <Search />

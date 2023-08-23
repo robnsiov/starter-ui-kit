@@ -13,7 +13,7 @@ const useSettings = () => {
   const [_, setSettingsTabsState] = useRecoilState(settingsTabsState);
   const treeForceUpdate = useRecoilValue(treeForceUpdateState);
   const [activeLayout, setActiveLayout] = useState("");
-  const [primary] = localManagement({ key: "color" });
+  const [primary] = localManagement({ key: "--primary" });
   const [localLayout, setLocalLayout] = localManagement({ key: "layout" });
   const [border, setBorder] = localManagement({ key: "border" });
   useEffect(() => {
@@ -35,9 +35,10 @@ const useSettings = () => {
 
   const primaryCL = primary
     ? color(primary || "#fff")
-        .lighten(0.8)
+        .lighten(0.5)
         .hex()
     : "";
+  console.log(primaryCL);
   const setLayout = ({ def, layout }: SameLayoutImpl) => {
     setLocalLayout((def as string) ?? layout);
     setBorder(def ? "true" : "false");

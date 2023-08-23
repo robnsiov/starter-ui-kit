@@ -3,8 +3,8 @@ import useColors from "./use";
 import { useRef } from "react";
 import ColorsImpl from "./type";
 
-const Colros = ({ closeMenu }: ColorsImpl) => {
-  const { color, setColor } = useColors({ closeMenu });
+const Colros = ({ closeMenu, colorVariable }: ColorsImpl) => {
+  const { color, setColor } = useColors({ closeMenu, colorVariable });
 
   const ref = useRef<HTMLInputElement>(null);
 
@@ -20,14 +20,14 @@ const Colros = ({ closeMenu }: ColorsImpl) => {
       <div className="w-full flex justify-start items-center">
         <div
           className="w-[35px] h-[35px] border-zinc-200 
-            border-[1px] rounded-md p-[3px] me-2"
+            border-2 rounded-md  me-2"
         >
           <div className="w-full h-full rounded-md bg-red-200 overflow-hidden">
             <input
               ref={ref}
               type="color"
               defaultValue={color}
-              className="w-full h-full bg-white scale-[2]"
+              className="w-full h-full bg-light scale-[2]"
             />
           </div>
         </div>

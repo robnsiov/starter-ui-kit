@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html>
       <body
-        className={`${pop.variable} ${san.variable} bg-white dark:bg-dark-800`}
+        className={`${pop.variable} ${san.variable} bg-light dark:bg-dark-800`}
       >
         <Container>{children}</Container>
       </body>

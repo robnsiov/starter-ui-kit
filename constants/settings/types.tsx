@@ -21,4 +21,9 @@ export type THEMES = "Dark" | "Light";
 export default interface SettingsImpl {
   THEME: THEMES;
   LANG: LANGS;
+  COLOR: string;
+  LIGHT: string;
+  LIGHT_800: string;
+  DARK: string;
+  DARK_800: string;
 }

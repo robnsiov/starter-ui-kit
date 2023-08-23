@@ -33,7 +33,7 @@ const IconMenu = () => {
               className={cls(
                 `fixed left-[100px] top-0 bottom-0 w-[200px]  rtl:left-auto rtl:right-[100px]               
       dark:bg-dark overflow-hidden border-r-[1px] rtl:border-r-0 rtl:border-l-[1px] dark:border-x-zinc-700 border-zinc-200/60 
-      z-50  py-5 bg-white  md:left-[40px] md:rtl:right-[40px] overflow-y-auto`,
+      z-50  py-5 bg-light-800  md:left-[40px] md:rtl:right-[40px] overflow-y-auto overflow-x-hidden`,
                 { "ms-border border-t-[1px] mt-border": border === "true" }
               )}
               initial={{ x: dir === "ltr" ? -200 : 200, opacity: 0 }}
@@ -151,14 +151,14 @@ const IconMenu = () => {
       dark:bg-dark overflow-hidden 
       dark:border-r-[1px] dark:border-zinc-600/20
       border-r-[1px] border-zinc-200/60 dark:border-zinc-700 rtl:border-r-0 rtl:border-l-[1px]
-      z-50 transition-all duration-300 bg-white uppercase`,
+      z-50 transition-all duration-300 bg-light-800 uppercase`,
           {
             "ms-border mt-border  !border-x-[1px] !border-t-[1px] !rounded-tl-xl border-zinc-200/60   rtl:!rounded-tl-none rtl:!rounded-tr-xl":
               border === "true",
           }
         )}
       >
-        <div className="w-full h-full flex items-start justify-start flex-col overflow-y-auto">
+        <div className="w-full h-full flex items-start justify-start flex-col overflow-y-auto overflow-x-hidden">
           <div
             className="w-full flex justify-center items-center h-[79px] 
           py-4 px-5  mb-1 dark:bg-dark"

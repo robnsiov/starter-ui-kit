@@ -45,7 +45,7 @@ const Settings = () => {
             `fixed top-[70px] md:top-[53px] 
        bottom-0  duration-200 transition-all 
        border-l-[1px] border-zinc-200/60 dark:border-dark-800 rtl:border-l-0 rtl:border-r-[1px]
-      bg-white dark:bg-dark w-[344px] z-30 `,
+      bg-light-800 dark:bg-dark w-[344px] z-30 `,
             openMenu
               ? "right-0 rtl:right-auto rtl:left-0"
               : "right-[-345px] 460px:right-[-100%] rtl:right-auto rtl:left-[-345px] 460px:rtl:left-[-100%]",
@@ -54,7 +54,7 @@ const Settings = () => {
               ? "460px:w-[calc(100%-40px)]"
               : "460px:w-full",
             {
-              "me-border  mt-border 460px:w-[calc(100%-20px)]":
+              "me-border  mt-border 460px:!w-[calc(100%-20px)]":
                 border === "true",
             },
             {
@@ -130,10 +130,57 @@ const Settings = () => {
                     </div> */}
                     <div className="flex justify-start items-start flex-col flex-wrap mb-4">
                       <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
-                        {t({ key: "unlimitedColors" })}
+                        {t({ key: "unlimitedColor" })}
                       </h3>
                       <div className="flex justify-start items-center mt-1">
-                        <Colros closeMenu={() => setOpenMenu(false)} />
+                        <Colros
+                          colorVariable="--primary"
+                          closeMenu={() => setOpenMenu(false)}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-start items-start flex-col flex-wrap mb-4">
+                      <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
+                        {t({ key: "unlimitedDarkColor" })}
+                      </h3>
+                      <div className="flex justify-start items-center mt-1">
+                        <Colros
+                          colorVariable="--dark"
+                          closeMenu={() => setOpenMenu(false)}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-start items-start flex-col flex-wrap mb-4">
+                      <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
+                        {t({ key: "unlimitedDarkColor800" })}
+                      </h3>
+                      <div className="flex justify-start items-center mt-1">
+                        <Colros
+                          colorVariable="--dark-800"
+                          closeMenu={() => setOpenMenu(false)}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-start items-start flex-col flex-wrap mb-4">
+                      <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
+                        {t({ key: "unlimitedLightColor" })}
+                      </h3>
+                      <div className="flex justify-start items-center mt-1">
+                        <Colros
+                          colorVariable="--light"
+                          closeMenu={() => setOpenMenu(false)}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-start items-start flex-col flex-wrap mb-4">
+                      <h3 className="font-semibold text-zinc-700 text-sm dark:text-zinc-400">
+                        {t({ key: "unlimitedLightColor800" })}
+                      </h3>
+                      <div className="flex justify-start items-center mt-1">
+                        <Colros
+                          colorVariable="--light-800"
+                          closeMenu={() => setOpenMenu(false)}
+                        />
                       </div>
                     </div>
                     {/* <div className="flex justify-start items-start flex-col flex-wrap mb-4">
@@ -233,7 +280,7 @@ const Settings = () => {
             className={cls(
               `absolute top-1/2 -translate-y-1/2 left-[-52px] rtl:left-auto rtl:right-[-52px]
        border-zinc-200/60 dark:border-zinc-700 border-[1px] p-2 rounded-l-md flex justify-start 
-      items-start flex-col md:hidden bg-white dark:bg-dark-800 
+      items-start flex-col md:hidden bg-light-800 dark:bg-dark-800 
       rtl:rounded-l-none rtl:rounded-r-md`,
               { "me-border": border === "true" }
             )}

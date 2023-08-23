@@ -47,7 +47,11 @@
     "settings": {
         "title": "پیش نمایش تنظیمات",
         "desc": "در لحظه تغییرات را مشاهده کنید",
-        "unlimitedColors": "رنگ های نامحدود",
+        "unlimitedColor": "رنگ های نامحدود",
+        "unlimitedDarkColor": "رنگ های نامحدود تم تاریک",
+        "unlimitedDarkColor800": "رنگ های نامحدود تم تاریک 800",
+        "unlimitedLightColor": "رنگ های نامحدود تم روشن",
+        "unlimitedLightColor800": "رنگ های نامحدو تم روشن 800",
         "colors": "رنگ ها",
         "layouts": "لایه ها",
         "apply": "اعمال",

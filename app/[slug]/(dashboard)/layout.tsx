@@ -17,9 +17,9 @@ const Layout = ({
         <DashboardContainer>
           {border === "true" && (
             <>
-              <div className="fixed w-[99px] lg:w-border top-0 bottom-0 left-0 bg-white dark:bg-dark-800 z-[999]"></div>
-              <div className="fixed w-[99px] lg:w-border top-0 bottom-0 right-0 bg-white dark:bg-dark-800 z-[999]"></div>
-              <div className="fixed  top-0  right-0 left-0 h-border bg-white dark:bg-dark-800 z-[999]"></div>
+              <div className="fixed w-[99px] lg:w-border top-0 bottom-0 left-0 bg-light dark:bg-dark-800 z-[999]"></div>
+              <div className="fixed w-[99px] lg:w-border top-0 bottom-0 right-0 bg-light dark:bg-dark-800 z-[999]"></div>
+              <div className="fixed  top-0  right-0 left-0 h-border bg-light dark:bg-dark-800 z-[999]"></div>
             </>
           )}
           <div

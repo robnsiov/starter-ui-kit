@@ -47,7 +47,11 @@
     "settings": {
         "title": "PREVIEW SETTINGS",
         "desc": "Try It Real Time",
-        "unlimitedColors": "UNLIMITED COLOR",
+        "unlimitedColor": "UNLIMITED COLOR",
+        "unlimitedDarkColor": "UNLIMITED DARK COLOR",
+        "unlimitedDarkColor800": "UNLIMITED DARK COLOR 800",
+        "unlimitedLightColor": "UNLIMITED LIGHT COLOR",
+        "unlimitedLightColor800": "UNLIMITED LIGHT COLOR 800",
         "colors": "colors",
         "layouts": "layouts",
         "apply": "Apply",

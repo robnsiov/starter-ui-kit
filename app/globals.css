@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 html {
-  --primary: #fff;
+  --primary: #000;
   --border: 100px;
-  --secondary: #fff;
+  --dark: #262932;
+  --dark-800: #1d1e26;
+  --light: #fff;
+  --light-800: #f9fafb;
 }
 ::-webkit-scrollbar {
   width: 7px;
