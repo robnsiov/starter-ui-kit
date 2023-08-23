@@ -38,7 +38,6 @@ const useSettings = () => {
         .lighten(0.5)
         .hex()
     : "";
-  console.log(primaryCL);
   const setLayout = ({ def, layout }: SameLayoutImpl) => {
     setLocalLayout((def as string) ?? layout);
     setBorder(def ? "true" : "false");
