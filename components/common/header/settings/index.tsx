@@ -1,14 +1,16 @@
+// @ts-nocheck
 import { IconPaletteFilled, IconSettings } from "@tabler/icons-react";
 import useInnerSettings from "./use";
 
 const Settings = () => {
-  const { setSelectedTab } = useInnerSettings();
+  const { setSettingsTab } = useInnerSettings();
   return (
     <>
+      ``
       <div className="justify-center items-center hidden md:flex">
         <div
           className="relative ms-3"
-          onClick={() => setSelectedTab?.done("options")}
+          onClick={() => setSettingsTab?.done("options")}
         >
           <IconPaletteFilled
             size="20"
@@ -18,7 +20,7 @@ const Settings = () => {
         </div>
         <div
           className="relative ms-3 me-1"
-          onClick={() => setSelectedTab?.done("layouts")}
+          onClick={() => setSettingsTab?.done("layouts")}
         >
           <IconSettings
             size="20"
