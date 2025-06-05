@@ -15,7 +15,7 @@ const Search = () => {
       <form
         onSubmit={formSubmit}
         className={cls(
-          `absolute inset-0 md:-top-1.5 bg-light dark:bg-dark z-10 flex 
+          `absolute inset-y-0 start-[10%] end-0 md:-top-1.5 bg-light dark:bg-dark z-10 flex 
       justify-between items-center py-4 md:px-2 px-6 scale-0 transition-all duration-500`,
           openSearchbar ? "scale-100" : "scale-0"
         )}

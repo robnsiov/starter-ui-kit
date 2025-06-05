@@ -1,14 +1,14 @@
 "use client";
 
+import cls from "classnames";
 import Countries from "./countries";
-import Search from "./search";
 import DarkModeToggle from "./dark-mode-toggle";
+import MenuIcon from "./menu-icon";
 import Notification from "./notification";
 import Profile from "./profile";
-import MenuIcon from "./menu-icon";
+import Search from "./search";
 import SettingsIocns from "./settings";
 import useHeader from "./use";
-import cls from "classnames";
 
 const Header = () => {
   const { layout, border } = useHeader();
@@ -45,8 +45,7 @@ const Header = () => {
         >
           {layout === "cuba" && <MenuIcon />}
           {/* don't remove this element */}
-          <div id="fale"></div>
-          <div className="flex justify-start items-center relative">
+          <div className="flex justify-end items-center relative w-full">
             <SettingsIocns />
             <Countries />
             <Search />

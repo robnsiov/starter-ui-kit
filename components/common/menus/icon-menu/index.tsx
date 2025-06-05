@@ -215,16 +215,16 @@ const IconMenu = () => {
                       )}
 
                       <div
-                        className="bg-indigo-100 w-5 h-5 flex justify-center opacity-0
+                        className="dark:bg-slate-600 bg-indigo-100 h-[22px] w-[22px] flex justify-center opacity-0
                 items-center  rounded-full absolute top-2 
                 transition-all duration-200
                 right-7 group-hover:opacity-100 z-20 md:right-2.5 md:scale-90"
                       >
                         <IconPinned
-                          size="12"
+                          size="16"
                           className={`-rotate-45 mx-1  group-hover:opacity-100
                    transition-all duration-200
-                    text-indigo-600`}
+                    dark:text-white text-indigo-600`}
                         />
                       </div>
                       <div className="relative">
