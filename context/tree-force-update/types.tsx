@@ -1,2 +1,2 @@
-type TreeForceUpdateImpl = { done: () => void };
+type TreeForceUpdateImpl = boolean;
 export default TreeForceUpdateImpl;

@@ -1,16 +1,15 @@
 "use client";
 
+import NavLink from "@/components/shared/links/nav-link";
 import SidebarLink from "@/components/shared/links/sidebar-link";
-import { ArrowRight2, Box1, Home } from "iconsax-react";
-import { ImPushpin } from "react-icons/im";
-import routes from "../sidebar/routes";
-import { Fragment } from "react";
-import useMenuIcon from "./use";
+import useTranslate from "@/hooks/use-translate";
+import matchPath from "@/utils/match-path";
+import { IconBox, IconChevronRight, IconPinned } from "@tabler/icons-react";
 import cls from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import matchPath from "@/utils/match-path";
-import useTranslate from "@/hooks/use-translate";
-import NavLink from "@/components/shared/links/nav-link";
+import { Fragment } from "react";
+import routes from "../sidebar/routes";
+import useMenuIcon from "./use";
 
 const IconMenu = () => {
   const {
@@ -84,7 +83,7 @@ const IconMenu = () => {
                               }
                             )}
                           >
-                            <ArrowRight2
+                            <IconChevronRight
                               size="12"
                               className="
             text-zinc-500 cursor-pointer hover:text-zinc-800 dark:hover:text-white"
@@ -167,7 +166,7 @@ const IconMenu = () => {
               href="/"
               className="flex justify-center items-center group cursor-pointer"
             >
-              <Box1
+              <IconBox
                 className="text-zinc-800 transition-all 
               duration-200 hover:text-primary relative z-10 dark:text-primary"
               />
@@ -221,7 +220,7 @@ const IconMenu = () => {
                 transition-all duration-200
                 right-7 group-hover:opacity-100 z-20 md:right-2.5 md:scale-90"
                       >
-                        <ImPushpin
+                        <IconPinned
                           size="12"
                           className={`-rotate-45 mx-1  group-hover:opacity-100
                    transition-all duration-200

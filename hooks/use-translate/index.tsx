@@ -1,15 +1,14 @@
 import TranslationState from "@/context/translation";
-import { useRecoilValue } from "recoil";
-import UseTranslateImpl, { GetUserTranslateImpl } from "./types";
 import { isEmpty } from "lodash";
+import UseTranslateImpl, { GetUserTranslateImpl } from "./types";
 
 const useTranslate = (root: UseTranslateImpl) => {
-  const messages = useRecoilValue(TranslationState);
+  const { translations } = TranslationState();
 
   const get = ({ key, variables }: GetUserTranslateImpl) => {
-    if (!isEmpty(messages)) {
-      if (root in messages) {
-        const object = messages[root];
+    if (!isEmpty(translations)) {
+      if (root in translations) {
+        const object = translations[root];
         if (key in object) {
           let value = object[key];
           const keys = Object.entries(variables ?? {});

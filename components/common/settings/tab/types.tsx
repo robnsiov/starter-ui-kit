@@ -1,7 +1,7 @@
-import { IconType } from "react-icons/lib";
+import { Icon } from "@tabler/icons-react";
 
 export default interface TabImpl {
-  Icon: IconType;
+  Icon: Icon;
   active: boolean;
   primaryCL: string | undefined;
   title: string;

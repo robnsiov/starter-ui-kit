@@ -1,8 +1,14 @@
-import { atom } from "recoil";
+import { create } from "zustand";
 import TreeForceUpdateImpl from "./types";
-const treeForceUpdateState = atom<TreeForceUpdateImpl>({
-  key: "treeForceUpdate",
-  default: undefined,
-});
 
-export default treeForceUpdateState;
+interface TreeForceUpdateStore {
+  treeForceUpdate: TreeForceUpdateImpl | undefined;
+  setTreeForceUpdate: (val: TreeForceUpdateImpl | undefined) => void;
+}
+
+const useTreeForceUpdateStore = create<TreeForceUpdateStore>((set) => ({
+  treeForceUpdate: undefined,
+  setTreeForceUpdate: (val) => set({ treeForceUpdate: val }),
+}));
+
+export default useTreeForceUpdateStore;

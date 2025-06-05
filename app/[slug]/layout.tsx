@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 
 const Layout = async ({
   children,
-  params: { slug },
+  params,
 }: {
   children: React.ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) => {
+  const { slug } = await params;
   let messages;
   try {
     messages = (await import(`../../messages/${slug}.json`)).default;

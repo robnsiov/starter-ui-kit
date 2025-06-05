@@ -1,8 +1,14 @@
-import { atom } from "recoil";
+import { create } from "zustand";
 import ActiveLayoutStateImpl from "./types";
-const activeLayoutState = atom<ActiveLayoutStateImpl>({
-  key: "activeLayoutState",
-  default: "cuba",
-});
 
-export default activeLayoutState;
+interface ActiveLayoutStore {
+  activeLayout: ActiveLayoutStateImpl;
+  setActiveLayout: (layout: ActiveLayoutStateImpl) => void;
+}
+
+const useActiveLayoutStore = create<ActiveLayoutStore>((set) => ({
+  activeLayout: "cuba", // default value
+  setActiveLayout: (layout) => set({ activeLayout: layout }),
+}));
+
+export default useActiveLayoutStore;

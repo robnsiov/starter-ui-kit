@@ -1,9 +1,8 @@
-import settingsTabsState from "@/context/toggle-settings-tabs";
-import { useRecoilValue } from "recoil";
+import useSettingsTabsStore from "@/context/toggle-settings-tabs";
 
 const useInnerSettings = () => {
-  const setSelectedTab = useRecoilValue(settingsTabsState);
-  return { setSelectedTab };
+  const { setSettingsTab } = useSettingsTabsStore();
+  return { setSettingsTab };
 };
 
 export default useInnerSettings;

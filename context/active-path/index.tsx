@@ -1,10 +1,16 @@
-import { atom } from "recoil";
 import settings from "@/constants/settings";
 import { languages } from "@/constants/settings/types";
+import { create } from "zustand";
 import ActivePathStateImpl from "./types";
-const activePathState = atom<ActivePathStateImpl>({
-  key: "activePathState",
-  default: languages[settings.LANG].path,
-});
 
-export default activePathState;
+interface ActivePathStore {
+  activePath: ActivePathStateImpl;
+  setActivePath: (path: ActivePathStateImpl) => void;
+}
+
+const useActivePathStore = create<ActivePathStore>((set) => ({
+  activePath: languages[settings.LANG].path, // default from settings
+  setActivePath: (path) => set({ activePath: path }),
+}));
+
+export default useActivePathStore;

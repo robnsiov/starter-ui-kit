@@ -1,15 +1,14 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import useAuthStore from "@/context/is-authenticated";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Inputs } from "./types";
-import zod from "zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useSetRecoilState } from "recoil";
-import isAuthenticatedState from "@/context/is-authenticated";
+import { SubmitHandler, useForm } from "react-hook-form";
+import zod from "zod";
+import { Inputs } from "./types";
 
 const useSignin = () => {
   const router = useRouter();
-  const setIsAuthenticated = useSetRecoilState(isAuthenticatedState);
+  const { setIsAuthenticated } = useAuthStore();
   const [loading, setLoading] = useState(false);
   const schema = zod.object({
     email: zod.string().email(),

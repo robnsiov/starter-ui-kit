@@ -1,5 +1,4 @@
-import { SearchNormal1 } from "iconsax-react";
-import { CgClose } from "react-icons/cg";
+import { IconSearch, IconX } from "@tabler/icons-react";
 import cls from "classnames";
 import useSearch from "./us";
 
@@ -22,7 +21,7 @@ const Search = () => {
         )}
       >
         <button type="submit">
-          <SearchNormal1
+          <IconSearch
             className="text-zinc-500
            hover:text-zinc-700 cursor-pointer dark:hover:text-zinc-400"
           />
@@ -36,14 +35,14 @@ const Search = () => {
           placeholder="Search . . ."
           spellCheck={false}
         />
-        <CgClose
+        <IconX
           onClick={() => setOpenSearchbar(false)}
           className="text-zinc-500 hover:text-zinc-700 cursor-pointer 
           dark:hover:text-zinc-400"
         />
       </form>
       <div className="ms-3">
-        <SearchNormal1
+        <IconSearch
           onClick={() => setOpenSearchbar(true)}
           className="text-zinc-500 cursor-pointer duration-200 transition-all 
           hover:text-primary dark:text-zinc-100"

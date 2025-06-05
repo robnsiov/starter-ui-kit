@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import Color from "color";
-import { useDidUpdate } from "@mantine/hooks";
-import { useRecoilValue } from "recoil";
-import treeForceUpdateState from "@/context/tree-force-update";
+import useTreeForceUpdateStore from "@/context/tree-force-update";
 import localManagement from "@/utils/local-management";
+import { useDidUpdate } from "@mantine/hooks";
+import Color from "color";
+import { useState } from "react";
 import { UseColorsImpl } from "./type";
 
 const useColors = ({ closeMenu, colorVariable }: UseColorsImpl) => {
   const [color, setColor] = useState("");
-  const forceTreeUpdate = useRecoilValue(treeForceUpdateState);
+  const { treeForceUpdate, setTreeForceUpdate } = useTreeForceUpdateStore();
   const [localColor, setLocalColor] = localManagement({ key: colorVariable });
 
   const toHex = (cl: string) => {
@@ -31,7 +30,7 @@ const useColors = ({ closeMenu, colorVariable }: UseColorsImpl) => {
     setLocalColor(clToHex);
     setColor(clToHex);
     setTimeout(() => {
-      forceTreeUpdate.done();
+      setTreeForceUpdate(!treeForceUpdate);
     });
     closeMenu();
   };

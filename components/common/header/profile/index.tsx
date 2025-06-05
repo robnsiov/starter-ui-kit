@@ -1,14 +1,14 @@
 "use client";
 import MotionDropDown from "@/components/shared/dropdowns/motion-dropdown";
+import NavLink from "@/components/shared/links/nav-link";
 import SidebarLink from "@/components/shared/links/sidebar-link";
-import { ArrowDown2, Image, Logout } from "iconsax-react";
-import routes from "./routes";
-import useProfile from "./use";
+import useTranslate from "@/hooks/use-translate";
+import matchPath from "@/utils/match-path";
+import { IconChevronDown, IconLogout } from "@tabler/icons-react";
 import cls from "classnames";
 import Pic from "next/image";
-import NavLink from "@/components/shared/links/nav-link";
-import matchPath from "@/utils/match-path";
-import useTranslate from "@/hooks/use-translate";
+import routes from "./routes";
+import useProfile from "./use";
 
 const Profile = () => {
   const { pathname } = useProfile();
@@ -44,7 +44,10 @@ const Profile = () => {
                 duration-200 transition-all group-hover:text-primary"
                 >
                   {t({ key: "role" })}{" "}
-                  <ArrowDown2 className="ms-[2px] inline-block" size="10" />
+                  <IconChevronDown
+                    className="ms-[2px] inline-block"
+                    size="10"
+                  />
                 </span>
               </div>
             </div>
@@ -83,7 +86,7 @@ const Profile = () => {
             className="profile-link px-3 py-2 flex justify-start items-start
             group cursor-pointer"
           >
-            <Logout
+            <IconLogout
               className="me-2 duration-200 transition-all 
               group-hover:text-primary dark:text-zinc-100"
               size="20"

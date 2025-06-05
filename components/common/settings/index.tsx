@@ -1,16 +1,13 @@
 "use client";
-import useSettings from "./use";
-import { LiaTimesSolid } from "react-icons/lia";
-import { BiColorFill } from "react-icons/bi";
-import Layouts from "./layouts";
+import { layoutes } from "@/constants/settings";
+import useTranslate from "@/hooks/use-translate";
+import { IconPaletteFilled, IconSettings, IconX } from "@tabler/icons-react";
+import cls from "classnames";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Colros from "./colors";
 import Tab from "./tab";
-import { FiSettings } from "react-icons/fi";
-import { AnimatePresence, motion } from "framer-motion";
-import cls from "classnames";
-import { layoutes } from "@/constants/settings";
-import Image from "next/image";
-import useTranslate from "@/hooks/use-translate";
+import useSettings from "./use";
 
 const Settings = () => {
   const {
@@ -77,7 +74,7 @@ const Settings = () => {
           >
             <h2 className="text-xl font-semibold relative w-full">
               <span className="dark:text-zinc-400">{t({ key: "title" })}</span>
-              <LiaTimesSolid
+              <IconX
                 onClick={() => setOpenMenu(false)}
                 className="absolute top-0 right-0
               rtl:left-0 rtl:right-auto text-primary cursor-pointer"
@@ -286,7 +283,7 @@ const Settings = () => {
             )}
           >
             <Tab
-              Icon={FiSettings}
+              Icon={IconSettings}
               title={t({ key: "layouts" })}
               active={selectedTab === "layouts"}
               size="18"
@@ -294,7 +291,7 @@ const Settings = () => {
               onClick={() => setSelectedTab("layouts")}
             />
             <Tab
-              Icon={BiColorFill}
+              Icon={IconPaletteFilled}
               title={t({ key: "colors" })}
               active={selectedTab === "options"}
               primaryCL={primaryCL}

@@ -1,18 +1,18 @@
 "use client";
 import SidebarLink from "@/components/shared/links/sidebar-link";
-import { ArrowLeft3, ArrowRight3 } from "iconsax-react";
-import { Fragment, useRef } from "react";
+import useOnScreen from "@/hooks/use-on-screen/use-one-screen";
+import useTranslate from "@/hooks/use-translate";
+import matchPath from "@/utils/match-path";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import cls from "classnames";
+import { Fragment, RefObject, useRef } from "react";
 import routes from "../sidebar/routes";
 import MenuContainer from "./menu-container";
 import MenuItem from "./menu-item";
 import "./row-menu.css";
 import useRowMenu from "./use";
-import cls from "classnames";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
-import useOnScreen from "@/hooks/use-on-screen/use-one-screen";
-import matchPath from "@/utils/match-path";
-import useTranslate from "@/hooks/use-translate";
 
 const RowMenu = () => {
   const {
@@ -26,10 +26,14 @@ const RowMenu = () => {
   } = useRowMenu();
   const t = useTranslate("menu");
   const lastElementRef = useRef<HTMLDivElement>(null);
-  const lastVisibleElement = useOnScreen(lastElementRef);
+  const lastVisibleElement = useOnScreen(
+    lastElementRef as RefObject<HTMLDivElement>
+  );
 
   const firstElementRef = useRef<HTMLDivElement>(null);
-  const firstVisibleElement = useOnScreen(firstElementRef);
+  const firstVisibleElement = useOnScreen(
+    firstElementRef as RefObject<HTMLDivElement>
+  );
 
   const splide = useRef({ go(dir: string) {} });
 
@@ -58,7 +62,7 @@ const RowMenu = () => {
           }
         )}
       >
-        <ArrowLeft3
+        <IconChevronLeft
           onClick={goPrev}
           className={cls(
             `absolute top-5 left-1.5 cursor-pointer rtl:left-auto rtl:right-1.5 rtl:-scale-100
@@ -69,7 +73,7 @@ const RowMenu = () => {
           )}
           size="18"
         />
-        <ArrowRight3
+        <IconChevronRight
           onClick={goNext}
           className={cls(
             `absolute top-5 right-1.5 cursor-pointer rtl:right-auto rtl:left-1.5 rtl:-scale-100

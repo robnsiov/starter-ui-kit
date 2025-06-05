@@ -1,8 +1,7 @@
-import activePathState from "@/context/active-path";
-import { useRecoilValue } from "recoil";
+import useActivePathStore from "@/context/active-path";
 
 const useNavLink = () => {
-  const activePath = useRecoilValue(activePathState);
+  const { activePath } = useActivePathStore();
   return { activePath };
 };
 export default useNavLink;

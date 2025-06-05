@@ -1,16 +1,19 @@
 "use client";
 
-import { ArrowRight2, Box1 } from "iconsax-react";
-import { ImPushpin } from "react-icons/im";
+import NavLink from "@/components/shared/links/nav-link";
+import SidebarLink from "@/components/shared/links/sidebar-link";
+import useTranslate from "@/hooks/use-translate";
+import matchPath from "@/utils/match-path";
+import {
+  IconBox,
+  IconChevronRight,
+  IconPinnedFilled,
+} from "@tabler/icons-react";
+import cls from "classnames";
+import { AnimatePresence, motion } from "framer-motion";
 import { Fragment } from "react";
 import routes from "./routes";
-import cls from "classnames";
-import { motion, AnimatePresence } from "framer-motion";
-import SidebarLink from "@/components/shared/links/sidebar-link";
 import useSidebar from "./use";
-import matchPath from "@/utils/match-path";
-import useTranslate from "@/hooks/use-translate";
-import NavLink from "@/components/shared/links/nav-link";
 
 const Sidebar = () => {
   const {
@@ -51,7 +54,7 @@ const Sidebar = () => {
               href="/"
               className="flex justify-center items-center group cursor-pointer"
             >
-              <Box1
+              <IconBox
                 className="text-zinc-800 transition-all 
               duration-200 hover:text-primary relative z-10 dark:text-primary"
               />
@@ -115,6 +118,7 @@ const Sidebar = () => {
                                 className={cls(
                                   `me-4 transition-all duration-200 group-hover:text-primary
                                   dark:text-zinc-300`,
+
                                   {
                                     "text-primary":
                                       activeRoute.levelOne === levelOneId ||
@@ -146,29 +150,28 @@ const Sidebar = () => {
                                 </span>
                               )}
 
-                              <ImPushpin
-                                size="12"
+                              <IconPinnedFilled
+                                size="18"
                                 className={`-rotate-45 mx-1 opacity-0 group-hover:opacity-100
                    transition-all duration-200
                     text-indigo-600 dark:text-indigo-500`}
                               />
-                              <ArrowRight2
-                                size="12"
-                                className={cls(
-                                  `transition-all duration-200
+                              {!(
+                                children === undefined || children?.length === 0
+                              ) && (
+                                <IconChevronRight
+                                  size="16"
+                                  className={cls(
+                                    `transition-all duration-200
                     group-hover:text-indigo-600 dark:text-zinc-400`,
-                                  {
-                                    "opacity-0":
-                                      children === undefined ||
-                                      children?.length === 0,
-                                  },
 
-                                  activeRoute.levelOne === levelOneId ||
-                                    matchPath(href, pathname)
-                                    ? "text-primary rotate-90"
-                                    : "text-zinc-500 rtl:rotate-180"
-                                )}
-                              />
+                                    activeRoute.levelOne === levelOneId ||
+                                      matchPath(href, pathname)
+                                      ? "text-primary rotate-90"
+                                      : "text-zinc-500 rtl:rotate-180"
+                                  )}
+                                />
+                              )}
                             </div>
                           </div>
                         </SidebarLink>
@@ -239,22 +242,23 @@ const Sidebar = () => {
                                                 ></span>
                                               </h3>
                                             </div>
-                                            <ArrowRight2
-                                              size="12"
-                                              className={cls(
-                                                `transition-all duration-200 dark:text-zinc-400`,
-                                                {
-                                                  "opacity-0":
-                                                    children === undefined ||
-                                                    children?.length === 0,
-                                                },
-                                                activeRoute.levelTwo ===
-                                                  levelTwoId ||
-                                                  matchPath(href, pathname)
-                                                  ? "text-primary rotate-90"
-                                                  : "text-zinc-500"
-                                              )}
-                                            />
+                                            {!(
+                                              children === undefined ||
+                                              children?.length === 0
+                                            ) && (
+                                              <IconChevronRight
+                                                size="16"
+                                                className={cls(
+                                                  `transition-all duration-200 dark:text-zinc-400`,
+
+                                                  activeRoute.levelTwo ===
+                                                    levelTwoId ||
+                                                    matchPath(href, pathname)
+                                                    ? "text-primary rotate-90"
+                                                    : "text-zinc-500"
+                                                )}
+                                              />
+                                            )}
                                           </div>
                                         </SidebarLink>
                                         <AnimatePresence>

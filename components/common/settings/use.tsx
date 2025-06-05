@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
-import color from "color";
-import { useDidUpdate } from "@mantine/hooks";
-import { SameLayoutImpl, TabsImpl } from "./types";
-import { useRecoilState, useRecoilValue } from "recoil";
-import settingsTabsState from "@/context/toggle-settings-tabs";
-import treeForceUpdateState from "@/context/tree-force-update";
+import useSettingsTabsStore from "@/context/toggle-settings-tabs";
+import useTreeForceUpdateStore from "@/context/tree-force-update";
 import localManagement from "@/utils/local-management";
+import { useDidUpdate } from "@mantine/hooks";
+import color from "color";
+import { useEffect, useState } from "react";
+import { SameLayoutImpl, TabsImpl } from "./types";
 
 const useSettings = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [selectedTab, setSelectedTab] = useState<TabsImpl>();
-  const [_, setSettingsTabsState] = useRecoilState(settingsTabsState);
-  const treeForceUpdate = useRecoilValue(treeForceUpdateState);
+  const { setSettingsTab } = useSettingsTabsStore();
+  const { treeForceUpdate, setTreeForceUpdate } = useTreeForceUpdateStore();
   const [activeLayout, setActiveLayout] = useState("");
   const [primary] = localManagement({ key: "--primary" });
   const [localLayout, setLocalLayout] = localManagement({ key: "layout" });
   const [border, setBorder] = localManagement({ key: "border" });
   useEffect(() => {
-    setSettingsTabsState({ done: setSelectedTab });
+    setSettingsTab({ done: setSelectedTab });
   }, []);
 
   useDidUpdate(() => {
@@ -42,7 +41,7 @@ const useSettings = () => {
     setLocalLayout((def as string) ?? layout);
     setBorder(def ? "true" : "false");
     setActiveLayout((def as string) ?? layout);
-    treeForceUpdate.done();
+    setTreeForceUpdate(!treeForceUpdate);
     setOpenMenu(false);
   };
 

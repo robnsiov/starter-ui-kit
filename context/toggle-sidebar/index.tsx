@@ -1,8 +1,19 @@
-import { atom } from "recoil";
+import { create } from "zustand";
 import SidebarStateImpl from "./types";
-const sidebarState = atom<SidebarStateImpl>({
-  key: "sidebarState",
-  default: { close: true },
-});
 
-export default sidebarState;
+interface SidebarStore {
+  sidebar: SidebarStateImpl;
+  setSidebar: (state: SidebarStateImpl) => void;
+  toggleSidebar: () => void;
+}
+
+const useSidebarStore = create<SidebarStore>((set, get) => ({
+  sidebar: { close: true },
+  setSidebar: (state) => set({ sidebar: state }),
+  toggleSidebar: () => {
+    const { sidebar } = get();
+    set({ sidebar: { close: !sidebar.close } });
+  },
+}));
+
+export default useSidebarStore;

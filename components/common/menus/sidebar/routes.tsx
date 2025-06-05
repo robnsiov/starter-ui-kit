@@ -1,4 +1,9 @@
-import { DirectInbox, Grid3, Home, TaskSquare } from "iconsax-react";
+import {
+  IconHome,
+  IconInbox,
+  IconLayoutBoard,
+  IconListDetails,
+} from "@tabler/icons-react";
 import { RoutesImpl } from "./types";
 
 const routes: RoutesImpl = [
@@ -10,21 +15,21 @@ const routes: RoutesImpl = [
         title: "home",
         href: "/",
         id: 0,
-        icon: Home,
+        icon: IconHome,
       },
       {
         title: "inbox",
         href: "/inbox",
         label: "new",
         id: 1,
-        icon: DirectInbox,
+        icon: IconInbox,
       },
-      { title: "taskBoard", href: "/taskboard", id: 2, icon: TaskSquare },
+      { title: "taskBoard", href: "/taskboard", id: 2, icon: IconListDetails },
       {
         title: "forms",
         href: "#",
         id: 3,
-        icon: Grid3,
+        icon: IconLayoutBoard,
         children: [
           {
             title: "formConrols",

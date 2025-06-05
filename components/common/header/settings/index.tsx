@@ -1,5 +1,4 @@
-import { BiColorFill } from "react-icons/bi";
-import { FiSettings } from "react-icons/fi";
+import { IconPaletteFilled, IconSettings } from "@tabler/icons-react";
 import useInnerSettings from "./use";
 
 const Settings = () => {
@@ -11,7 +10,7 @@ const Settings = () => {
           className="relative ms-3"
           onClick={() => setSelectedTab?.done("options")}
         >
-          <BiColorFill
+          <IconPaletteFilled
             size="20"
             className="text-zinc-500 cursor-pointer
                 duration-200 transition-all hover:text-primary dark:text-zinc-100"
@@ -21,7 +20,7 @@ const Settings = () => {
           className="relative ms-3 me-1"
           onClick={() => setSelectedTab?.done("layouts")}
         >
-          <FiSettings
+          <IconSettings
             size="20"
             className="text-zinc-500 cursor-pointer
             duration-200 transition-all hover:text-primary dark:text-zinc-100"

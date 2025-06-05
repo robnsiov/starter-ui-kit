@@ -1,18 +1,17 @@
-import isAuthenticatedState from "@/context/is-authenticated";
-import treeForceUpdateState from "@/context/tree-force-update";
+import useAuthStore from "@/context/is-authenticated";
+import useTreeForceUpdateStore from "@/context/tree-force-update";
 import localManagement from "@/utils/local-management";
-import { useForceUpdate, useMediaQuery } from "@mantine/hooks";
+import { useMediaQuery } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-const useDashboardLayout = (slug: string) => {
+const useRootDashboardLayout = (slug: string) => {
   const router = useRouter();
-  const isAuthenticated = isAuthenticatedState();
+  const { isAuthenticated } = useAuthStore();
   const match = useMediaQuery("(max-width:1023px)");
-  const forceUpdate = useForceUpdate();
   const [border] = localManagement({ key: "border" });
   const [layout] = localManagement({ key: "layout" });
-  const { treeForceUpdate, setTreeForceUpdate } = treeForceUpdateState();
+  const { setTreeForceUpdate, treeForceUpdate } = useTreeForceUpdateStore();
   useEffect(() => {
     setTreeForceUpdate(!treeForceUpdate);
   }, []);
@@ -31,4 +30,4 @@ const useDashboardLayout = (slug: string) => {
   return { border, layout, isAuthenticated };
 };
 
-export default useDashboardLayout;
+export default useRootDashboardLayout;

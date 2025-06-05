@@ -1,7 +1,6 @@
-import sidebarState from "@/context/toggle-sidebar";
-import { useRecoilState } from "recoil";
+import useSidebarStore from "@/context/toggle-sidebar";
 const useMenuIcon = () => {
-  const [_, setSidebar] = useRecoilState(sidebarState);
+  const { setSidebar } = useSidebarStore();
   return { setSidebar };
 };
 export default useMenuIcon;

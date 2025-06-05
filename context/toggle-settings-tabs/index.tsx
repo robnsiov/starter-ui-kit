@@ -1,8 +1,14 @@
-import { atom } from "recoil";
+import { create } from "zustand";
 import ToggleSettingsTabsStateImpl from "./types";
-const settingsTabsState = atom<ToggleSettingsTabsStateImpl>({
-  key: "settingsTabsState",
-  default: undefined,
-});
 
-export default settingsTabsState;
+interface SettingsTabsStore {
+  settingsTab: ToggleSettingsTabsStateImpl | undefined;
+  setSettingsTab: (tab: ToggleSettingsTabsStateImpl | undefined) => void;
+}
+
+const useSettingsTabsStore = create<SettingsTabsStore>((set) => ({
+  settingsTab: undefined, // default
+  setSettingsTab: (tab) => set({ settingsTab: tab }),
+}));
+
+export default useSettingsTabsStore;

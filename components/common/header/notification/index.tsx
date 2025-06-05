@@ -1,7 +1,7 @@
 "use client";
 import MotionDropDown from "@/components/shared/dropdowns/motion-dropdown";
 import useTranslate from "@/hooks/use-translate";
-import { NotificationBing } from "iconsax-react";
+import { IconBell } from "@tabler/icons-react";
 
 const Notification = () => {
   const t = useTranslate("notification");
@@ -15,7 +15,7 @@ const Notification = () => {
           childrenTagName=".notification"
           header={
             <>
-              <NotificationBing
+              <IconBell
                 size="20"
                 className="text-zinc-500 cursor-pointer animate-bell
                 duration-200 transition-all hover:text-primary dark:text-zinc-100"

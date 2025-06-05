@@ -1,18 +1,17 @@
 import { LANGS, languages } from "@/constants/settings/types";
-import { useState } from "react";
-import { useDidUpdate } from "@mantine/hooks";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import treeForceUpdateState from "@/context/tree-force-update";
-import localManagement from "@/utils/local-management";
-import cookieManagement from "@/utils/cookie-management";
 import activePathState from "@/context/active-path";
+import useTreeForceUpdateStore from "@/context/tree-force-update";
+import cookieManagement from "@/utils/cookie-management";
+import localManagement from "@/utils/local-management";
+import { useDidUpdate } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 const useCountries = () => {
   const [lang, setLang] = cookieManagement({ key: "lang" });
   const [_, setDir] = localManagement({ key: "dir" });
   const [selectedLang, setSelectedLang] = useState<LANGS>(lang as LANGS);
-  const setActivePath = useSetRecoilState(activePathState);
-  const forceTreeUpdate = useRecoilValue(treeForceUpdateState);
+  const { setActivePath } = activePathState();
+  const { treeForceUpdate, setTreeForceUpdate } = useTreeForceUpdateStore();
   const langsToArray = Object.entries(languages);
   const router = useRouter();
 
@@ -30,7 +29,7 @@ const useCountries = () => {
 
     document.documentElement.dir = dir;
     setDir(dir);
-    forceTreeUpdate.done();
+    setTreeForceUpdate(!treeForceUpdate);
     const event = new Event("change-dir");
     window.dispatchEvent(event);
 

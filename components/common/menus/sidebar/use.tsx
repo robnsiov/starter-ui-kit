@@ -1,15 +1,14 @@
-import sidebarState from "@/context/toggle-sidebar";
+import useSidebarStore from "@/context/toggle-sidebar";
 import localManagement from "@/utils/local-management";
 import { useViewportSize } from "@mantine/hooks";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { useRecoilValue } from "recoil";
 
 const useSidebar = () => {
   const pathname = usePathname();
   const { width: viewportWidth } = useViewportSize();
 
-  const sidebarStatus = useRecoilValue(sidebarState);
+  const { sidebar } = useSidebarStore();
 
   const [activeRoute, setActiveRoute] = useState({
     levelOne: -1,
@@ -46,7 +45,7 @@ const useSidebar = () => {
     activeLevelOne,
     activeLevelTwo,
     activeLevelThree,
-    sidebarStatus,
+    sidebarStatus: sidebar,
     viewportWidth,
     border,
   };
