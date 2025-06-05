@@ -286,7 +286,7 @@ const Settings = () => {
               Icon={IconSettings}
               title={t({ key: "layouts" })}
               active={selectedTab === "layouts"}
-              size="18"
+              size="24"
               primaryCL={primaryCL}
               onClick={() => setSelectedTab("layouts")}
             />

@@ -51,7 +51,7 @@ const AuthContainer = ({ children, desc, title, type }: AuthContainerImpl) => {
               >
                 <NavLink
                   href={"/"}
-                  className="px-4 py-2 border-indigo-100 
+                  className="p-2 border-indigo-100 
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                    flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
@@ -64,7 +64,7 @@ const AuthContainer = ({ children, desc, title, type }: AuthContainerImpl) => {
                 </NavLink>
                 <NavLink
                   href={"/"}
-                  className="px-4 py-2 border-indigo-100
+                  className="p-2 border-indigo-100
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                   flex justify-center items-center mx-1.5
              border-[1px] rounded-md transition-all duration-200 my-1 460px:mx-0
@@ -77,7 +77,7 @@ const AuthContainer = ({ children, desc, title, type }: AuthContainerImpl) => {
                 </NavLink>
                 <NavLink
                   href={"/"}
-                  className="px-4 py-2 border-indigo-100
+                  className="p-2 border-indigo-100
                   dark:border-primary dark:hover:bg-primary dark:bg-primary dark:opacity-90 dark:hover:opacity-100
                   flex justify-center items-center
              border-[1px] rounded-md transition-all duration-200 my-1
