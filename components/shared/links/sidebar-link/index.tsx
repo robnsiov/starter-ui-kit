@@ -1,12 +1,17 @@
-import Link from "next/link";
 import SidebarLinkImpl from "./types";
+import NavLink from "../nav-link";
 
-const SidebarLink = ({ children, href, className = "" }: SidebarLinkImpl) => {
+const SidebarLink = ({
+  children,
+  href,
+  className = "",
+  onClick = () => {},
+}: SidebarLinkImpl) => {
   return (
     <>
-      <Link className={className} href={href}>
+      <NavLink className={className} href={href} onClick={onClick}>
         {children}
-      </Link>
+      </NavLink>
     </>
   );
 };

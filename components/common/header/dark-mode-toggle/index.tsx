@@ -13,7 +13,7 @@ const DarkModeToggle = () => {
         whileTap={{ scale: [null, 0.95, 1] }}
         transition={{ duration: 0.3 }}
       >
-        <div className="ms-3">
+        <div className="ms-3 duration-200 transition-all">
           <DarkModeSwitch
             moonColor="#b9b9c4"
             sunColor="#fff"

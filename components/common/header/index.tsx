@@ -1,25 +1,58 @@
 "use client";
 
+import cls from "classnames";
 import Countries from "./countries";
-import Search from "./search";
 import DarkModeToggle from "./dark-mode-toggle";
+import MenuIcon from "./menu-icon";
 import Notification from "./notification";
 import Profile from "./profile";
+import Search from "./search";
+import SettingsIocns from "./settings";
+import useHeader from "./use";
 
 const Header = () => {
+  const { layout, border } = useHeader();
   return (
     <>
       <div
-        className="fixed top-0 right-0 left-[265px] h-[74px] shadow-sm
-      flex justify-between items-center py-4 px-5"
+        className={cls(
+          `fixed top-0 h-[74px] md:h-[54px] dark:bg-dark-800
+      flex justify-end items-start rtl:items-end z-40`,
+          border === "true"
+            ? "ms-border mt-border w-[calc(100%-200px)] lg:!w-[calc(100%-20px)]"
+            : "w-full"
+        )}
       >
-        <div></div>
-        <div className="flex justify-start items-center">
-          <Countries />
-          <Search />
-          <DarkModeToggle />
-          <Notification />
-          <Profile />
+        <div
+          className={cls(
+            `h-full  relative
+              border-b-[1px] border-zinc-200/60 dark:border-zinc-700 
+      flex justify-between items-center py-4 px-5
+      transition-all duration-300 bg-light-800 dark:bg-dark w-full `,
+            {
+              "border-t-[1px] border-r-[1px] rounded-tr-xl border-zinc-200/60 rtl:border-r-0 rtl:border-l-[1px] rtl:rounded-tr-none rtl:rounded-tl-xl":
+                border === "true",
+            },
+            { "w-[calc(100%-256px)] md:!w-full": layout === "cuba" },
+            {
+              "w-[calc(100%-100px)] md:!w-full":
+                layout === "tokyo" || layout === "moscow",
+            },
+            {
+              "!border-x-[1px] !rounded-t-xl": border === "true",
+            }
+          )}
+        >
+          {layout === "cuba" && <MenuIcon />}
+          {/* don't remove this element */}
+          <div className="flex justify-end items-center relative w-full">
+            <SettingsIocns />
+            <Countries />
+            <Search />
+            <DarkModeToggle />
+            <Notification />
+            <Profile />
+          </div>
         </div>
       </div>
     </>

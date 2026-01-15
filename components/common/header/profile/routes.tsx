@@ -1,10 +1,14 @@
+import {
+  IconInbox,
+  IconListDetails,
+  IconUserCircle,
+} from "@tabler/icons-react";
 import { RoutesImpl } from "./types";
-import { DirectInbox, Profile, TaskSquare } from "iconsax-react";
 
 const routes: RoutesImpl = [
-  { title: "Account", href: "/", icon: Profile },
-  { title: "Inbox", href: "/", icon: DirectInbox },
-  { title: "Taskboard", href: "/", icon: TaskSquare },
+  { title: "account", href: "/", icon: IconUserCircle },
+  { title: "inbox", href: "/inbox", icon: IconInbox },
+  { title: "taskBoard", href: "/taskboard", icon: IconListDetails },
 ];
 
 export default routes;

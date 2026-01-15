@@ -1,15 +1,16 @@
-import Header from "@/components/common/header";
-import Sidebar from "@/components/common/sidebar";
+"use client";
+import OverlayContainer from "../overlay";
 import RootContainerImpl from "./types";
+import useRootContainer from "./use";
 
-const Container = ({ children }: RootContainerImpl) => {
+const RootContainer = ({ children }: RootContainerImpl) => {
+  useRootContainer();
   return (
     <>
-      <Header />
-      <Sidebar />
-      <div>{children}</div>
+      <OverlayContainer />
+      {children}
     </>
   );
 };
 
-export default Container;
+export default RootContainer;
